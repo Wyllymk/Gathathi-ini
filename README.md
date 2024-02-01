@@ -20,8 +20,6 @@ bootScore combines [Bootstrap](https://getbootstrap.com) and the [Underscores](h
 
 The Bootstrap source code is included, allowing easy on-the-fly editing Bootstrap without the need for Gulp, Node, or any other technical commands. Simply add your styles, save, and let the built-in [scssphp](https://github.com/scssphp/scssphp) compiler do the rest.
 
-bootScore comes with full [WooCommerce](https://woo.com/) support, featuring an integrated AJAX offcanvas cart.
-
 This time-saving tool is designed to swiftly create clean, mobile-first projects. If you are familiar with Bootstrap and its HTML classes, you'll feel right at home and be able to build whatever you desire.
 
 
