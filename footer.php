@@ -14,79 +14,83 @@
 
 ?>
 
-<footer>
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
 
-    <div class="bootscore-footer bg-body-tertiary pt-5 pb-3">
-        <div class="<?= bootscore_container_class(); ?>">
-
-            <!-- Top Footer Widget -->
-            <?php if (is_active_sidebar('top-footer')) : ?>
-            <?php dynamic_sidebar('top footer'); ?>
-            <?php endif; ?>
-
-            <div class="row">
-
-                <!-- Footer 1 Widget -->
-                <div class="col-md-6 col-lg-3">
-                    <?php if (is_active_sidebar('footer-1')) : ?>
-                    <?php dynamic_sidebar('footer-1'); ?>
-                    <?php endif; ?>
+    <div class="container">
+        <div class="row gy-4">
+            <div class="col-lg-5 col-md-12 footer-info">
+                <a href="index.html" class="logo d-flex align-items-center">
+                    <span>Logis</span>
+                </a>
+                <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies
+                    darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                <div class="social-links d-flex mt-4">
+                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
                 </div>
+            </div>
 
-                <!-- Footer 2 Widget -->
-                <div class="col-md-6 col-lg-3">
-                    <?php if (is_active_sidebar('footer-2')) : ?>
-                    <?php dynamic_sidebar('footer-2'); ?>
-                    <?php endif; ?>
-                </div>
+            <div class="col-lg-2 col-6 footer-links">
+                <h4>Useful Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Terms of service</a></li>
+                    <li><a href="#">Privacy policy</a></li>
+                </ul>
+            </div>
 
-                <!-- Footer 3 Widget -->
-                <div class="col-md-6 col-lg-3">
-                    <?php if (is_active_sidebar('footer-3')) : ?>
-                    <?php dynamic_sidebar('footer-3'); ?>
-                    <?php endif; ?>
-                </div>
+            <div class="col-lg-2 col-6 footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#">Web Design</a></li>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Product Management</a></li>
+                    <li><a href="#">Marketing</a></li>
+                    <li><a href="#">Graphic Design</a></li>
+                </ul>
+            </div>
 
-                <!-- Footer 4 Widget -->
-                <div class="col-md-6 col-lg-3">
-                    <?php if (is_active_sidebar('footer-4')) : ?>
-                    <?php dynamic_sidebar('footer-4'); ?>
-                    <?php endif; ?>
-                </div>
+            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                <h4>Contact Us</h4>
+                <p>
+                    A108 Adam Street <br>
+                    New York, NY 535022<br>
+                    United States <br><br>
+                    <strong>Phone:</strong> +1 5589 55488 55<br>
+                    <strong>Email:</strong> info@example.com<br>
+                </p>
 
             </div>
 
-            <!-- Bootstrap 5 Nav Walker Footer Menu -->
-            <?php
-      wp_nav_menu(array(
-        'theme_location' => 'footer-menu',
-        'container'      => false,
-        'menu_class'     => '',
-        'fallback_cb'    => '__return_false',
-        'items_wrap'     => '<ul id="footer-menu" class="nav %2$s">%3$s</ul>',
-        'depth'          => 1,
-        'walker'         => new bootstrap_5_wp_nav_menu_walker()
-      ));
-      ?>
-
         </div>
     </div>
 
-    <div class="bootscore-info bg-body-tertiary text-body-tertiary border-top py-2 text-center">
-        <div class="<?= bootscore_container_class(); ?>">
-            <?php if (is_active_sidebar('footer-info')) : ?>
-            <?php dynamic_sidebar('footer-info'); ?>
-            <?php endif; ?>
-            <small class="bootscore-copyright"><span class="cr-symbol">&copy;</span>&nbsp;<?= date('Y'); ?>
-                <?php bloginfo('name'); ?></small>
+    <div class="container mt-4">
+        <div class="copyright">
+            &copy; Copyright <strong><span>Logis</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/ -->
+            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
     </div>
 
-</footer>
+</footer><!-- End Footer -->
+<!-- End Footer -->
+
 
 <!-- To top button -->
-<a href="#" class="btn btn-primary shadow top-button position-fixed zi-1020"><i class="fa-solid fa-chevron-up"></i><span
-        class="visually-hidden-focusable">To top</span></a>
+<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- <div id="preloader"></div> -->
 
 </div><!-- #page -->
 

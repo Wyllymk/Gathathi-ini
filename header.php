@@ -41,72 +41,48 @@
 
     <div id="page" class="site">
 
-        <header id="masthead" class="site-header">
+        <!-- ======= Header ======= -->
+        <header id="header" class="header d-flex align-items-center fixed-top">
+            <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-            <div class="fixed-top bg-body-tertiary">
+                <a href="index.html" class="logo d-flex align-items-center">
+                    <!-- Uncomment the line below if you also wish to use an image logo -->
+                    <!-- <img src="assets/img/logo.png" alt=""> -->
+                    <h1>Gathathi-ini Boys</h1>
+                </a>
 
-                <nav id="nav-main" class="navbar navbar-expand-lg py-3">
-
-                    <div class="<?= bootscore_container_class(); ?>">
-
-                        <!-- Navbar Brand -->
-                        <a class="navbar-brand xs d-md-none" href="<?= esc_url(home_url()); ?>"><img
-                                src="<?= esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo-sm.svg" alt="logo"
-                                class="logo xs"></a>
-                        <a class="navbar-brand md d-none d-md-block" href="<?= esc_url(home_url()); ?>"><img
-                                src="<?= esc_url(get_stylesheet_directory_uri()); ?>/img/logo/logo.svg" alt="logo"
-                                class="logo md"></a>
-
-                        <!-- Offcanvas Navbar -->
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar">
-                            <div class="offcanvas-header">
-                                <span class="h5 offcanvas-title"><?php esc_html_e('Menu', 'bootscore'); ?></span>
-                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="offcanvas-body">
-
-                                <!-- Bootstrap 5 Nav Walker Main Menu -->
-                                <?php
-                                wp_nav_menu(array(
-                                  'theme_location' => 'main-menu',
-                                  'container'      => false,
-                                  'menu_class'     => '',
-                                  'fallback_cb'    => '__return_false',
-                                  'items_wrap'     => '<ul id="bootscore-navbar" class="navbar-nav ms-auto %2$s">%3$s</ul>',
-                                  'depth'          => 2,
-                                  'walker'         => new bootstrap_5_wp_nav_menu_walker()
-                                ));
-                                ?>
-
-                                <!-- Top Nav 2 Widget -->
-                                <?php if (is_active_sidebar('top-nav-2')) : ?>
-                                <?php dynamic_sidebar('top-nav-2'); ?>
-                                <?php endif; ?>
-
-                            </div>
-                        </div>
-
-                        <div class="header-actions d-flex align-items-center">
-
-                            <!-- Top Nav Widget -->
-                            <?php if (is_active_sidebar('top-nav')) : ?>
-                            <?php dynamic_sidebar('top-nav'); ?>
-                            <?php endif; ?>
-
-                            <!-- Navbar Toggler -->
-                            <button class="btn btn-outline-secondary d-lg-none ms-1 ms-md-2" type="button"
-                                data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar"
-                                aria-controls="offcanvas-navbar">
-                                <i class="fa-solid fa-bars"></i><span class="visually-hidden-focusable">Menu</span>
-                            </button>
-
-                        </div><!-- .header-actions -->
-
-                    </div><!-- bootscore_container_class(); -->
-
+                <i class="mobile-nav-toggle mobile-nav-show fa-solid fa-bars"></i>
+                <i class="mobile-nav-toggle mobile-nav-hide d-none fa-solid fa-xmark"></i>
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li class="dropdown"><a href="#"><span>Drop Down</span> <i
+                                    class="fa-solid fa-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                                <li><a href="#">Drop Down 1</a></li>
+                                <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
+                                            class="fa-solid fa-chevron-down dropdown-indicator"></i></a>
+                                    <ul>
+                                        <li><a href="#">Deep Drop Down 1</a></li>
+                                        <li><a href="#">Deep Drop Down 2</a></li>
+                                        <li><a href="#">Deep Drop Down 3</a></li>
+                                        <li><a href="#">Deep Drop Down 4</a></li>
+                                        <li><a href="#">Deep Drop Down 5</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Drop Down 2</a></li>
+                                <li><a href="#">Drop Down 3</a></li>
+                                <li><a href="#">Drop Down 4</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a class="get-a-quote" href="get-a-quote.html">Get a Quote</a></li>
+                    </ul>
                 </nav><!-- .navbar -->
 
-            </div><!-- .fixed-top .bg-light -->
-
-        </header><!-- #masthead -->
+            </div>
+        </header><!-- End Header -->
+        <!-- End Header -->
