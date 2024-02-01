@@ -10,7 +10,7 @@
 
   Intuitive Bootstrap WordPress starter-theme and time-saving plugins
 
-  [Theme](https://bootscore.me/theme/) • [Plugins](https://bootscore.me/plugins/) • [Shop](https://bootscore.me/shop/) 
+  [Theme](https://bootscore.me/theme/) • [Plugins](https://bootscore.me/plugins/) 
 
 <h1></h1>
 </div>
