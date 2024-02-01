@@ -18,44 +18,43 @@ get_header();
             <div class="container">
                 <div class="row gy-4 d-flex justify-content-between">
                     <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                        <h2 data-aos="fade-up">Your Lightning Fast Delivery Partner</h2>
-                        <p data-aos="fade-up" data-aos-delay="100">Facere distinctio molestiae nisi fugit tenetur
-                            repellat non praesentium nesciunt optio quis sit odio nemo quisquam. eius quos reiciendis
-                            eum vel eum voluptatem eum maiores eaque id optio ullam occaecati odio est possimus vel
-                            reprehenderit</p>
+                        <h6 data-aos="fade-up">Welcome to</h6>
+                        <h2 data-aos="fade-up">Gathathi-ini Boys High School</h2>
+                        <p data-aos="fade-up" data-aos-delay="100">A well-educated mind will always have more questions
+                            than answers.</p>
 
 
                         <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
 
                             <div class="col-lg-3 col-6">
                                 <div class="stats-item text-center w-100 h-100">
-                                    <span data-purecounter-start="0" data-purecounter-end="232"
+                                    <span data-purecounter-start="0" data-purecounter-end="400"
                                         data-purecounter-duration="1" class="purecounter"></span>
-                                    <p>Clients</p>
+                                    <p>Students</p>
                                 </div>
                             </div><!-- End Stats Item -->
 
                             <div class="col-lg-3 col-6">
                                 <div class="stats-item text-center w-100 h-100">
-                                    <span data-purecounter-start="0" data-purecounter-end="521"
+                                    <span data-purecounter-start="0" data-purecounter-end="15"
                                         data-purecounter-duration="1" class="purecounter"></span>
-                                    <p>Projects</p>
+                                    <p>Teachers</p>
                                 </div>
                             </div><!-- End Stats Item -->
 
                             <div class="col-lg-3 col-6">
                                 <div class="stats-item text-center w-100 h-100">
-                                    <span data-purecounter-start="0" data-purecounter-end="1453"
+                                    <span data-purecounter-start="0" data-purecounter-end="15"
                                         data-purecounter-duration="1" class="purecounter"></span>
-                                    <p>Support</p>
+                                    <p>Staff</p>
                                 </div>
                             </div><!-- End Stats Item -->
 
                             <div class="col-lg-3 col-6">
                                 <div class="stats-item text-center w-100 h-100">
-                                    <span data-purecounter-start="0" data-purecounter-end="32"
+                                    <span data-purecounter-start="0" data-purecounter-end="12"
                                         data-purecounter-duration="1" class="purecounter"></span>
-                                    <p>Workers</p>
+                                    <p>Subjects</p>
                                 </div>
                             </div><!-- End Stats Item -->
 
@@ -129,7 +128,7 @@ get_header();
                             <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
                         </div>
                         <div class="col-lg-6 content order-last  order-lg-first">
-                            <h3>About Us</h3>
+                            <h3>Who We Are</h3>
                             <p>
                                 Dolor iure expedita id fuga asperiores qui sunt consequatur minima. Quidem voluptas
                                 deleniti. Sit quia molestiae quia quas qui magnam itaque veritatis dolores. Corrupti

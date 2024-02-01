@@ -55,10 +55,10 @@
                 <i class="mobile-nav-toggle mobile-nav-hide d-none fa-solid fa-xmark"></i>
                 <nav id="navbar" class="navbar">
                     <ul>
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="<?php echo home_url()?>" class="active">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Admissions</a></li>
+                        <li><a href="#">Gallery</a></li>
                         <li class="dropdown"><a href="#"><span>Drop Down</span> <i
                                     class="fa-solid fa-chevron-down dropdown-indicator"></i></a>
                             <ul>
@@ -78,8 +78,7 @@
                                 <li><a href="#">Drop Down 4</a></li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a class="get-a-quote" href="get-a-quote.html">Get a Quote</a></li>
+                        <li><a class="get-a-quote" href="#">Contact Us</a></li>
                     </ul>
                 </nav><!-- .navbar -->
 
