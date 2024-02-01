@@ -53,7 +53,7 @@ function bootscore_scripts() {
   wp_enqueue_style('swiper', get_template_directory_uri() . '/assets/vendor/swiper/swiper-bundle.min.css', array(), $modificated_swiperCss);
     
   // AOS CSS
-  // wp_enqueue_style('aos', get_template_directory_uri() . '/assets/vendor/aos/aos.css', array(), $modificated_aosCss);
+  wp_enqueue_style('aos', get_template_directory_uri() . '/assets/vendor/aos/aos.css', array(), $modificated_aosCss);
 
   // Core CSS
   wp_enqueue_style('core', get_template_directory_uri() . '/assets/css/main.css', array(), $modificated_coreCss);
