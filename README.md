@@ -45,7 +45,7 @@ This time-saving tool is designed to swiftly create clean, mobile-first projects
 To install using Composer, you will need to have Composer installed on your system. Ideally, it should also be available on your server with command-line access, although this is not mandatory. For detailed instructions on installing with Composer, please read the [documentation](https://bootscore.me/documentation/installation/#Composer).
 
 ## Child-theme
-Edit the theme in an upgrade-safe manner by using the provided [bootScore Child](https://github.com/bootscore/bootscore-child). Note that the child theme is not a stand-alone theme, bootScore must be installed for it to function.
+Note that the child theme is not a stand-alone theme, bootScore must be installed for it to function.
 
 ### Installation
 1. Download latest release [bootscore-child-main.zip](https://github.com/bootscore/bootscore-child/releases/latest/download/bootscore-child-main.zip).
