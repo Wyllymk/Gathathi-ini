@@ -8,7 +8,7 @@
   </picture>
 </p>
 
-  Intuitive Bootstrap WordPress starter-theme and time-saving plugins
+  Intuitive Bootstrap WordPress starter-theme and time-saving plugin
 
   [Theme](https://bootscore.me/theme/) • [Plugins](https://bootscore.me/plugins/) 
 
