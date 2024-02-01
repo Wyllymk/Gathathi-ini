@@ -24,9 +24,6 @@ bootScore comes with full [WooCommerce](https://woo.com/) support, featuring an 
 
 This time-saving tool is designed to swiftly create clean, mobile-first projects. If you are familiar with Bootstrap and its HTML classes, you'll feel right at home and be able to build whatever you desire.
 
-[![Packagist Prerelease](https://img.shields.io/packagist/vpre/bootscore/bootscore?logo=packagist&logoColor=fff)](https://packagist.org/packages/bootscore/bootscore)
-[![Backers on Open Collective](https://img.shields.io/opencollective/backers/bootscore?logo=opencollective&logoColor=fff)](https://opencollective.com/bootscore)
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/bootscore?logo=github)](https://github.com/sponsors/bootscore)
 
 ## Table of contents
 - [Installation](#installation)
