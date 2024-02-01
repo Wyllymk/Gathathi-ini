@@ -131,8 +131,7 @@ get_header();
                             <h3>Who We Are</h3>
                             <p>
                                 Dolor iure expedita id fuga asperiores qui sunt consequatur minima. Quidem voluptas
-                                deleniti. Sit quia molestiae quia quas qui magnam itaque veritatis dolores. Corrupti
-                                totam ut eius incidunt reiciendis veritatis asperiores placeat.
+                                deleniti. Sit quia molestiae quia quas qui magnam itaque veritatis dolores. 
                             </p>
                             <ul>
                                 <li data-aos="fade-up" data-aos-delay="100">
