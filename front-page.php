@@ -182,7 +182,7 @@ get_header();
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/storage-service.jpg';?>"
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/parade.png';?>"
                                         alt="" class="img-fluid">
                                 </div>
                                 <h3><a href="service-details.html" class="stretched-link">Academic Excellence Pillar</a>
@@ -211,7 +211,7 @@ get_header();
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/cargo-service.jpg';?>"
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/fire.png';?>"
                                         alt="" class="img-fluid">
                                 </div>
                                 <h3><a href="service-details.html" class="stretched-link">Performing Arts Pillar</a>
@@ -225,7 +225,7 @@ get_header();
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/trucking-service.jpg';?>"
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/comp-lab.png';?>"
                                         alt="" class="img-fluid">
                                 </div>
                                 <h3><a href="service-details.html" class="stretched-link">Digital Literacy Pillar</a>
@@ -240,7 +240,7 @@ get_header();
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/packaging-service.jpg';?>"
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/field.png';?>"
                                         alt="" class="img-fluid">
                                 </div>
                                 <h3><a href="service-details.html" class="stretched-link">Linkages and Collaboration

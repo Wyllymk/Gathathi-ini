@@ -35,7 +35,6 @@
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About us</a></li>
-                    <li><a href="#">Services</a></li>
                     <li><a href="#">Terms of service</a></li>
                     <li><a href="#">Privacy policy</a></li>
                 </ul>
@@ -44,21 +43,19 @@
             <div class="col-lg-2 col-6 footer-links">
                 <h4>Our Services</h4>
                 <ul>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Web Development</a></li>
-                    <li><a href="#">Product Management</a></li>
-                    <li><a href="#">Marketing</a></li>
-                    <li><a href="#">Graphic Design</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Downloads</a></li>
+                    <li><a href="#">Contact Us</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                 <h4>Contact Us</h4>
                 <p>
-                    Kirurumi <br>
-                    Nyeri<br>
-                    Kenya <br><br>
+                    Kirurumi, Nyeri, Kenya <br><br>
                     <strong>Phone:</strong> +254 725 407 132<br>
+                    <strong>Post Office:</strong> P.O. BOX 122 - 10100 Nyeri<br>
                     <strong>Email:</strong> gathathiinisecondary122@gmail.com<br>
                 </p>
 
