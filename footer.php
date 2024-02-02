@@ -25,7 +25,8 @@
                 </a>
                 <p>A well-educated mind will always have more questions than answers.</p>
                 <div class="social-links d-flex mt-4">
-                    <a href="#" class="facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100054392685591" class="facebook"><i
+                            class="fa-brands fa-facebook"></i></a>
                 </div>
             </div>
 
