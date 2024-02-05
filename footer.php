@@ -20,7 +20,7 @@
     <div class="container">
         <div class="row gy-4">
             <div class="col-lg-5 col-md-12 footer-info">
-                <a href="index.html" class="logo d-flex align-items-center">
+                <a href="<?php echo home_url()?>" class="logo d-flex align-items-center">
                     <span>Gathathi-ini</span>
                 </a>
                 <p>A well-educated mind will always have more questions than answers.</p>
@@ -33,7 +33,7 @@
             <div class="col-lg-2 col-6 footer-links">
                 <h4>Useful Links</h4>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="<?php echo home_url()?>">Home</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Terms of service</a></li>
                     <li><a href="#">Privacy policy</a></li>

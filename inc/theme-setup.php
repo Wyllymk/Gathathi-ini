@@ -157,14 +157,14 @@ function create_or_update_pages() {
 }
 
 // Hook the function to the 'after_switch_theme' action
-add_action('after_setup_theme', 'create_or_update_pages');
+// add_action('after_setup_theme', 'create_or_update_pages');
 
 
 /**
  * To automatically create a menu called "Main Menu" in WordPress and set it as the homepage in the static page settings. Note that with this code setup you cannot delete the created menu.
  */
 // Hook to the 'after_setup_theme' action
-add_action('after_setup_theme', 'auto_create_menu');
+// add_action('after_setup_theme', 'auto_create_menu');
 
 function auto_create_menu() {
     // Set the menu name
