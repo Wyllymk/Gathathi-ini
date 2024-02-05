@@ -59,7 +59,7 @@
                         <li><a href="#">About</a></li>
                         <li><a href="#">Admissions</a></li>
                         <li><a href="#">Gallery</a></li>
-                        <li class="dropdown"><a href="#"><span>Drop Down</span> <i
+                        <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i
                                     class="fa-solid fa-chevron-down dropdown-indicator"></i></a>
                             <ul>
                                 <li><a href="#">Drop Down 1</a></li>
@@ -77,7 +77,7 @@
                                 <li><a href="#">Drop Down 3</a></li>
                                 <li><a href="#">Drop Down 4</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li><a class="get-a-quote" href="#">Contact Us</a></li>
                     </ul>
                 </nav><!-- .navbar -->

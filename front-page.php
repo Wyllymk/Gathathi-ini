@@ -28,7 +28,8 @@ get_header();
                             <div class="col-lg-3 col-6">
                                 <div class="stats-item text-center w-100 h-100">
                                     <span data-purecounter-start="0" data-purecounter-end="400"
-                                        data-purecounter-duration="1" class="purecounter"></span>
+                                        data-purecounter-duration="1" class="purecounter">
+                                    </span>
                                     <p>Students</p>
                                 </div>
                             </div><!-- End Stats Item -->
@@ -83,7 +84,7 @@ get_header();
                                 <h4 class="title">Our Curriculum</h4>
                                 <p class="description">We offer both the time-tested 8.4.4 curriculum and
                                     the forward-thinking Competency-Based Curriculum (CBC). </p>
-                                <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i
+                                <a href="#" class="readmore stretched-link"><span>Learn More</span><i
                                         class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
@@ -96,7 +97,7 @@ get_header();
                                 <p class="description">Providing wholesome education by promoting self-discipline and
                                     hard-work.
                                 </p>
-                                <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i
+                                <a href="#" class="readmore stretched-link"><span>Learn More</span><i
                                         class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div><!-- End Service Item -->
@@ -108,7 +109,7 @@ get_header();
                                 <p class="description">To become the school of choice in moulding individuals to become
                                     responsible members of the society.
                                 </p>
-                                <a href="service-details.html" class="readmore stretched-link"><span>Learn More</span><i
+                                <a href="#" class="readmore stretched-link"><span>Learn More</span><i
                                         class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div><!-- End Service Item -->
@@ -123,10 +124,11 @@ get_header();
                 <div class="container" data-aos="fade-up">
 
                     <div class="row gy-4">
-                        <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
+                        <div class="col-lg-6 position-relative align-self-center order-lg-last order-first">
                             <img src="<?php echo get_template_directory_uri() . '/assets/img/Adm-Block.png';?>"
                                 class="img-fluid" alt="">
-                            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+                            <a href="https://www.youtube.com/watch?v=MdsLT_Cbnjs&pp=ygUMZ2F0aGF0aGktaW5p"
+                                class="glightbox play-btn"></a>
                         </div>
                         <div class="col-lg-6 content order-last  order-lg-first">
                             <h3>Who We Are</h3>
@@ -182,7 +184,7 @@ get_header();
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/parade.png';?>"
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/academic.jpg';?>"
                                         alt="" class="img-fluid">
                                 </div>
                                 <h3><a href="service-details.html" class="stretched-link">Academic Excellence Pillar</a>
@@ -197,7 +199,7 @@ get_header();
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/logistics-service.jpg';?>"
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/sports.jpg';?>"
                                         alt="" class="img-fluid">
                                 </div>
                                 <h3><a href="service-details.html" class="stretched-link">Sports and Talents Pillar</a>
@@ -211,7 +213,7 @@ get_header();
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/fire.png';?>"
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/arts.jpg';?>"
                                         alt="" class="img-fluid">
                                 </div>
                                 <h3><a href="service-details.html" class="stretched-link">Performing Arts Pillar</a>
@@ -225,7 +227,7 @@ get_header();
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/comp-lab.png';?>"
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/digital.jpg';?>"
                                         alt="" class="img-fluid">
                                 </div>
                                 <h3><a href="service-details.html" class="stretched-link">Digital Literacy Pillar</a>
@@ -240,7 +242,7 @@ get_header();
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/field.png';?>"
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/linkages.jpg';?>"
                                         alt="" class="img-fluid">
                                 </div>
                                 <h3><a href="service-details.html" class="stretched-link">Linkages and Collaboration
@@ -255,7 +257,7 @@ get_header();
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/warehousing-service.jpg';?>"
+                                    <img src="<?php echo get_template_directory_uri() . '/assets/img/spiritual.jpg';?>"
                                         alt="" class="img-fluid">
                                 </div>
                                 <h3><a href="service-details.html" class="stretched-link">Spiritual Wellbeing</a></h3>
@@ -293,44 +295,40 @@ get_header();
                     <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
 
                         <div class="col-md-5">
-                            <img src="<?php echo get_template_directory_uri() . '/assets/img/features-1.jpg';?>"
+                            <h6 class="text-danger">From The Principal</h6>
+                            <h3>Mr. Zachayo Kabatha</h3>
+                            <img src="<?php echo get_template_directory_uri() . '/assets/img/principal.jpg';?>"
                                 class="img-fluid" alt="">
                         </div>
-                        <div class="col-md-7">
-                            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                        <div class="col-md-7 justify-content-center">
                             <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore
-                                magna aliqua.
-                            </p>
-                            <ul>
-                                <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                </li>
-                                <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate
-                                    velit.</li>
-                                <li><i class="bi bi-check"></i> Ullam est qui quos consequatur eos accusamus.</li>
-                            </ul>
-                        </div>
-                    </div><!-- Features Item -->
-
-                    <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
-                        <div class="col-md-5 order-1 order-md-2">
-                            <img src="<?php echo get_template_directory_uri() . '/assets/img/features-2.jpg';?>"
-                                class="img-fluid" alt="">
-                        </div>
-                        <div class="col-md-7 order-2 order-md-1">
-                            <h3>Corporis temporibus maiores provident</h3>
-                            <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore
-                                magna aliqua.
+                                "Education is a shared commitment between dedicated teachers, motivated students and
+                                enthusiastic parents with high expectations"
                             </p>
                             <p>
-                                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate
-                                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in
-                                culpa qui officia deserunt mollit anim id est laborum
+                                Today, the role of a school is not only to pursue academic excellence but also to
+                                motivate and empower its students to be lifelong learners, critical thinkers, and
+                                productive members of an ever-changing society.
+                            </p>
+                            <p>
+                                The school is striving hard to make the best possible efforts to inculcate strong values
+                                combining with academics and extra-curricular
+                                activities in the student.
+                            </p>
+                            <p>
+                                Converting every individual into a self-reliant and independent citizen. We are a
+                                community working
+                                together, valuing our students and teaching values. This year (2024), we have 100
+                                candidates and we are guided
+                                by the clarion call "Total Discipline equals to Total Success"
+                            </p>
+                            <p>
+                                It is wonderful working with the Ministry Of Education, Teachers Service Commission,
+                                School Sponsor, Gathathi-ini Boys High School parents, teachers, non teaching staff and
+                                other stake
+                                holders. Together we will continue to make an already great school, an even greater
+                                school!
+
                             </p>
                         </div>
                     </div><!-- Features Item -->
