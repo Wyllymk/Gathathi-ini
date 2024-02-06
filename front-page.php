@@ -187,7 +187,7 @@ get_header();
                                     <img src="<?php echo get_template_directory_uri() . '/assets/img/academic.jpg';?>"
                                         alt="" class="img-fluid">
                                 </div>
-                                <h3><a href="service-details.html" class="stretched-link">Academic Excellence Pillar</a>
+                                <h3><a href="#" class="stretched-link">Academic Excellence Pillar</a>
                                 </h3>
                                 <p>This pillar focuses on fostering a culture of academic excellence, providing
                                     resources and support for students to excel in their studies. It includes
@@ -202,7 +202,7 @@ get_header();
                                     <img src="<?php echo get_template_directory_uri() . '/assets/img/sports.jpg';?>"
                                         alt="" class="img-fluid">
                                 </div>
-                                <h3><a href="service-details.html" class="stretched-link">Sports and Talents Pillar</a>
+                                <h3><a href="#" class="stretched-link">Sports and Talents Pillar</a>
                                 </h3>
                                 <p>Gathathi-ini is intentional about developing the sporting and talent capabilities of
                                     our boys. This entails creating a supportive and nurturing environment where
@@ -216,7 +216,7 @@ get_header();
                                     <img src="<?php echo get_template_directory_uri() . '/assets/img/arts.jpg';?>"
                                         alt="" class="img-fluid">
                                 </div>
-                                <h3><a href="service-details.html" class="stretched-link">Performing Arts Pillar</a>
+                                <h3><a href="#" class="stretched-link">Performing Arts Pillar</a>
                                 </h3>
                                 <p>The school will stage theatrical productions, ranging from classic plays to modern
                                     works. The school participates in the national drama and music festivals hosted
@@ -230,7 +230,7 @@ get_header();
                                     <img src="<?php echo get_template_directory_uri() . '/assets/img/digital.jpg';?>"
                                         alt="" class="img-fluid">
                                 </div>
-                                <h3><a href="service-details.html" class="stretched-link">Digital Literacy Pillar</a>
+                                <h3><a href="#" class="stretched-link">Digital Literacy Pillar</a>
                                 </h3>
                                 <p>Digital literacy is a crucial pillar in Gathathi-ini due to the increasing
                                     integration of technology in almost every aspect of our lives. It refers to the
@@ -245,7 +245,7 @@ get_header();
                                     <img src="<?php echo get_template_directory_uri() . '/assets/img/linkages.jpg';?>"
                                         alt="" class="img-fluid">
                                 </div>
-                                <h3><a href="service-details.html" class="stretched-link">Linkages and Collaboration
+                                <h3><a href="#" class="stretched-link">Linkages and Collaboration
                                         Pillar</a></h3>
                                 <p>The school champions environmental education through awareness campaigns, engages
                                     students in community service with regular volunteering
@@ -260,7 +260,7 @@ get_header();
                                     <img src="<?php echo get_template_directory_uri() . '/assets/img/spiritual.jpg';?>"
                                         alt="" class="img-fluid">
                                 </div>
-                                <h3><a href="service-details.html" class="stretched-link">Spiritual Wellbeing</a></h3>
+                                <h3><a href="#" class="stretched-link">Spiritual Wellbeing</a></h3>
                                 <p>The holistic transformation of the boy child is the main focus of Gathathi-ini.
                                     Since its inception, considerable effort, time, and resources have been invested to
                                     support the boy child and guide them away from modern-day societal ills, vices, and
