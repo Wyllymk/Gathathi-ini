@@ -130,7 +130,7 @@ get_header();
                             <a href="https://www.youtube.com/watch?v=MdsLT_Cbnjs&pp=ygUMZ2F0aGF0aGktaW5p"
                                 class="glightbox play-btn"></a>
                         </div>
-                        <div class="col-lg-6 content order-last  order-lg-first">
+                        <div class="col-lg-6 content order-last order-lg-first">
                             <h3>Who We Are</h3>
                             <p>
                                 We receive boys and transform them to men who have conquered both academically and

@@ -47,7 +47,7 @@
 
                 <a href="<?php echo home_url()?>" class="logo d-flex align-items-center">
                     <!-- Uncomment the line below if you also wish to use an image logo -->
-                    <!-- <img src="assets/img/logo.png" alt=""> -->
+                    <img src="<?php echo get_template_directory_uri();?>/img/logo/logo.png" alt="Gathathi-ini Logo">
                     <h1>Gathathi-ini Boys</h1>
                 </a>
 
