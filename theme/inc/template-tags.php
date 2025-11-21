@@ -198,20 +198,20 @@ if ( ! function_exists( 'gathathiini_post_thumbnail' ) ) :
 			?>
 
 <figure>
-    <?php the_post_thumbnail(); ?>
+			<?php the_post_thumbnail(); ?>
 </figure><!-- .post-thumbnail -->
 
-<?php
+			<?php
 		else :
 			?>
 
 <figure>
-    <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-        <?php the_post_thumbnail(); ?>
-    </a>
+	<a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+			<?php the_post_thumbnail(); ?>
+	</a>
 </figure>
 
-<?php
+			<?php
 		endif; // End is_singular().
 	}
 endif;

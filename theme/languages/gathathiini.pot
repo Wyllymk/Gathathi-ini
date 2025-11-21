@@ -1,0 +1,1436 @@
+# Copyright (C) 2025 Wilson
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Gathathiini 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/gathathiini\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-11-21T09:03:35+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: gathathiini\n"
+
+#. Theme Name of the theme
+#: theme
+msgid "Gathathiini"
+msgstr ""
+
+#. Theme URI of the theme
+#: theme
+msgid "https://github.com/Wyllymk/Gathathi-ini"
+msgstr ""
+
+#. Description of the theme
+#: theme
+msgid "A modern WordPress portfolio theme powered by Tailwind CSS and Alpine.js. Perfect for showcasing your work with a clean and responsive design."
+msgstr ""
+
+#. Author of the theme
+#: theme
+msgid "Wilson"
+msgstr ""
+
+#. Author URI of the theme
+#: theme
+msgid "https://wilsondevops.com/"
+msgstr ""
+
+#. translators: 1: title.
+#: theme/comments.php:35
+#, php-format
+msgid "One comment on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#. translators: 1: comment count number, 2: title.
+#: theme/comments.php:43
+#, php-format
+msgctxt "comments title"
+msgid "%1$s comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: theme/comments.php:73
+msgid "Comments are closed."
+msgstr ""
+
+#: theme/front-page.php:46
+#, php-format
+msgid "Transforming Boys Into %sMen of Purpose%s"
+msgstr ""
+
+#: theme/front-page.php:53
+msgid "Building tomorrow's leaders through academic excellence, character development, and holistic education at Gathathi-ini Boys High School."
+msgstr ""
+
+#: theme/front-page.php:58
+#: theme/front-page.php:442
+#: theme/page-templates/page-academics.php:392
+#: theme/template-parts/layout/header-content.php:62
+#: theme/template-parts/layout/header-content.php:102
+msgid "Apply Now"
+msgstr ""
+
+#: theme/front-page.php:62
+#: theme/page-templates/page-academics.php:396
+msgid "Learn More"
+msgstr ""
+
+#: theme/front-page.php:82
+#: theme/page-templates/page-about-us.php:101
+msgid "Students Enrolled"
+msgstr ""
+
+#: theme/front-page.php:88
+#: theme/page-templates/page-about-us.php:105
+msgid "Qualified Teachers"
+msgstr ""
+
+#: theme/front-page.php:94
+#: theme/page-templates/page-pillars.php:116
+msgid "Sports Activities"
+msgstr ""
+
+#: theme/front-page.php:99
+#: theme/front-page.php:322
+msgid "Core Pillars"
+msgstr ""
+
+#: theme/front-page.php:122
+msgid "Our Vision & Mission"
+msgstr ""
+
+#: theme/front-page.php:141
+#: theme/page-templates/page-about-us.php:50
+msgid "Our Vision"
+msgstr ""
+
+#: theme/front-page.php:143
+msgid "To become the school of choice in molding individuals to become responsible members of society."
+msgstr ""
+
+#: theme/front-page.php:158
+#: theme/page-templates/page-about-us.php:66
+msgid "Our Mission"
+msgstr ""
+
+#: theme/front-page.php:160
+msgid "We receive boys and transform them into men who have conquered both academically and socially. We focus on developing talents and life skills."
+msgstr ""
+
+#: theme/front-page.php:168
+msgid "Learn More About Us"
+msgstr ""
+
+#: theme/front-page.php:179
+#: theme/page-templates/page-pillars.php:28
+msgid "Our Six Pillars"
+msgstr ""
+
+#: theme/front-page.php:181
+msgid "The foundation of excellence at Gathathi-ini Boys High School"
+msgstr ""
+
+#: theme/front-page.php:198
+#: theme/page-templates/page-academics.php:26
+#: theme/page-templates/page-pillars.php:52
+#: theme/template-parts/layout/footer-content.php:109
+msgid "Academic Excellence"
+msgstr ""
+
+#: theme/front-page.php:200
+msgid "Fostering a culture of academic excellence through mentorship, enrichment programs, and recognition."
+msgstr ""
+
+#: theme/front-page.php:216
+#: theme/template-parts/layout/footer-content.php:115
+msgid "Sports & Talent"
+msgstr ""
+
+#: theme/front-page.php:218
+msgid "Creating a supportive environment where students explore and excel in sports and discover their unique talents."
+msgstr ""
+
+#: theme/front-page.php:233
+#: theme/page-templates/page-pillars.php:200
+#: theme/template-parts/layout/footer-content.php:121
+msgid "Creative Arts"
+msgstr ""
+
+#: theme/front-page.php:236
+msgid "Staging theatrical productions and participating in national drama and music festivals to nurture creative expression."
+msgstr ""
+
+#: theme/front-page.php:252
+#: theme/page-templates/page-pillars.php:281
+#: theme/template-parts/layout/footer-content.php:127
+msgid "Digital Literacy"
+msgstr ""
+
+#: theme/front-page.php:254
+msgid "Equipping students with essential digital skills to use, understand, and critically evaluate technology effectively."
+msgstr ""
+
+#: theme/front-page.php:270
+#: theme/page-templates/page-pillars.php:345
+#: theme/template-parts/layout/footer-content.php:133
+msgid "Social Responsibility"
+msgstr ""
+
+#: theme/front-page.php:272
+msgid "Championing environmental education, community service, and health wellness through various awareness campaigns."
+msgstr ""
+
+#: theme/front-page.php:288
+#: theme/page-templates/page-pillars.php:426
+#: theme/template-parts/layout/footer-content.php:139
+msgid "Holistic Development"
+msgstr ""
+
+#: theme/front-page.php:290
+msgid "Focused on the complete transformation of the boy child, guiding them away from societal ills and distractions."
+msgstr ""
+
+#: theme/front-page.php:298
+msgid "Explore All Pillars"
+msgstr ""
+
+#: theme/front-page.php:310
+msgid "Students"
+msgstr ""
+
+#: theme/front-page.php:314
+msgid "Teachers"
+msgstr ""
+
+#: theme/front-page.php:318
+msgid "Sports"
+msgstr ""
+
+#: theme/front-page.php:335
+msgid "Excellence in Education"
+msgstr ""
+
+#: theme/front-page.php:337
+msgid "Our comprehensive curriculum combines academic rigor with practical skills development. We offer a wide range of subjects and programs designed to prepare students for university and beyond."
+msgstr ""
+
+#: theme/front-page.php:350
+msgid "8-4-4 CBC Curriculum"
+msgstr ""
+
+#: theme/front-page.php:362
+msgid "Experienced Faculty Members"
+msgstr ""
+
+#: theme/front-page.php:374
+#: theme/page-templates/page-academics.php:315
+msgid "Modern Learning Facilities"
+msgstr ""
+
+#: theme/front-page.php:386
+msgid "Individual Student Mentorship"
+msgstr ""
+
+#: theme/front-page.php:391
+msgid "View Academic Programs"
+msgstr ""
+
+#: theme/front-page.php:399
+msgid "Our Subjects"
+msgstr ""
+
+#: theme/front-page.php:403
+#: theme/page-templates/page-academics.php:69
+#: theme/page-templates/page-academics.php:160
+msgid "Sciences"
+msgstr ""
+
+#: theme/front-page.php:405
+#: theme/page-templates/page-academics.php:72
+msgid "Biology, Chemistry, Physics"
+msgstr ""
+
+#: theme/front-page.php:408
+#: theme/page-templates/page-academics.php:119
+msgid "Mathematics"
+msgstr ""
+
+#: theme/front-page.php:410
+msgid "Pure & Applied Math"
+msgstr ""
+
+#: theme/front-page.php:413
+#: theme/page-templates/page-academics.php:210
+msgid "Languages"
+msgstr ""
+
+#: theme/front-page.php:415
+msgid "English, Kiswahili"
+msgstr ""
+
+#: theme/front-page.php:418
+#: theme/page-templates/page-academics.php:78
+msgid "Humanities"
+msgstr ""
+
+#: theme/front-page.php:420
+#: theme/page-templates/page-academics.php:80
+msgid "History, Geography, CRE"
+msgstr ""
+
+#: theme/front-page.php:435
+#: theme/page-templates/page-contact.php:277
+msgid "Ready to Join Us?"
+msgstr ""
+
+#: theme/front-page.php:437
+msgid "Start your journey to becoming a man of purpose and integrity. Apply today for admission to Gathathi-ini Boys High School."
+msgstr ""
+
+#: theme/front-page.php:446
+#: theme/page-templates/page-about-us.php:255
+#: theme/page-templates/page-admissions.php:427
+#: theme/page-templates/page-pillars.php:490
+#: theme/template-parts/layout/footer-content.php:146
+msgid "Contact Us"
+msgstr ""
+
+#: theme/functions.php:85
+msgid "Primary"
+msgstr ""
+
+#: theme/functions.php:86
+msgid "Footer Menu"
+msgstr ""
+
+#: theme/functions.php:133
+msgid "Footer"
+msgstr ""
+
+#: theme/functions.php:135
+msgid "Add widgets here to appear in your footer."
+msgstr ""
+
+#: theme/functions.php:181
+msgid "Sending..."
+msgstr ""
+
+#: theme/functions.php:182
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: theme/header.php:43
+msgid "Skip to content"
+msgstr ""
+
+#: theme/inc/template-functions.php:41
+msgid "Category Archives: "
+msgstr ""
+
+#: theme/inc/template-functions.php:43
+msgid "Tag Archives: "
+msgstr ""
+
+#: theme/inc/template-functions.php:45
+msgid "Author Archives: "
+msgstr ""
+
+#: theme/inc/template-functions.php:47
+msgid "Yearly Archives: "
+msgstr ""
+
+#: theme/inc/template-functions.php:47
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: theme/inc/template-functions.php:49
+msgid "Monthly Archives: "
+msgstr ""
+
+#: theme/inc/template-functions.php:49
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr ""
+
+#: theme/inc/template-functions.php:51
+msgid "Daily Archives: "
+msgstr ""
+
+#. translators: %s: Post type singular name
+#. translators: %s: Taxonomy singular name
+#: theme/inc/template-functions.php:56
+#: theme/inc/template-functions.php:63
+#, php-format
+msgid "%s Archives"
+msgstr ""
+
+#: theme/inc/template-functions.php:67
+msgid "Archives:"
+msgstr ""
+
+#. translators: %s: Name of current post.
+#: theme/inc/template-functions.php:97
+#, php-format
+msgid "Continue reading %s"
+msgstr ""
+
+#: theme/inc/template-functions.php:131
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: theme/inc/template-functions.php:133
+msgid "Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved."
+msgstr ""
+
+#. translators: %s: Comment author link.
+#: theme/inc/template-functions.php:155
+#, php-format
+msgid "%s <span class=\"says\">says:</span>"
+msgstr ""
+
+#. translators: 1: Comment date, 2: Comment time.
+#: theme/inc/template-functions.php:170
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: theme/inc/template-functions.php:177
+msgid "Edit"
+msgstr ""
+
+#: theme/inc/template-tags.php:45
+msgid "Posted by"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers.
+#: theme/inc/template-tags.php:59
+#, php-format
+msgid "Leave a comment<span class=\"sr-only\"> on %s</span>"
+msgstr ""
+
+#. translators: used between list items, there is a space after the comma.
+#: theme/inc/template-tags.php:81
+#: theme/inc/template-tags.php:92
+#: theme/inc/template-tags.php:142
+#: theme/inc/template-tags.php:153
+msgid ", "
+msgstr ""
+
+#: theme/inc/template-tags.php:86
+#: theme/inc/template-tags.php:147
+msgid "Posted in"
+msgstr ""
+
+#: theme/inc/template-tags.php:97
+#: theme/inc/template-tags.php:158
+msgid "Tags:"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers.
+#: theme/inc/template-tags.php:113
+#: theme/inc/template-tags.php:174
+#: theme/template-parts/content/content-page.php:47
+#, php-format
+msgid "Edit <span class=\"sr-only\">%s</span>"
+msgstr ""
+
+#: theme/inc/template-tags.php:265
+msgid "Newer posts"
+msgstr ""
+
+#: theme/inc/template-tags.php:266
+msgid "Older posts"
+msgstr ""
+
+#. Template Name of the theme
+msgid "About Page"
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:23
+#: theme/template-parts/layout/footer-content.php:78
+msgid "About Us"
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:26
+msgid "Discover the legacy and values that make Gathathi-ini Boys High School a beacon of excellence in education."
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:52
+msgid "To become the school of choice in molding individuals to become responsible members of society through excellence in academics, sports, and character development."
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:68
+msgid "We receive boys and transform them into men who have conquered both academically and socially. We particularly focus on developing talents and life skills of our boys."
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:83
+msgid "Our Rich History"
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:85
+msgid "Gathathi-ini Boys High School has been a cornerstone of educational excellence in Nyeri County. Located in the scenic Tetu region, our institution has grown from humble beginnings to become one of the most respected secondary schools in the area."
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:88
+msgid "Over the years, we have maintained our commitment to holistic education, producing graduates who excel not only in academics but also in sports, arts, and community leadership. Our alumni continue to make significant contributions to society in various fields."
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:91
+msgid "Today, we serve over 440 students with a dedicated team of 20+ qualified teachers, maintaining our tradition of excellence while embracing modern educational practices and technologies."
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:109
+#: theme/template-parts/layout/footer-content.php:96
+#: theme/template-parts/layout/footer-content.php:103
+#: theme/template-parts/layout/header-content.php:54
+#: theme/template-parts/layout/header-content.php:95
+msgid "Our Pillars"
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:113
+msgid "Sports Programs"
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:128
+msgid "Our Core Values"
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:130
+msgid "The principles that guide everything we do"
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:144
+msgid "Integrity"
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:147
+msgid "We uphold honesty, transparency, and strong moral principles in all our actions and decisions."
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:162
+msgid "Excellence"
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:164
+msgid "We strive for the highest standards in academics, sports, and character development."
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:178
+msgid "Respect"
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:181
+msgid "We value diversity, treat everyone with dignity, and foster a culture of mutual respect."
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:196
+msgid "Responsibility"
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:198
+msgid "We take ownership of our actions and contribute positively to our community and society."
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:212
+msgid "Teamwork"
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:215
+msgid "We collaborate effectively, supporting each other to achieve common goals."
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:230
+msgid "Innovation"
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:232
+msgid "We embrace change, encourage creativity, and continuously seek better ways to educate."
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:244
+msgid "Join Our Community"
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:247
+msgid "Become part of a legacy of excellence and transformation."
+msgstr ""
+
+#: theme/page-templates/page-about-us.php:251
+#: theme/page-templates/page-contact.php:283
+#: theme/page-templates/page-pillars.php:486
+msgid "Apply for Admission"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Academics Page"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:28
+msgid "Empowering students with knowledge, skills, and values for a successful future through rigorous academics and innovative teaching methods."
+msgstr ""
+
+#: theme/page-templates/page-academics.php:40
+msgid "Our Curriculum"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:42
+msgid "Following the Kenyan 8-4-4 and CBC systems for comprehensive education"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:49
+msgid "Comprehensive Subject Offering"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:51
+msgid "We offer a wide range of subjects designed to cater to diverse student interests and career aspirations. Our curriculum balances core subjects with electives, ensuring students receive a well-rounded education."
+msgstr ""
+
+#: theme/page-templates/page-academics.php:54
+msgid "Our experienced teachers use modern pedagogical approaches, combining traditional teaching methods with technology-enhanced learning to maximize student engagement and understanding."
+msgstr ""
+
+#: theme/page-templates/page-academics.php:62
+msgid "Core Subjects"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:64
+msgid "Mathematics, English, Kiswahili"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:85
+msgid "Business"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:88
+msgid "Business Studies, Commerce"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:102
+msgid "Subject Categories"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:121
+msgid "Building strong analytical and problem-solving skills through comprehensive mathematics education."
+msgstr ""
+
+#: theme/page-templates/page-academics.php:131
+msgid "Pure Mathematics"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:140
+msgid "Applied Mathematics"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:162
+msgid "Hands-on laboratory work and theoretical knowledge in all three main sciences."
+msgstr ""
+
+#: theme/page-templates/page-academics.php:172
+msgid "Biology"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:181
+msgid "Chemistry"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:190
+msgid "Physics"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:212
+msgid "Developing communication skills and cultural awareness through language studies."
+msgstr ""
+
+#: theme/page-templates/page-academics.php:222
+msgid "English Language"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:231
+msgid "Kiswahili"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:251
+msgid "Humanities & Social Sciences"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:253
+msgid "Understanding society, culture, and human development through comprehensive study."
+msgstr ""
+
+#: theme/page-templates/page-academics.php:263
+msgid "History"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:272
+msgid "Geography"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:280
+msgid "CRE"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:289
+msgid "Business Studies"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:298
+msgid "Commerce"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:317
+msgid "State-of-the-art infrastructure supporting quality education"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:334
+msgid "Science Laboratories"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:336
+msgid "Fully equipped labs for Biology, Chemistry, and Physics practical sessions."
+msgstr ""
+
+#: theme/page-templates/page-academics.php:352
+msgid "Library"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:354
+msgid "Extensive collection of books, reference materials, and digital resources."
+msgstr ""
+
+#: theme/page-templates/page-academics.php:370
+msgid "Computer Lab"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:372
+msgid "Modern computers and internet connectivity for digital learning."
+msgstr ""
+
+#: theme/page-templates/page-academics.php:385
+msgid "Ready to Excel Academically?"
+msgstr ""
+
+#: theme/page-templates/page-academics.php:387
+msgid "Join us and experience world-class education that prepares you for success."
+msgstr ""
+
+#. Template Name of the theme
+msgid "Admissions Page"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:27
+#: theme/template-parts/layout/footer-content.php:90
+msgid "Admissions"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:29
+msgid "Begin your journey to excellence. Join Gathathi-ini Boys High School and transform into a man of purpose and integrity."
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:41
+msgid "Admission Process"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:43
+msgid "Simple steps to join our school"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:53
+msgid "Submit Application"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:55
+msgid "Complete and submit the admission application form with all required documents."
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:65
+msgid "Review Process"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:67
+msgid "Our admissions team reviews your application and academic records."
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:77
+msgid "Interview"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:79
+msgid "Selected candidates attend an interview with the admissions committee."
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:89
+msgid "Acceptance"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:91
+msgid "Receive admission letter and complete enrollment procedures."
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:105
+msgid "Admission Requirements"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:107
+msgid "Documents and qualifications needed"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:113
+msgid "Form One Admission"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:122
+msgid "KCPE Certificate with minimum marks of 250"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:131
+msgid "Birth certificate or notification"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:140
+#: theme/page-templates/page-admissions.php:219
+msgid "Completed application form"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:149
+#: theme/page-templates/page-admissions.php:228
+msgid "Recent passport size photographs"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:158
+msgid "Medical examination report"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:167
+msgid "Primary school leaving certificate"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:174
+msgid "Transfer Students"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:183
+msgid "Transfer letter from previous school"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:192
+msgid "Academic transcripts and reports"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:201
+msgid "Recommendation letter from previous principal"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:210
+msgid "Birth certificate"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:243
+msgid "Fees Structure"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:245
+msgid "Affordable quality education"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:252
+msgid "Annual Fees Breakdown"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:256
+msgid "Tuition Fees"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:258
+#: theme/page-templates/page-admissions.php:264
+#: theme/page-templates/page-admissions.php:270
+#: theme/page-templates/page-admissions.php:276
+msgid "Contact School"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:262
+msgid "Boarding Fees"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:268
+msgid "Activity Fees"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:274
+msgid "Exam Fees"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:283
+msgid "Payment Information"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:292
+msgid "Fees can be paid in three installments"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:301
+msgid "Bank transfer and M-Pesa accepted"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:310
+msgid "Bursary programs available for needy students"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:319
+msgid "Contact admissions office for detailed fee structure"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:325
+msgid "For detailed fee structure and payment plans, please contact:"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:345
+msgid "Important Dates"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:346
+msgid "Mark your calendar"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:363
+msgid "Application Deadline"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:365
+msgid "Contact admissions office for current deadlines"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:382
+msgid "Interview Dates"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:384
+msgid "Scheduled after application review"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:399
+msgid "Reporting Date"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:401
+msgid "As per the Ministry of Education calendar"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:415
+msgid "Ready to Apply?"
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:418
+msgid "Take the first step towards excellence. Contact us today to begin your admission process."
+msgstr ""
+
+#: theme/page-templates/page-admissions.php:423
+msgid "Call: +254 725 407 132"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Contact Page"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:32
+msgid "Get In Touch"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:34
+msgid "We would love to hear from you. Reach out to us for admissions, inquiries, or any questions you may have."
+msgstr ""
+
+#: theme/page-templates/page-contact.php:48
+msgid "Send Us a Message"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:56
+msgid "Your Name"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:58
+msgid "Enter your full name"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:64
+#: theme/page-templates/page-contact.php:174
+msgid "Email Address"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:66
+msgid "Enter your email"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:72
+#: theme/page-templates/page-contact.php:155
+msgid "Phone Number"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:74
+msgid "Enter your phone number"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:80
+msgid "Subject"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:83
+msgid "Select a subject"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:84
+msgid "Admissions Inquiry"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:85
+msgid "Academic Information"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:86
+msgid "Facilities Tour"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:87
+msgid "General Question"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:88
+msgid "Other"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:94
+msgid "Your Message"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:96
+msgid "Tell us more about your inquiry"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:111
+msgid "Send Message"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:121
+msgid "Contact Information"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:137
+msgid "School Location"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:139
+#: theme/template-parts/layout/footer-content.php:158
+msgid "Tetu, Nyeri County, Kenya"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:158
+msgid "Monday - Friday: 8:00 AM - 5:00 PM"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:177
+msgid "We respond within 24 hours"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:185
+msgid "Office Hours"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:189
+msgid "Monday - Friday"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:191
+msgid "8:00 AM - 5:00 PM"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:195
+msgid "Saturday"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:197
+#: theme/page-templates/page-contact.php:202
+msgid "9:00 AM - 1:00 PM"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:200
+msgid "Sunday"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:210
+msgid "Follow Us"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:214
+#: theme/template-parts/layout/footer-content.php:40
+msgid "Visit our Facebook page"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:223
+#: theme/template-parts/layout/footer-content.php:48
+msgid "Visit our Twitter page"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:232
+#: theme/template-parts/layout/footer-content.php:56
+msgid "Visit our Instagram page"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:252
+msgid "Find Us"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:255
+msgid "Located in the beautiful region of Tetu, Nyeri County"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:264
+msgid "Gathathi-ini Boys High School Location Map"
+msgstr ""
+
+#: theme/page-templates/page-contact.php:279
+msgid "Start your application today and become part of our community."
+msgstr ""
+
+#. Template Name of the theme
+msgid "Pillars Page"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:30
+msgid "The foundation of holistic development at Gathathi-ini Boys High School. Six pillars that guide our mission to transform boys into men of excellence."
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:54
+msgid "We foster a culture of academic excellence through comprehensive mentorship programs, enrichment activities, and recognition of outstanding achievements."
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:64
+msgid "Personalized student mentorship programs"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:73
+msgid "Academic enrichment and support sessions"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:82
+msgid "Recognition of outstanding academic performance"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:91
+msgid "Modern teaching methodologies and resources"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:97
+msgid "Strong"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:99
+msgid "University Entry Rate"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:121
+msgid "Trophies Won"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:136
+msgid "Sports & Talent Development"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:138
+msgid "We create a supportive environment where students can explore and excel in various sports disciplines while discovering and nurturing their unique talents."
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:148
+msgid "Football, volleyball, basketball, athletics"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:157
+msgid "Professional coaching and training facilities"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:166
+msgid "Inter-school competitions and tournaments"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:175
+msgid "Talent identification and development programs"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:202
+msgid "We nurture creative expression through drama, music, and performing arts. Our students participate in national festivals, staging theatrical productions that showcase their artistic talents."
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:212
+msgid "Drama club and theatrical productions"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:221
+msgid "Music festivals and competitions"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:230
+msgid "National drama and music festivals participation"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:239
+msgid "Visual arts and creative workshops"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:246
+msgid "Award-Winning Performances"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:248
+msgid "Our drama and music teams consistently excel at regional and national festivals."
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:265
+msgid "Modern Technology"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:267
+msgid "Equipped with modern computer labs and internet connectivity for 21st-century learning."
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:283
+msgid "We equip students with essential digital skills, enabling them to use, understand, and critically evaluate technology effectively in the modern world."
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:293
+msgid "Computer programming and coding skills"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:302
+msgid "Internet safety and digital citizenship"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:311
+msgid "Digital content creation and multimedia"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:320
+msgid "Technology-enhanced learning platforms"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:347
+msgid "We champion environmental education, community service, and health wellness through various awareness campaigns and practical initiatives."
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:357
+msgid "Environmental conservation programs"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:366
+msgid "Community service and outreach"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:375
+msgid "Health and wellness campaigns"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:384
+msgid "Leadership and civic education"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:391
+msgid "Building Better Communities"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:393
+msgid "Our students actively engage in initiatives that make positive impacts in society."
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:410
+msgid "Complete Transformation"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:412
+msgid "Guiding students toward becoming responsible, well-rounded individuals prepared for life."
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:428
+msgid "We focus on the complete transformation of the boy child, guiding them away from societal ills and distractions toward becoming men of purpose and integrity."
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:438
+msgid "Character development and moral education"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:447
+msgid "Life skills training and mentorship"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:456
+msgid "Emotional intelligence and resilience"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:465
+msgid "Social skills and peer relationships"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:479
+msgid "Experience Holistic Education"
+msgstr ""
+
+#: theme/page-templates/page-pillars.php:481
+msgid "Join us in this transformative journey guided by our six pillars of excellence."
+msgstr ""
+
+#: theme/search.php:25
+#: theme/template-parts/content/content-none.php:23
+msgid "Search results for:"
+msgstr ""
+
+#: theme/single.php:28
+msgid "Next Post"
+msgstr ""
+
+#: theme/single.php:29
+msgid "Next post:"
+msgstr ""
+
+#: theme/single.php:31
+msgid "Previous Post"
+msgstr ""
+
+#: theme/single.php:32
+msgid "Previous post:"
+msgstr ""
+
+#: theme/template-parts/content/content-excerpt.php:18
+#: theme/template-parts/content/content.php:18
+msgctxt "post"
+msgid "Featured"
+msgstr ""
+
+#: theme/template-parts/content/content-none.php:31
+msgid "Nothing Found"
+msgstr ""
+
+#: theme/template-parts/content/content-none.php:42
+msgid "Your site is set to show the most recent posts on your homepage, but you haven&rsquo;t published any posts."
+msgstr ""
+
+#. translators: 1: link to WP admin new post page.
+#: theme/template-parts/content/content-none.php:49
+msgid "Add or publish posts"
+msgstr ""
+
+#: theme/template-parts/content/content-none.php:59
+msgid "Your search generated no results. Please try a different search."
+msgstr ""
+
+#: theme/template-parts/content/content-none.php:68
+msgid "No content matched your request."
+msgstr ""
+
+#: theme/template-parts/content/content-page.php:33
+#: theme/template-parts/content/content-single.php:46
+#: theme/template-parts/content/content.php:36
+msgid "Pages:"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers.
+#: theme/template-parts/content/content-single.php:33
+#, php-format
+msgid "Continue reading<span class=\"sr-only\"> \"%s\"</span>"
+msgstr ""
+
+#: theme/template-parts/layout/footer-content.php:23
+#: theme/template-parts/layout/header-content.php:25
+msgid "Gathathi-ini Boys High School Logo"
+msgstr ""
+
+#: theme/template-parts/layout/footer-content.php:29
+#: theme/template-parts/layout/header-content.php:32
+msgid "Gathathi-ini Boys"
+msgstr ""
+
+#: theme/template-parts/layout/footer-content.php:31
+#: theme/template-parts/layout/header-content.php:34
+msgid "High School"
+msgstr ""
+
+#: theme/template-parts/layout/footer-content.php:35
+msgid "Transforming boys into men of purpose and integrity through excellence in academics, sports, and character development."
+msgstr ""
+
+#: theme/template-parts/layout/footer-content.php:66
+msgid "Quick Links"
+msgstr ""
+
+#: theme/template-parts/layout/footer-content.php:72
+#: theme/template-parts/layout/header-content.php:42
+#: theme/template-parts/layout/header-content.php:85
+msgid "Home"
+msgstr ""
+
+#: theme/template-parts/layout/footer-content.php:84
+#: theme/template-parts/layout/header-content.php:50
+#: theme/template-parts/layout/header-content.php:92
+msgid "Academics"
+msgstr ""
+
+#: theme/template-parts/layout/footer-content.php:185
+#, php-format
+msgid "© %s Gathathi-ini Boys High School. All rights reserved."
+msgstr ""
+
+#: theme/template-parts/layout/footer-content.php:193
+msgid "Privacy Policy"
+msgstr ""
+
+#: theme/template-parts/layout/footer-content.php:197
+msgid "Terms of Service"
+msgstr ""
+
+#: theme/template-parts/layout/footer-content.php:207
+msgid "Scroll to Top"
+msgstr ""
+
+#: theme/template-parts/layout/header-content.php:19
+msgid "Main Navigation"
+msgstr ""
+
+#: theme/template-parts/layout/header-content.php:46
+#: theme/template-parts/layout/header-content.php:88
+msgid "About"
+msgstr ""
+
+#: theme/template-parts/layout/header-content.php:58
+#: theme/template-parts/layout/header-content.php:98
+msgid "Contact"
+msgstr ""
+
+#: theme/template-parts/layout/header-content.php:68
+msgid "Toggle mobile menu"
+msgstr ""
+
+#: theme/theme.json
+msgctxt "Color name"
+msgid "Background"
+msgstr ""
+
+#: theme/theme.json
+msgctxt "Color name"
+msgid "Foreground"
+msgstr ""
+
+#: theme/theme.json
+msgctxt "Color name"
+msgid "Primary"
+msgstr ""
+
+#: theme/theme.json
+msgctxt "Color name"
+msgid "Secondary"
+msgstr ""
+
+#: theme/theme.json
+msgctxt "Color name"
+msgid "Tertiary"
+msgstr ""

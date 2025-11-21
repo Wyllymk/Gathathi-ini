@@ -12,66 +12,66 @@ defined( 'ABSPATH' ) || exit;
 
 <section>
 
-    <header class="page-header">
-        <?php if ( is_search() ) : ?>
+	<header class="page-header">
+		<?php if ( is_search() ) : ?>
 
-        <h1 class="page-title">
-            <?php
+		<h1 class="page-title">
+			<?php
 				printf(
 					/* translators: 1: search result title. 2: search term. */
 					'<h1 class="page-title">%1$s <span>%2$s</span></h1>',
 					esc_html__( 'Search results for:', 'gathathiini' ),
 					get_search_query()
 				);
-				?>
-        </h1>
+			?>
+		</h1>
 
-        <?php else : ?>
+		<?php else : ?>
 
-        <h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'gathathiini' ); ?></h1>
+		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'gathathiini' ); ?></h1>
 
-        <?php endif; ?>
-    </header><!-- .page-header -->
+		<?php endif; ?>
+	</header><!-- .page-header -->
 
-    <div <?php gathathiini_content_class( 'page-content' ); ?>>
-        <?php
+	<div <?php gathathiini_content_class( 'page-content' ); ?>>
+		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
 			?>
 
-        <p>
-            <?php esc_html_e( 'Your site is set to show the most recent posts on your homepage, but you haven&rsquo;t published any posts.', 'gathathiini' ); ?>
-        </p>
+		<p>
+			<?php esc_html_e( 'Your site is set to show the most recent posts on your homepage, but you haven&rsquo;t published any posts.', 'gathathiini' ); ?>
+		</p>
 
-        <p>
-            <a href="<?php echo esc_url( admin_url( 'edit.php' ) ); ?>">
-                <?php
+		<p>
+			<a href="<?php echo esc_url( admin_url( 'edit.php' ) ); ?>">
+				<?php
 					/* translators: 1: link to WP admin new post page. */
 					esc_html_e( 'Add or publish posts', 'gathathiini' );
-					?>
-            </a>
-        </p>
+				?>
+			</a>
+		</p>
 
-        <?php
+			<?php
 		elseif ( is_search() ) :
 			?>
 
-        <p>
-            <?php esc_html_e( 'Your search generated no results. Please try a different search.', 'gathathiini' ); ?>
-        </p>
+		<p>
+			<?php esc_html_e( 'Your search generated no results. Please try a different search.', 'gathathiini' ); ?>
+		</p>
 
-        <?php
+			<?php
 			get_search_form();
 		else :
 			?>
 
-        <p>
-            <?php esc_html_e( 'No content matched your request.', 'gathathiini' ); ?>
-        </p>
+		<p>
+			<?php esc_html_e( 'No content matched your request.', 'gathathiini' ); ?>
+		</p>
 
-        <?php
+			<?php
 			get_search_form();
 		endif;
 		?>
-    </div><!-- .page-content -->
+	</div><!-- .page-content -->
 
 </section>
