@@ -54,36 +54,40 @@ defined( 'ABSPATH' ) || exit;
             <div>
                 <h4 class="text-lg font-bold mb-4 text-cyan-400">Quick Links</h4>
                 <ul class="space-y-2">
-                    <li><a href="#about" class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">About
-                            Us</a></li>
-                    <li><a href="#academics"
+                    <li><a href="<?php echo esc_url(home_url('/about')); ?>"
+                            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">About Us</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/academics')); ?>"
                             class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Academics</a></li>
-                    <li><a href="#admissions"
+                    <li><a href="<?php echo esc_url(home_url('/admissions')); ?>"
                             class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Admissions</a></li>
-                    <li><a href="#sports" class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Sports &
-                            Talent</a></li>
-                    <li><a href="#gallery"
+                    <li><a href="<?php echo esc_url(home_url('/pillars')); ?>"
+                            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Our Pillars</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/gallery')); ?>"
                             class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Gallery</a></li>
-                    <li><a href="#news" class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">News &
-                            Events</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/news')); ?>"
+                            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">News & Events</a></li>
                 </ul>
             </div>
 
             <div>
                 <h4 class="text-lg font-bold mb-4 text-cyan-400">Our Pillars</h4>
                 <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Academic
-                            Excellence</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Sports &
-                            Talent</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Creative
-                            Arts</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Digital
-                            Literacy</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Social
+                    <li><a href="<?php echo esc_url(home_url('/pillars#academic')); ?>"
+                            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Academic Excellence</a>
+                    </li>
+                    <li><a href="<?php echo esc_url(home_url('/pillars#sports')); ?>"
+                            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Sports & Talent</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/pillars#arts')); ?>"
+                            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Creative Arts</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/pillars#digital')); ?>"
+                            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Digital Literacy</a>
+                    </li>
+                    <li><a href="<?php echo esc_url(home_url('/pillars#social')); ?>"
+                            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Social
                             Responsibility</a></li>
-                    <li><a href="#" class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Holistic
-                            Development</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/pillars#holistic')); ?>"
+                            class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">Holistic Development</a>
+                    </li>
                 </ul>
             </div>
 
@@ -125,8 +129,10 @@ defined( 'ABSPATH' ) || exit;
                 <p class="text-gray-400 text-sm">© <?php echo date('Y'); ?> Gathathi-ini Boys High School. All rights
                     reserved.</p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-cyan-400 text-sm transition-colors">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-cyan-400 text-sm transition-colors">Terms of Service</a>
+                    <a href="<?php echo esc_url(home_url('/privacy-policy')); ?>"
+                        class="text-gray-400 hover:text-cyan-400 text-sm transition-colors">Privacy Policy</a>
+                    <a href="<?php echo esc_url(home_url('/terms')); ?>"
+                        class="text-gray-400 hover:text-cyan-400 text-sm transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>

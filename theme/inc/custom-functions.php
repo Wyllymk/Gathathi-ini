@@ -4,219 +4,101 @@
  *
  * @package Gathathiini
  */
+
 // Exit if accessed directly
 defined( 'ABSPATH' ) || exit;
 
 // Start the session if not already started
 function start_session() {
-	if ( ! session_id() ) {
-		session_start();
-	}
+    if ( ! session_id() ) {
+        session_start();
+    }
 }
-add_action( 'wp', 'start_session', 1 );
+add_action( 'wp_loaded', 'start_session', 1 );
 
 /**
- * Contact Form Handler
- * Add this to your theme's functions.php file
+ * Handle Contact Form Submission
  */
-
-// Enqueue scripts for contact form
-function gathathiini_contact_form_scripts() 
-{
-    if (is_page_template('contact-page.php') || is_page('contact')) {
-        wp_enqueue_script(
-            'contact-form-handler',
-            get_template_directory_uri() . '/js/contact.min.js',
-            array('jquery'),
-            '1.0.0',
-            true
-        );
-        
-        wp_localize_script('contact-form-handler', 'contact_ajax', array(
-            'ajax_url' => admin_url('admin-ajax.php'),
-            'nonce' => wp_create_nonce('contact_form_nonce'),
-            'messages' => array(
-                'sending' => __('Sending message...', 'gathathiini-devops'),
-                'success' => __('Message sent successfully! I\'ll get back to you soon.', 'gathathiini-devops'),
-                'error' => __('Something went wrong. Please try again.', 'gathathiini-devops'),
-                'required_fields' => __('Please fill in all required fields.', 'gathathiini-devops'),
-                'invalid_email' => __('Please enter a valid email address.', 'gathathiini-devops')
-            )
-        ));
-    }
-}
-add_action('wp_enqueue_scripts', 'gathathiini_contact_form_scripts');
-
-// Handle AJAX form submission for logged in and non-logged in users
-add_action('wp_ajax_submit_contact_form', 'handle_contact_form_submission');
-add_action('wp_ajax_nopriv_submit_contact_form', 'handle_contact_form_submission');
-
-function handle_contact_form_submission() 
-{
-    // Verify nonce for security
+function handle_contact_form_submission() {
+    // Check nonce
     if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'contact_form_nonce')) {
-        wp_send_json_error(array(
-            'message' => __('Security verification failed. Please refresh the page and try again.', 'gathathiini-devops')
-        ));
+        wp_send_json_error(['message' => 'Security verification failed.']);
     }
 
-    // Honeypot spam protection
+    // Check honeypot
     if (!empty($_POST['honeypot'])) {
-        wp_send_json_error(array(
-            'message' => __('Spam detected.', 'gathathiini-devops')
-        ));
+        wp_send_json_success(['message' => 'Thank you! Your message has been sent.']); // Silent success for bots
     }
 
-    // Sanitize and validate form data
-    $name    = sanitize_text_field($_POST['name']);
-    $email   = sanitize_email($_POST['email']);
-    $subject = sanitize_text_field($_POST['subject']);
-    $message = sanitize_textarea_field($_POST['message']);
+    // Sanitize fields
+    $name    = sanitize_text_field($_POST['name'] ?? '');
+    $email   = sanitize_email($_POST['email'] ?? '');
+    $phone   = sanitize_text_field($_POST['phone'] ?? '');
+    $subject = sanitize_text_field($_POST['subject'] ?? '');
+    $message = sanitize_textarea_field($_POST['message'] ?? '');
 
     // Validation
-    $errors = array();
-    
+    $errors = [];
+
     if (empty($name)) {
-        $errors[] = __('Name is required.', 'gathathiini-devops');
+        $errors[] = 'Name is required.';
     }
     
     if (empty($email)) {
-        $errors[] = __('Email is required.', 'gathathiini-devops');
+        $errors[] = 'Email is required.';
     } elseif (!is_email($email)) {
-        $errors[] = __('Please enter a valid email address.', 'gathathiini-devops');
+        $errors[] = 'Please enter a valid email address.';
     }
     
     if (empty($message)) {
-        $errors[] = __('Message is required.', 'gathathiini-devops');
-    }
-
-    // Rate limiting check
-    $user_ip = $_SERVER['REMOTE_ADDR'];
-    $rate_limit_key = 'contact_form_' . md5($user_ip);
-    $submission_count = get_transient($rate_limit_key);
-    
-    if ($submission_count && $submission_count >= 3) {
-        wp_die(json_encode(array(
-            'success' => false,
-            'message' => __('Too many submissions. Please wait before sending another message.', 'gathathiini-devops')
-        )));
+        $errors[] = 'Message is required.';
     }
 
     if (!empty($errors)) {
-        wp_die(json_encode(array(
-            'success' => false,
-            'message' => implode(' ', $errors)
-        )));
+        wp_send_json_error(['message' => implode(' ', $errors)]);
     }
 
     // Prepare email
-    $to = get_option('admin_email'); 
-    $email_subject = $subject ? '[Contact Form] ' . $subject : '[Contact Form] New Message from ' . $name;
+    $to = get_option('admin_email');
+    $email_subject = "Contact Form: $subject - From $name";
+    
+    $email_body = "
+    <h2>New Contact Form Submission</h2>
+    <p><strong>Name:</strong> $name</p>
+    <p><strong>Email:</strong> $email</p>
+    <p><strong>Phone:</strong> $phone</p>
+    <p><strong>Subject:</strong> $subject</p>
+    <p><strong>Message:</strong></p>
+    <div>" . nl2br(esc_html($message)) . "</div>
+    <hr>
+    <p><em>Sent from " . get_bloginfo('name') . " website</em></p>
+    ";
 
-    // Build HTML email body with your theme colors
-    $email_body = '
-    <html>
-    <head>
-      <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: var(--color-background, #f5f7fa); /* fallback to cyber-light */
-            color: var(--color-text-light, #1a202c);
-            padding: 20px;
-        }
-        .container {
-            background: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            max-width: 600px;
-            margin: auto;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: var(--color-cyber-cyan, #00d4ff);
-            margin-top: 0;
-        }
-        .field {
-            margin-bottom: 12px;
-        }
-        .label {
-            font-weight: bold;
-            color: var(--color-nav-blue, #605c8d);
-        }
-        .value {
-            margin-left: 5px;
-            color: var(--color-text-light, #1a202c);
-        }
-        .message-box {
-            padding: 12px;
-            background: var(--color-cyber-light, #f5f7fa);
-            border-radius: 6px;
-            border: 1px solid var(--color-text-light-muted, #718096);
-            white-space: pre-line;
-        }
-        .footer {
-            margin-top: 20px;
-            font-size: 12px;
-            color: var(--color-text-dark-muted, #a0aec0);
-            border-top: 1px solid #eee;
-            padding-top: 10px;
-        }
-        a {
-            color: var(--color-cyber-blue, #007bff);
-            text-decoration: none;
-        }
-      </style>
-    </head>
-    <body>
-      <div class="container">
-        <h2>📩 New Contact Form Submission</h2>
-        <div class="field"><span class="label">Name:</span><span class="value">'.esc_html($name).'</span></div>
-        <div class="field"><span class="label">Email:</span><span class="value">'.esc_html($email).'</span></div>
-        <div class="field"><span class="label">Subject:</span><span class="value">'.esc_html($subject).'</span></div>
-        <div class="field"><span class="label">Message:</span>
-          <div class="message-box">'.nl2br(esc_html($message)).'</div>
-        </div>
-        <div class="footer">
-          Sent from <a href="'.home_url().'" target="_blank">'.get_bloginfo('name').'</a><br>
-          IP Address: '.$user_ip.'<br>
-          Date: '.current_time('mysql').'
-        </div>
-      </div>
-    </body>
-    </html>';
-
-    // Email headers
-    $headers = array();
-    $headers[] = 'Content-Type: text/html; charset=UTF-8';
-    $headers[] = 'From: '.get_bloginfo('name').' <'.get_option('admin_email').'>';
-    $headers[] = 'Reply-To: '.$name.' <'.$email.'>';
+    $headers = [
+        'Content-Type: text/html; charset=UTF-8',
+        "From: $name <$email>",
+        "Reply-To: $name <$email>"
+    ];
 
     // Send email
-    $mail_sent = wp_mail($to, $email_subject, $email_body, $headers);
+    $sent = wp_mail($to, $email_subject, $email_body, $headers);
 
-    if ($mail_sent) {
-        $new_count = $submission_count ? $submission_count + 1 : 1;
-        set_transient($rate_limit_key, $new_count, 3600); // 1 hour
-
-        error_log("Contact form submission from {$name} ({$email}) - Subject: {$subject}");
-
-        wp_die(json_encode(array(
-            'success' => true,
-            'message' => __('Thank you for your message! I\'ll get back to you within 24 hours.', 'gathathiini-devops')
-        )));
+    if ($sent) {
+        wp_send_json_success(['message' => 'Thank you! Your message has been sent successfully.']);
     } else {
-        error_log("Failed to send contact form email from {$name} ({$email})");
-        
-        wp_send_json_error(array(
-            'message' => __('Failed to send message. Please try again or contact me directly via social media.', 'gathathiini-devops')
-        ));
-
+        error_log('Contact form email failed to send for: ' . $email);
+        wp_send_json_error(['message' => 'Sorry, there was an error sending your message. Please try again later.']);
     }
 }
 
-// Optional: Add contact form settings to WordPress admin
-function gathathiini_contact_form_admin_menu() 
-{
+// Register AJAX handlers
+add_action('wp_ajax_submit_contact_form', 'handle_contact_form_submission');
+add_action('wp_ajax_nopriv_submit_contact_form', 'handle_contact_form_submission');
+
+/**
+ * Optional: Contact form settings in admin
+ */
+function gathathiini_contact_form_admin_menu() {
     add_options_page(
         'Contact Form Settings',
         'Contact Form',
@@ -227,20 +109,20 @@ function gathathiini_contact_form_admin_menu()
 }
 add_action('admin_menu', 'gathathiini_contact_form_admin_menu');
 
-function gathathiini_contact_form_admin_page() 
-{
-    if (isset($_POST['save_settings'])) {
+function gathathiini_contact_form_admin_page() {
+    if (isset($_POST['save_settings']) && check_admin_referer('contact_form_settings')) {
         update_option('gathathiini_contact_email', sanitize_email($_POST['contact_email']));
         update_option('gathathiini_contact_subject_prefix', sanitize_text_field($_POST['subject_prefix']));
         echo '<div class="notice notice-success"><p>Settings saved!</p></div>';
     }
     
     $contact_email = get_option('gathathiini_contact_email', get_option('admin_email'));
-    $subject_prefix = get_option('gathathiini_contact_subject_prefix', '[gathathiini Devops]');
+    $subject_prefix = get_option('gathathiini_contact_subject_prefix', '[Website Contact]');
     ?>
 <div class="wrap">
     <h1>Contact Form Settings</h1>
     <form method="post" action="">
+        <?php wp_nonce_field('contact_form_settings'); ?>
         <table class="form-table">
             <tr>
                 <th scope="row">Contact Email</th>
@@ -261,9 +143,6 @@ function gathathiini_contact_form_admin_page()
         </table>
         <?php submit_button('Save Settings', 'primary', 'save_settings'); ?>
     </form>
-
-    <h2>Recent Submissions</h2>
-    <p>Check your server error logs for submission records.</p>
 </div>
 <?php
 }
@@ -356,20 +235,31 @@ function gathathiini_create_core_pages() {
 			'slug'     => 'contact',
 			'template' => 'page-templates/page-contact.php',
 			'parent'   => 0,
-		),
+		),       
 		array(
 			'title'    => 'About Us',
-			'slug'     => 'about-us',
+			'slug'     => 'about',
 			'template' => 'page-templates/page-about-us.php',
 			'parent'   => 0,
 		),
 		array(
-			'title'    => 'Services',
-			'slug'     => 'services',
-			'template' => 'page-templates/page-services.php',
+			'title'    => 'Academics',
+			'slug'     => 'academics',
+			'template' => 'page-templates/page-academics.php',
 			'parent'   => 0,
 		),
-			
+		array(
+			'title'    => 'Our Pillars',
+			'slug'     => 'pillars',
+			'template' => 'page-templates/page-pillars.php',
+			'parent'   => 0,
+		),
+        array(
+			'title'    => 'Admissions',
+			'slug'     => 'admissions',
+			'template' => 'page-templates/page-admissions.php',
+			'parent'   => 0,
+		),
 	);
 
 	$created_pages = [];

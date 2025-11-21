@@ -146,15 +146,50 @@ add_action( 'widgets_init', 'gathathiini_widgets_init' );
  * Enqueue scripts and styles.
  */
 function gathathiini_scripts() {
-	wp_enqueue_style( 'gathathiini-style', get_stylesheet_uri(), array(), GATHATHIINI_VERSION );
-	wp_enqueue_script( 'gathathiini-script', get_template_directory_uri() . '/js/script.min.js', array(), GATHATHIINI_VERSION, true );
+    // Styles
+    wp_enqueue_style(
+        'gathathiini-style',
+        get_stylesheet_uri(),
+        array(),
+        GATHATHIINI_VERSION
+    );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+    // Scripts
+    wp_enqueue_script(
+        'gathathiini-script',
+        get_template_directory_uri() . '/js/script.min.js',
+        array( 'jquery' ),
+        GATHATHIINI_VERSION,
+        true
+    );
+	wp_enqueue_script(
+		'contact-script',
+		get_template_directory_uri() . '/js/contact.min.js',
+		array( 'jquery' ),
+		GATHATHIINI_VERSION,
+		true
+	); 
+
+    // Localize script for contact form (available on all pages)
+    wp_localize_script(
+        'contact-script',
+        'contact_ajax',
+        array(
+            'ajax_url' => admin_url( 'admin-ajax.php' ),
+            'nonce'    => wp_create_nonce( 'contact_form_nonce' ),
+            'messages' => array(
+                'sending' => __( 'Sending...', 'gathathiini' ),
+                'error'   => __( 'Something went wrong. Please try again.', 'gathathiini' ),
+            ),
+        )
+    );
+
+    // WordPress comment reply
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+        wp_enqueue_script( 'comment-reply' );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'gathathiini_scripts' );
-
 /**
  * Enqueue the block editor script.
  */

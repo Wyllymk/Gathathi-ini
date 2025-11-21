@@ -2,10 +2,13 @@
 /**
  * The template for displaying the contact page
  *
+ * Template Name: Contact Page
+ * 
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Wilson_Devops
+ * @package Gathathiini
  */
+
 defined('ABSPATH') || exit;
 
 get_header();
@@ -13,298 +16,237 @@ get_header();
 
 <main class="bg-cyber-light dark:bg-cyber-dark min-h-screen">
 
-    <!-- Sidebar Navigation (Mobile) -->
-    <div id="navMenu" class="transform translate-x-full opacity-0 w-64 py-4 px-4 z-40 fixed md:hidden top-0 h-full 
-        bg-cyber-light/90 dark:bg-cyber-dark/90 backdrop-blur-md drop-shadow-cyber-cyan 
-        transition-all duration-400 ease-in-out">
-        <?php get_template_part('template-parts/content/content', 'aside'); ?>
-    </div>
-
-    <!-- Overlay -->
-    <div id="overlay" class="fixed inset-0 top-0 h-screen z-30 bg-black/70 hidden"></div>
-
-    <!-- Hero Section with Animated Background -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Animated Grid Background -->
-        <div class="absolute inset-0 opacity-10 dark:opacity-20">
-            <div
-                class="absolute inset-0 bg-gradient-to-br from-cyber-blue via-transparent to-cyber-coral dark:from-cyber-cyan dark:via-transparent dark:to-cyber-pink">
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900 overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-20 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl">
             </div>
-            <div class="grid grid-cols-12 h-full w-full">
-                <div class="border-r border-current animate-pulse"></div>
-                <div class="border-r border-current animate-pulse delay-100"></div>
-                <div class="border-r border-current animate-pulse delay-200"></div>
-                <div class="border-r border-current animate-pulse delay-300"></div>
-                <div class="border-r border-current animate-pulse delay-500"></div>
-                <div class="border-r border-current animate-pulse delay-700"></div>
-                <div class="border-r border-current animate-pulse delay-1000"></div>
-                <div class="border-r border-current animate-pulse delay-100"></div>
-                <div class="border-r border-current animate-pulse delay-300"></div>
-                <div class="border-r border-current animate-pulse delay-500"></div>
-                <div class="border-r border-current animate-pulse delay-700"></div>
-                <div class="animate-pulse delay-1000"></div>
+            <div
+                class="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl">
             </div>
         </div>
 
-        <div class="container mx-auto px-4 py-20 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">Get In Touch</h1>
+                <p class="text-xl text-gray-300 leading-relaxed">We would love to hear from you. Reach out to us for
+                    admissions, inquiries, or any questions you may have.</p>
+            </div>
+        </div>
+    </section>
 
-                <!-- Contact Info Card -->
-                <div class="relative">
-                    <!-- Floating Elements -->
-                    <div
-                        class="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-r from-cyber-blue to-cyber-coral dark:from-cyber-cyan dark:to-cyber-pink rounded-full opacity-20 animate-pulse">
-                    </div>
-                    <div
-                        class="absolute -bottom-8 -right-8 w-24 h-24 bg-gradient-to-r from-cyber-coral to-cyber-blue dark:from-cyber-pink dark:to-cyber-cyan rounded-lg rotate-45 opacity-30 animate-bounce">
-                    </div>
+    <!-- Contact Form and Details -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-900 mb-6">Send Us a Message</h2>
+                        <form id="contact-form" class="space-y-6">
 
-                    <div
-                        class="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-2xl">
-                        <!-- Glowing Border Effect -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-cyber-blue via-cyber-coral to-cyber-blue dark:from-cyber-cyan dark:via-cyber-pink dark:to-cyber-cyan rounded-3xl opacity-20 blur-sm">
-                        </div>
+                            <!-- Honeypot (hidden field) -->
+                            <input type="text" name="honeypot" class="hidden" style="display:none!important">
 
-                        <div class="relative z-10">
-                            <!-- Title with Gradient -->
-                            <div class="mb-8">
-                                <h1
-                                    class="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-cyber-blue to-cyber-coral dark:from-cyber-cyan dark:to-cyber-pink bg-clip-text text-transparent leading-tight">
-                                    Let's Connect
-                                </h1>
-                                <div
-                                    class="w-24 h-1 bg-gradient-to-r from-cyber-blue to-cyber-coral dark:from-cyber-cyan dark:to-cyber-pink mt-4 rounded-full">
-                                </div>
+                            <div class="relative">
+                                <label for="name" class="block text-slate-700 font-semibold mb-2">Your Name</label>
+                                <input id="name" name="name" type="text" placeholder="Enter your full name"
+                                    class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors">
                             </div>
 
-                            <!-- Description -->
-                            <div class="space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                                <p>Ready to bring your ideas to life? I'm here to help you build something
-                                    extraordinary.</p>
-                                <p>Drop me a message and let's discuss your next project. I respond to all inquiries
-                                    within 24 hours.</p>
+                            <div class="relative">
+                                <label for="email" class="block text-slate-700 font-semibold mb-2">Email Address</label>
+                                <input id="email" name="email" type="email" placeholder="Enter your email"
+                                    class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors">
                             </div>
 
-                            <!-- Contact Methods -->
-                            <div class="mt-8 space-y-4">
-                                <div
-                                    class="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200/50 dark:border-gray-700/50">
-                                    <div
-                                        class="w-12 h-12 bg-gradient-to-r from-cyber-blue to-cyber-coral dark:from-cyber-cyan dark:to-cyber-pink rounded-lg flex items-center justify-center">
-                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold text-gray-900 dark:text-white">Email</p>
-                                        <p class="text-gray-600 dark:text-gray-400">Quick response guaranteed</p>
-                                    </div>
-                                </div>
-
-                                <div
-                                    class="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200/50 dark:border-gray-700/50">
-                                    <div
-                                        class="w-12 h-12 bg-gradient-to-r from-cyber-coral to-cyber-blue dark:from-cyber-pink dark:to-cyber-cyan rounded-lg flex items-center justify-center">
-                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3zM14 21h-4v-1h4v1zm3.25-3H6.75V4h10.5v14z" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold text-gray-900 dark:text-white">Social Media</p>
-                                        <p class="text-gray-600 dark:text-gray-400">Connect on your platform of choice
-                                        </p>
-                                    </div>
-                                </div>
+                            <div class="relative">
+                                <label for="phone" class="block text-slate-700 font-semibold mb-2">Phone Number</label>
+                                <input id="phone" name="phone" type="tel" placeholder="Enter your phone number"
+                                    class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors">
                             </div>
 
-                            <!-- Social Links -->
-                            <div class="mt-8">
-                                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Find me on social platforms</p>
-                                <div class="flex space-x-3">
-                                    <!-- Twitter -->
-                                    <a href="https://twitter.com/WilsonMbuthiaK" target="_blank"
-                                        class="group relative w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-cyber-blue hover:to-cyber-coral dark:hover:from-cyber-cyan dark:hover:to-cyber-pink transition-all duration-300 overflow-hidden">
-                                        <svg class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors duration-300 relative z-10"
-                                            viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M8 2H1l8.26 11.014L1.45 22H4.1l6.388-7.349L16 22h7l-8.608-11.478L21.8 2h-2.65l-5.986 6.886L8 2Zm9 18L5 4h2l12 16h-2Z" />
-                                        </svg>
-                                    </a>
-
-                                    <!-- LinkedIn -->
-                                    <a href="https://www.linkedin.com/in/wilson-mbuthia-k/" target="_blank"
-                                        class="group relative w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-cyber-blue hover:to-cyber-coral dark:hover:from-cyber-cyan dark:hover:to-cyber-pink transition-all duration-300 overflow-hidden">
-                                        <svg class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors duration-300 relative z-10"
-                                            viewBox="0 0 128 128" fill="currentColor">
-                                            <path
-                                                d="M116 3H12a8.91 8.91 0 0 0-9 8.8v104.42a8.91 8.91 0 0 0 9 8.78h104a8.93 8.93 0 0 0 9-8.81V11.77A8.93 8.93 0 0 0 116 3zM39.17 107H21.06V48.73h18.11zm-9-66.21a10.5 10.5 0 1 1 10.49-10.5a10.5 10.5 0 0 1-10.54 10.48zM107 107H88.89V78.65c0-6.75-.12-15.44-9.41-15.44s-10.87 7.36-10.87 15V107H50.53V48.73h17.36v8h.24c2.42-4.58 8.32-9.41 17.13-9.41C103.6 47.28 107 59.35 107 75z" />
-                                        </svg>
-                                    </a>
-
-                                    <!-- GitHub -->
-                                    <a href="https://github.com/Wyllymk" target="_blank"
-                                        class="group relative w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-cyber-blue hover:to-cyber-coral dark:hover:from-cyber-cyan dark:hover:to-cyber-pink transition-all duration-300 overflow-hidden">
-                                        <svg class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors duration-300 relative z-10"
-                                            viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.84 1.236 1.84 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.775.418-1.305.762-1.605c-2.665-.3-5.467-1.335-5.467-5.931c0-1.31.47-2.38 1.235-3.221c-.135-.303-.54-1.52.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.555 3.285-1.23 3.285-1.23c.645 1.655.24 2.872.12 3.176c.765.84 1.23 1.91 1.23 3.221c0 4.615-2.81 5.63-5.475 5.92c.435.375.81 1.11.81 2.24c0 1.62-.015 2.94-.015 3.34c0 .315.21.69.825.575C20.565 22.09 24 17.592 24 12.296c0-6.627-5.373-12-12-12z" />
-                                        </svg>
-                                    </a>
-
-                                    <!-- WhatsApp -->
-                                    <a href="https://wa.me/+254703639230?text=Hi%20I%20want%20to%20get%20in%20touch"
-                                        target="_blank"
-                                        class="group relative w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-xl flex items-center justify-center hover:bg-gradient-to-r hover:from-cyber-blue hover:to-cyber-coral dark:hover:from-cyber-cyan dark:hover:to-cyber-pink transition-all duration-300 overflow-hidden">
-                                        <svg class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-white transition-colors duration-300 relative z-10"
-                                            viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23c-1.48 0-2.93-.39-4.19-1.15l-.3-.17l-3.12.82l.83-3.04l-.2-.32a8.188 8.188 0 0 1-1.26-4.38c.01-4.54 3.7-8.24 8.25-8.24M8.53 7.33c-.16 0-.43.06-.66.31c-.22.25-.87.86-.87 2.07c0 1.22.89 2.39 1 2.56c.14.17 1.76 2.67 4.25 3.73c.59.27 1.05.42 1.41.53c.59.19 1.13.16 1.56.1c.48-.07 1.46-.6 1.67-1.18c.21-.58.21-1.07.15-1.18c-.07-.1-.23-.16-.48-.27c-.25-.14-1.47-.74-1.69-.82c-.23-.08-.37-.12-.56.12c-.16.25-.64.81-.78.97c-.15.17-.29.19-.53.07c-.26-.13-1.06-.39-2-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.12-.24-.01-.39.11-.5c.11-.11.27-.29.37-.44c.13-.14.17-.25.25-.41c.08-.17.04-.31-.02-.43c-.06-.11-.56-1.35-.77-1.84c-.2-.48-.4-.42-.56-.43c-.14 0-.3-.01-.47-.01Z" />
-                                        </svg>
-                                    </a>
-                                </div>
+                            <div class="relative">
+                                <label for="subject" class="block text-slate-700 font-semibold mb-2">Subject</label>
+                                <select id="subject" name="subject"
+                                    class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors">
+                                    <option value="">Select a subject</option>
+                                    <option>Admissions Inquiry</option>
+                                    <option>Academic Information</option>
+                                    <option>Facilities Tour</option>
+                                    <option>General Question</option>
+                                    <option>Other</option>
+                                </select>
                             </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Contact Form -->
-                <div class="relative">
-                    <!-- Form Container -->
-                    <div
-                        class="relative bg-white/90 dark:bg-gray-900/90 backdrop-blur-lg rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 shadow-2xl">
-                        <!-- Animated Border -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-cyber-coral via-cyber-blue to-cyber-coral dark:from-cyber-pink dark:via-cyber-cyan dark:to-cyber-pink rounded-3xl opacity-20 blur-sm animate-pulse">
-                        </div>
+                            <div class="relative">
+                                <label for="message" class="block text-slate-700 font-semibold mb-2">Your
+                                    Message</label>
+                                <textarea id="message" name="message" rows="5"
+                                    placeholder="Tell us more about your inquiry"
+                                    class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:border-cyan-500 transition-colors resize-none"></textarea>
+                            </div>
 
-                        <div class="relative z-10">
-                            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Send Message</h2>
-                            <p class="text-gray-600 dark:text-gray-400 mb-8">Tell me about your project and I'll get
-                                back to you soon.</p>
+                            <button id="submit-btn" type="submit"
+                                class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all flex items-center justify-center">
 
-                            <!-- Success/Error Messages -->
-                            <?php
-                            $forms_error   = isset( $_SESSION['forms_error'] ) ? $_SESSION['forms_error'] : array();
-                            $forms_success = isset( $_SESSION['forms_success'] ) ? $_SESSION['forms_success'] : array();
-                            unset( $_SESSION['forms_error'], $_SESSION['forms_success'] );
-                            ?>
-
-                            <?php if ( ! empty( $forms_success ) ) : ?>
-                            <?php foreach ( $forms_success as $success ) : ?>
-                            <div class="flex items-center justify-between bg-gradient-to-r from-green-400 to-green-600 text-white p-4 mb-6 rounded-2xl shadow-lg"
-                                role="alert">
-                                <div class="flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                            clip-rule="evenodd" />
+                                <span id="btn-icon" class="mr-2">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                                     </svg>
-                                    <p><?php echo esc_html( $success ); ?></p>
-                                </div>
-                                <button type="button" class="text-white hover:text-gray-200"
-                                    onclick="this.parentElement.style.display='none';">×</button>
-                            </div>
-                            <?php endforeach; ?>
-                            <?php endif; ?>
+                                </span>
 
-                            <?php if ( ! empty( $forms_error ) ) : ?>
-                            <?php foreach ( $forms_error as $error ) : ?>
-                            <div class="flex items-center justify-between bg-gradient-to-r from-red-400 to-red-600 text-white p-4 mb-6 rounded-2xl shadow-lg"
-                                role="alert">
-                                <div class="flex items-center">
-                                    <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd"
-                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                                            clip-rule="evenodd" />
+                                <span id="btn-text">Send Message</span>
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-900 mb-6">Contact Information</h2>
+                        <div class="space-y-6 mb-8">
+                            <div class="flex items-start space-x-4">
+                                <div
+                                    class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                     </svg>
-                                    <p><?php echo esc_html( $error ); ?></p>
                                 </div>
-                                <button type="button" class="text-white hover:text-gray-200"
-                                    onclick="this.parentElement.style.display='none';">×</button>
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900 mb-2">School Location</h3>
+                                    <p class="text-slate-600">Tetu, Nyeri County, Kenya</p>
+                                </div>
                             </div>
-                            <?php endforeach; ?>
-                            <?php endif; ?>
 
-                            <!-- Contact Form -->
-                            <form id="contact-form" class="space-y-6">
-                                <input type="text" name="honeypot" class="hidden">
-
-                                <!-- Name Field -->
-                                <div class="relative pb-6">
-                                    <input type="text" id="name" name="name" placeholder=" " required
-                                        class="peer w-full px-4 py-4 bg-gray-50 dark:bg-gray-800/50 border-2 border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-white placeholder-transparent focus:border-cyber-blue dark:focus:border-cyber-cyan focus:outline-none focus:ring-0 transition-all duration-300">
-                                    <label for="name"
-                                        class="absolute left-4 -top-2.5 bg-white dark:bg-gray-900 px-2 text-sm font-medium text-gray-600 dark:text-gray-400 transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:bg-transparent peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-cyber-blue dark:peer-focus:text-cyber-cyan peer-focus:bg-white dark:peer-focus:bg-gray-900">
-                                        <?php esc_html_e( 'Full Name *', 'wilson-devops' ); ?>
-                                    </label>
+                            <div class="flex items-start space-x-4">
+                                <div
+                                    class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                        </path>
+                                    </svg>
                                 </div>
-
-                                <!-- Email Field -->
-                                <div class="relative pb-6">
-                                    <input type="email" id="email" name="email" placeholder=" " required
-                                        class="peer w-full px-4 py-4 bg-gray-50 dark:bg-gray-800/50 border-2 border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-white placeholder-transparent focus:border-cyber-blue dark:focus:border-cyber-cyan focus:outline-none focus:ring-0 transition-all duration-300">
-                                    <label for="email"
-                                        class="absolute left-4 -top-2.5 bg-white dark:bg-gray-900 px-2 text-sm font-medium text-gray-600 dark:text-gray-400 transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:bg-transparent peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-cyber-blue dark:peer-focus:text-cyber-cyan peer-focus:bg-white dark:peer-focus:bg-gray-900">
-                                        <?php esc_html_e( 'Email Address *', 'wilson-devops' ); ?>
-                                    </label>
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900 mb-2">Phone Number</h3>
+                                    <p class="text-slate-600">+254 705 419 982</p>
+                                    <p class="text-sm text-slate-500 mt-1">Monday - Friday: 8:00 AM - 5:00 PM</p>
                                 </div>
+                            </div>
 
-                                <!-- Subject Field -->
-                                <div class="relative pb-6">
-                                    <input type="text" id="subject" name="subject" placeholder=" "
-                                        class="peer w-full px-4 py-4 bg-gray-50 dark:bg-gray-800/50 border-2 border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-white placeholder-transparent focus:border-cyber-blue dark:focus:border-cyber-cyan focus:outline-none focus:ring-0 transition-all duration-300">
-                                    <label for="subject"
-                                        class="absolute left-4 -top-2.5 bg-white dark:bg-gray-900 px-2 text-sm font-medium text-gray-600 dark:text-gray-400 transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:bg-transparent peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-cyber-blue dark:peer-focus:text-cyber-cyan peer-focus:bg-white dark:peer-focus:bg-gray-900">
-                                        <?php esc_html_e( 'Subject', 'wilson-devops' ); ?>
-                                    </label>
+                            <div class="flex items-start space-x-4">
+                                <div
+                                    class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
                                 </div>
-
-                                <!-- Message Field -->
-                                <div class="relative pb-6">
-                                    <textarea id="message" name="message" rows="5" placeholder=" " required
-                                        class="peer w-full px-4 py-4 bg-gray-50 dark:bg-gray-800/50 border-2 border-gray-200 dark:border-gray-700 rounded-xl text-gray-900 dark:text-white placeholder-transparent focus:border-cyber-blue dark:focus:border-cyber-cyan focus:outline-none focus:ring-0 resize-none transition-all duration-300"></textarea>
-                                    <label for="message"
-                                        class="absolute left-4 -top-2.5 bg-white dark:bg-gray-900 px-2 text-sm font-medium text-gray-600 dark:text-gray-400 transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:bg-transparent peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-cyber-blue dark:peer-focus:text-cyber-cyan peer-focus:bg-white dark:peer-focus:bg-gray-900">
-                                        <?php esc_html_e( 'Your Message *', 'wilson-devops' ); ?>
-                                    </label>
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900 mb-2">Email Address</h3>
+                                    <p class="text-slate-600">info@gathathiini.sc.ke</p>
+                                    <p class="text-sm text-slate-500 mt-1">We respond within 24 hours</p>
                                 </div>
-
-                                <!-- Submit Button -->
-                                <button type="submit" id="submit-btn"
-                                    class="group relative w-full py-4 px-8 bg-gradient-to-r from-cyber-blue to-cyber-coral dark:from-cyber-cyan dark:to-cyber-pink text-white font-semibold rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer">
-                                    <span class="relative z-10 flex items-center justify-center">
-                                        <span id="btn-icon">
-                                            <svg class="w-5 h-5 mr-2 group-hover:animate-bounce" fill="none"
-                                                stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                                            </svg>
-                                        </span>
-                                        <span
-                                            id="btn-text"><?php esc_html_e( 'Send Message', 'wilson-devops' ); ?></span>
-                                    </span>
-                                    <div
-                                        class="absolute inset-0 bg-gradient-to-r from-cyber-coral to-cyber-blue dark:from-cyber-pink dark:to-cyber-cyan opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    </div>
-                                </button>
-                            </form>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Decorative Elements -->
-                    <div
-                        class="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-cyber-coral to-cyber-blue dark:from-cyber-pink dark:to-cyber-cyan rounded-full opacity-30 animate-ping">
-                    </div>
-                    <div
-                        class="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-cyber-blue to-cyber-coral dark:from-cyber-cyan dark:to-cyber-pink rounded-lg rotate-12 opacity-40 animate-pulse">
+                        <!-- Office Hours -->
+                        <div class="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8">
+                            <h3 class="text-xl font-bold text-slate-900 mb-4">Office Hours</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between">
+                                    <span class="text-slate-600">Monday - Friday</span>
+                                    <span class="text-slate-900 font-semibold">8:00 AM - 5:00 PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-600">Saturday</span>
+                                    <span class="text-slate-900 font-semibold">9:00 AM - 1:00 PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-600">Sunday</span>
+                                    <span class="text-slate-900 font-semibold">Closed</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="mt-8">
+                            <h3 class="text-xl font-bold text-slate-900 mb-4">Follow Us</h3>
+                            <div class="flex space-x-4">
+                                <a href="#"
+                                    class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                    </svg>
+                                </a>
+                                <a href="#"
+                                    class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                                    </svg>
+                                </a>
+                                <a href="#"
+                                    class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121L7.9 13.442l-2.97-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Map Section -->
+    <section class="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-slate-900 mb-4">Find Us</h2>
+                    <p class="text-xl text-slate-600">Located in the beautiful region of Tetu, Nyeri County</p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 shadow-xl">
+                    <div class="aspect-video bg-slate-200 rounded-2xl overflow-hidden">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7007774119197!2d36.84753587572726!3d-0.43980523528834203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182859d196648c8d%3A0x580a6001ed6ba354!2sGathathini%20High%20School!5e0!3m2!1sen!2ske!4v1763709261228!5m2!1sen!2ske"
+                            class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold text-white mb-6">Ready to Join Us?</h2>
+                <p class="text-xl text-gray-300 mb-8">Start your application today and become part of our community.</p>
+                <a href="<?php echo esc_url(home_url('/admissions')); ?>"
+                    class="inline-block bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all">Apply
+                    for Admission</a>
+            </div>
+        </div>
+    </section>
+
 
 </main>
 

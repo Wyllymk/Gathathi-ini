@@ -22,6 +22,7 @@ export default [
 			globals: {
 				...globals.browser,
 				wp: 'readonly',
+				contact_ajax: 'readonly',
 			},
 		},
 	},

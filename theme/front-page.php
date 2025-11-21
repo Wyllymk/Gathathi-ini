@@ -50,10 +50,10 @@ get_header();
                             academic excellence, character development, and holistic education at Gathathi-ini Boys High
                             School.</p>
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="#admissions"
+                            <a href="<?php echo esc_url(home_url('/admissions')); ?>"
                                 class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all text-center">Apply
                                 Now</a>
-                            <a href="#about"
+                            <a href="<?php echo esc_url(home_url('/about')); ?>"
                                 class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition-all text-center border border-white/20">Learn
                                 More</a>
                         </div>
@@ -106,14 +106,14 @@ get_header();
     </section>
 
     <!-- Vision & Mission Section -->
-    <section id="about" class="py-20 bg-white">
+    <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Our Vision & Mission</h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
                 <div
                     class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8 hover:shadow-2xl transition-shadow">
                     <div
@@ -146,11 +146,17 @@ get_header();
                     </p>
                 </div>
             </div>
+
+            <div class="text-center">
+                <a href="<?php echo esc_url(home_url('/about')); ?>"
+                    class="inline-block bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all">Learn
+                    More About Us</a>
+            </div>
         </div>
     </section>
 
-    <!-- Six Pillars Section -->
-    <section id="pillars" class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
+    <!-- Six Pillars Preview -->
+    <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Six Pillars</h2>
@@ -158,7 +164,7 @@ get_header();
                     High School</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-12">
                 <div
                     class="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-cyan-500/50 transition-all hover:-translate-y-2">
                     <div
@@ -171,7 +177,7 @@ get_header();
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Academic Excellence</h3>
                     <p class="text-gray-300 leading-relaxed">Fostering a culture of academic excellence through
-                        mentorship, enrichment programs, and recognition of outstanding achievements.</p>
+                        mentorship, enrichment programs, and recognition.</p>
                 </div>
 
                 <div
@@ -249,6 +255,12 @@ get_header();
                         guiding them away from societal ills and distractions.</p>
                 </div>
             </div>
+
+            <div class="text-center">
+                <a href="<?php echo esc_url(home_url('/pillars')); ?>"
+                    class="inline-block bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all">Explore
+                    All Pillars</a>
+            </div>
         </div>
     </section>
 
@@ -256,9 +268,8 @@ get_header();
     <section class="py-20 bg-gradient-to-r from-cyan-500 to-blue-600">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                <div class="text-center" x-data="{ count: 0 }"
-                    x-intersect="$el.querySelector('.stat-number').classList.add('counting')">
-                    <div class="text-5xl md:text-6xl font-bold text-white mb-2 stat-number">740+</div>
+                <div class="text-center">
+                    <div class="text-5xl md:text-6xl font-bold text-white mb-2">740+</div>
                     <div class="text-white/90 font-medium">Students</div>
                 </div>
                 <div class="text-center">
@@ -277,101 +288,111 @@ get_header();
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="admissions" class="py-20 bg-white">
+    <!-- Academics Preview -->
+    <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Ready to Join Us?</h2>
-                <p class="text-xl text-slate-600 mb-8 leading-relaxed">Start your journey to becoming a man of purpose
-                    and integrity. Apply today for admission to Gathathi-ini Boys High School.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#contact"
-                        class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all">Apply
-                        Now</a>
-                    <a href="tel:+254705419982"
-                        class="bg-slate-900 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-slate-800 transition-all">Call
-                        Us: +254 705 419 982</a>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Excellence in Education</h2>
+                        <p class="text-lg text-slate-600 mb-6 leading-relaxed">Our comprehensive curriculum combines
+                            academic rigor with practical skills development. We offer a wide range of subjects and
+                            programs designed to prepare students for university and beyond.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center space-x-3">
+                                <div
+                                    class="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-slate-700">8-4-4 CBC Curriculum</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <div
+                                    class="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-slate-700">Experienced Faculty Members</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <div
+                                    class="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-slate-700">Modern Learning Facilities</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <div
+                                    class="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                            d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-slate-700">Individual Student Mentorship</span>
+                            </li>
+                        </ul>
+                        <a href="<?php echo esc_url(home_url('/academics')); ?>"
+                            class="inline-block bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all">View
+                            Academic Programs</a>
+                    </div>
+                    <div class="relative">
+                        <div
+                            class="absolute -inset-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-3xl blur-2xl opacity-20">
+                        </div>
+                        <div class="relative bg-slate-800 rounded-3xl p-8 text-white">
+                            <h3 class="text-2xl font-bold mb-6">Our Subjects</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-slate-700/50 rounded-xl p-4">
+                                    <p class="font-semibold">Sciences</p>
+                                    <p class="text-sm text-gray-300">Biology, Chemistry, Physics</p>
+                                </div>
+                                <div class="bg-slate-700/50 rounded-xl p-4">
+                                    <p class="font-semibold">Mathematics</p>
+                                    <p class="text-sm text-gray-300">Pure & Applied Math</p>
+                                </div>
+                                <div class="bg-slate-700/50 rounded-xl p-4">
+                                    <p class="font-semibold">Languages</p>
+                                    <p class="text-sm text-gray-300">English, Kiswahili</p>
+                                </div>
+                                <div class="bg-slate-700/50 rounded-xl p-4">
+                                    <p class="font-semibold">Humanities</p>
+                                    <p class="text-sm text-gray-300">History, Geography, CRE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Get In Touch</h2>
-                <p class="text-gray-300 text-lg">We would love to hear from you</p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                <div class="space-y-8">
-                    <div class="flex items-start space-x-4">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                                </path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-2">Location</h3>
-                            <p class="text-gray-300">Tetu, Nyeri County, Kenya</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start space-x-4">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
-                                </path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-2">Phone</h3>
-                            <p class="text-gray-300">+254 705 419 982</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start space-x-4">
-                        <div
-                            class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                                </path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-2">Email</h3>
-                            <p class="text-gray-300">info@gathathiini.sc.ke</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                    <form class="space-y-6">
-                        <div>
-                            <input type="text" placeholder="Your Name"
-                                class="w-full px-4 py-3 bg-slate-900/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 transition-colors">
-                        </div>
-                        <div>
-                            <input type="email" placeholder="Your Email"
-                                class="w-full px-4 py-3 bg-slate-900/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 transition-colors">
-                        </div>
-                        <div>
-                            <textarea rows="4" placeholder="Your Message"
-                                class="w-full px-4 py-3 bg-slate-900/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-500 transition-colors resize-none"></textarea>
-                        </div>
-                        <button type="submit"
-                            class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all">Send
-                            Message</button>
-                    </form>
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Join Us?</h2>
+                <p class="text-xl text-gray-300 mb-8 leading-relaxed">Start your journey to becoming a man of purpose
+                    and integrity. Apply today for admission to Gathathi-ini Boys High School.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="<?php echo esc_url(home_url('/admissions')); ?>"
+                        class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all">Apply
+                        Now</a>
+                    <a href="<?php echo esc_url(home_url('/contact')); ?>"
+                        class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition-all border border-white/20">Contact
+                        Us</a>
                 </div>
             </div>
         </div>
