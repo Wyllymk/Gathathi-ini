@@ -8,144 +8,17 @@
 // Exit if accessed directly
 defined( 'ABSPATH' ) || exit;
 
-// Start the session if not already started
-function start_session() {
-	if ( ! session_id() ) {
-		session_start();
-	}
+/* ── INCLUDES ────────────────────────────────────────────── */
+require_once GBHS_DIR . '/inc/walker-nav.php';
+require_once GBHS_DIR . '/inc/contact-form.php';
+if ( function_exists( 'acf_add_local_field_group' ) ) {
+    require_once GBHS_DIR . '/inc/acf-fields.php';
 }
-add_action( 'wp_loaded', 'start_session', 1 );
-
-/**
- * Handle Contact Form Submission
- */
-function handle_contact_form_submission() {
-	// Check nonce
-	if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'contact_form_nonce' ) ) {
-		wp_send_json_error( array( 'message' => 'Security verification failed.' ) );
-	}
-
-	// Check honeypot
-	if ( ! empty( $_POST['honeypot'] ) ) {
-		wp_send_json_success( array( 'message' => 'Thank you! Your message has been sent.' ) ); // Silent success for bots
-	}
-
-	// Sanitize fields
-	$name    = sanitize_text_field( $_POST['name'] ?? '' );
-	$email   = sanitize_email( $_POST['email'] ?? '' );
-	$phone   = sanitize_text_field( $_POST['phone'] ?? '' );
-	$subject = sanitize_text_field( $_POST['subject'] ?? '' );
-	$message = sanitize_textarea_field( $_POST['message'] ?? '' );
-
-	// Validation
-	$errors = array();
-
-	if ( empty( $name ) ) {
-		$errors[] = 'Name is required.';
-	}
-
-	if ( empty( $email ) ) {
-		$errors[] = 'Email is required.';
-	} elseif ( ! is_email( $email ) ) {
-		$errors[] = 'Please enter a valid email address.';
-	}
-
-	if ( empty( $message ) ) {
-		$errors[] = 'Message is required.';
-	}
-
-	if ( ! empty( $errors ) ) {
-		wp_send_json_error( array( 'message' => implode( ' ', $errors ) ) );
-	}
-
-	// Prepare email
-	$to            = get_option( 'admin_email' );
-	$email_subject = "Contact Form: $subject - From $name";
-
-	$email_body = "
-    <h2>New Contact Form Submission</h2>
-    <p><strong>Name:</strong> $name</p>
-    <p><strong>Email:</strong> $email</p>
-    <p><strong>Phone:</strong> $phone</p>
-    <p><strong>Subject:</strong> $subject</p>
-    <p><strong>Message:</strong></p>
-    <div>" . nl2br( esc_html( $message ) ) . '</div>
-    <hr>
-    <p><em>Sent from ' . get_bloginfo( 'name' ) . ' website</em></p>
-    ';
-
-	$headers = array(
-		'Content-Type: text/html; charset=UTF-8',
-		"From: $name <$email>",
-		"Reply-To: $name <$email>",
-	);
-
-	// Send email
-	$sent = wp_mail( $to, $email_subject, $email_body, $headers );
-
-	if ( $sent ) {
-		wp_send_json_success( array( 'message' => 'Thank you! Your message has been sent successfully.' ) );
-	} else {
-		error_log( 'Contact form email failed to send for: ' . $email );
-		wp_send_json_error( array( 'message' => 'Sorry, there was an error sending your message. Please try again later.' ) );
-	}
-}
-
-// Register AJAX handlers
-add_action( 'wp_ajax_submit_contact_form', 'handle_contact_form_submission' );
-add_action( 'wp_ajax_nopriv_submit_contact_form', 'handle_contact_form_submission' );
-
-/**
- * Optional: Contact form settings in admin
- */
-function gathathiini_contact_form_admin_menu() {
-	add_options_page(
-		'Contact Form Settings',
-		'Contact Form',
-		'manage_options',
-		'contact-form-settings',
-		'gathathiini_contact_form_admin_page'
-	);
-}
-add_action( 'admin_menu', 'gathathiini_contact_form_admin_menu' );
-
-function gathathiini_contact_form_admin_page() {
-	if ( isset( $_POST['save_settings'] ) && check_admin_referer( 'contact_form_settings' ) ) {
-		update_option( 'gathathiini_contact_email', sanitize_email( $_POST['contact_email'] ) );
-		update_option( 'gathathiini_contact_subject_prefix', sanitize_text_field( $_POST['subject_prefix'] ) );
-		echo '<div class="notice notice-success"><p>Settings saved!</p></div>';
-	}
-
-	$contact_email  = get_option( 'gathathiini_contact_email', get_option( 'admin_email' ) );
-	$subject_prefix = get_option( 'gathathiini_contact_subject_prefix', '[Website Contact]' );
-	?>
-<div class="wrap">
-	<h1>Contact Form Settings</h1>
-	<form method="post" action="">
-		<?php wp_nonce_field( 'contact_form_settings' ); ?>
-		<table class="form-table">
-			<tr>
-				<th scope="row">Contact Email</th>
-				<td>
-					<input type="email" name="contact_email" value="<?php echo esc_attr( $contact_email ); ?>"
-						class="regular-text" />
-					<p class="description">Where contact form submissions will be sent.</p>
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">Subject Prefix</th>
-				<td>
-					<input type="text" name="subject_prefix" value="<?php echo esc_attr( $subject_prefix ); ?>"
-						class="regular-text" />
-					<p class="description">Prefix added to email subjects.</p>
-				</td>
-			</tr>
-		</table>
-		<?php submit_button( 'Save Settings', 'primary', 'save_settings' ); ?>
-	</form>
-</div>
-	<?php
-}
+// Hook acf-fields after ACF is ready
+add_action( 'acf/init', function () {
+    $path = GBHS_DIR . '/inc/acf-fields.php';
+    if ( file_exists( $path ) ) require_once $path;
+} );
 
 /**
  * Creates the "Home" and "Coming Soon" pages if they don't exist.
@@ -221,14 +94,7 @@ add_action( 'after_switch_theme', 'gathathiini_create_home_page' );
  */
 function gathathiini_create_core_pages() {
 	$pages = array(
-		// === Parent Pages ===
-		array(
-			'title'    => 'Home',
-			'slug'     => 'home',
-			'template' => '',
-			'parent'   => 0,
-			'is_front' => true,
-		),
+		// === Parent Pages ===		
 		array(
 			'title'    => 'Contact',
 			'slug'     => 'contact',
@@ -257,6 +123,12 @@ function gathathiini_create_core_pages() {
 			'title'    => 'Admissions',
 			'slug'     => 'admissions',
 			'template' => 'page-templates/page-admissions.php',
+			'parent'   => 0,
+		),
+		array(
+			'title'    => 'Campus Life',
+			'slug'     => 'campus-life',
+			'template' => 'page-templates/page-campus-life.php',
 			'parent'   => 0,
 		),
 	);
@@ -330,3 +202,62 @@ function gathathiini_setup_settings() {
 	update_option( 'gmt_offset', 3 ); // Set numeric offset to +3
 }
 add_action( 'after_switch_theme', 'gathathiini_setup_settings' );
+
+
+/* ── HELPER: get site option (ACF or fallback) ───────────── */
+function gbhs_option( string $key, string $fallback = '' ): string {
+    if ( function_exists( 'get_field' ) ) {
+        $val = get_field( $key, 'option' );
+        if ( $val ) return esc_html( $val );
+    }
+    return $fallback;
+}
+
+function gbhs_field( string $key, string $fallback = '', $post_id = null ): string {
+    if ( function_exists( 'get_field' ) ) {
+        $val = get_field( $key, $post_id );
+        if ( $val ) return $val; // caller escapes
+    }
+    return $fallback;
+}
+
+/* ── SCHOOL DEFAULTS ─────────────────────────────────────── */
+function gbhs_phone():   string { return gbhs_option( 'school_phone',   '0725 407 132' ); }
+function gbhs_email():   string { return gbhs_option( 'school_email',   'gathathiinisecondary122@gmail.com' ); }
+function gbhs_address(): string { return gbhs_option( 'school_address', "P.O. Box 122-10100, Nyeri\nKirurumi, Tetu Sub-County\nNyeri County, Kenya" ); }
+function gbhs_wa():      string { return gbhs_option( 'whatsapp_num',   '254703639230' ); }
+
+/* ── WIDGET AREAS ────────────────────────────────────────── */
+add_action( 'widgets_init', function () {
+    register_sidebar([
+        'name'          => __( 'Blog Sidebar', 'gathathiini' ),
+        'id'            => 'blog-sidebar',
+        'before_widget' => '<div class="mb-8">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="eyebrow mb-4">',
+        'after_title'   => '</h3>',
+    ]);
+} );
+
+/* ── EXCERPT LENGTH ──────────────────────────────────────── */
+add_filter( 'excerpt_length', fn() => 30 );
+add_filter( 'excerpt_more',   fn() => '&hellip;' );
+
+/* ── REMOVE EMOJI SCRIPTS (performance) ─────────────────── */
+remove_action( 'wp_head',             'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles',     'print_emoji_styles' );
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'admin_print_styles',  'print_emoji_styles' );
+
+/* ── BODY CLASSES ────────────────────────────────────────── */
+add_filter( 'body_class', function ( $classes ) {
+    if ( is_front_page() ) $classes[] = 'gbhs-home';
+    return $classes;
+} );
+
+/* ── COMMENT FORM DEFAULTS ───────────────────────────────── */
+add_filter( 'comment_form_defaults', function ( $defaults ) {
+    $defaults['class_form']   = 'space-y-4 mt-6';
+    $defaults['class_submit'] = 'btn-gold px-6 py-3 font-display text-[12px] tracking-[0.22em] uppercase';
+    return $defaults;
+} );

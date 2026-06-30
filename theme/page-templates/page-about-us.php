@@ -1,263 +1,277 @@
 <?php
-/*
-Template Name: About Page
-*/
-
-// Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
-
+/**
+ * Template Name: About
+ * Template Post Type: page
+ */
 get_header();
+
+$story     = gbhs_field('about_story', '<p>Gathathiini Boys High School was founded with a singular belief: that the boys of this community deserved a world-class education without leaving their homeland. Set in the rolling highlands of Kirurumi in Tetu Sub-County, the school quickly became the heartbeat of the region — a place where local boys transformed into county and national leaders.</p><p>As a county boarding school recognised by the Ministry of Education, we have maintained the rigorous academic standards of the 8-4-4 curriculum while embracing the forward-thinking CBC. Our discipline is our inheritance. Our excellence is our ambition.</p>');
+$pr_msg    = gbhs_field('principal_full_message','<p>Welcome to Gathathiini Boys High School. Every boy who walks through our gates arrives with potential — raw, unformed, and full of possibility. Our work is to shape that potential with discipline, sharpen it with knowledge, and ground it in values that will serve him for life.</p><p>We are not a school that settles for ordinary. Our students are challenged daily — academically, athletically, creatively and morally. Excellence is not a gift; it is a discipline. And discipline, practised consistently over four years, becomes character.</p>');
+$pr_name   = gbhs_field('principal_name',  'The Principal, Gathathiini Boys High School');
+$pr_img    = gbhs_field('about_principal_photo', '');
+$principal_url = get_template_directory_uri() . '/assets/img/principal.jpg';
+$mission   = gbhs_field('mission_text', 'To provide wholesome education by promoting self-discipline and hard work.');
+$vision    = gbhs_field('vision_text',  'To become the school of choice in moulding individuals to become responsible members of society.');
+
+// Timeline — ACF repeater or fallback
+$timeline_items = [];
+if ( function_exists('get_field') ) {
+    $tl = get_field('timeline');
+    if ( $tl ) $timeline_items = $tl;
+}
+if ( empty($timeline_items) ) {
+    $timeline_items = [
+        ['year'=>'1968','title'=>'Foundation',         'desc'=>'Gathathiini Boys High School opens its gates for the first time, serving the boys of Kirurumi and the surrounding Tetu Sub-County communities of Nyeri.'],
+        ['year'=>'1980s','title'=>'Growing Roots',     'desc'=>'The school\'s infrastructure expands significantly. Dormitory houses are constructed and the boarding culture that defines Gathathiini begins to take shape.'],
+        ['year'=>'1990s','title'=>'Academic Recognition','desc'=>'Gathathiini Boys earns recognition across Nyeri County for consistent KCSE performance. The school\'s reputation for producing disciplined, principled graduates grows county-wide.'],
+        ['year'=>'2000s','title'=>'Sports & Co-curricular','desc'=>'Athletics, drama, music and debate clubs are formalised. Gathathiini boys begin representing Nyeri County at national competitions.'],
+        ['year'=>'2010s','title'=>'Digital Transformation','desc'=>'Computer laboratories are established. The school begins integrating technology into teaching methodologies across all departments.'],
+        ['year'=>'2020s','title'=>'CBC & Future-Readiness','desc'=>'Gathathiini embraces Kenya\'s Competency-Based Curriculum alongside 8-4-4, ensuring every student is prepared for the evolving demands of university, career, and life in modern Africa.'],
+    ];
+}
+
+$values = [
+    ['Integrity',    'We hold ourselves to honesty and moral uprightness in all things — even when no one is watching. The Gathathiini man\'s word is his bond.'],
+    ['Discipline',   'Self-mastery is the foundation of all achievement. We teach boys to govern their impulses so they can direct their energy toward what matters.'],
+    ['Excellence',   'We do not accept the minimum. In academics, sport, art, and character, we relentlessly pursue the highest standard we are capable of.'],
+    ['Brotherhood',  'The bond formed between boys who struggle and grow together is among the most enduring things we offer. A community of mutual respect and support.'],
+    ['Responsibility','Each Gathathiini boy is taught that his gifts come with obligations — to his family, his community, his country, and to future generations.'],
+    ['Resilience',   'Life will test every man. We prepare our boys to face difficulty with courage, to fail with dignity, and to rise with greater wisdom each time.'],
+];
 ?>
 
-<!-- Hero Section -->
-<section class="relative pt-32 pb-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-20 left-20 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl">
-        </div>
-        <div class="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl">
-        </div>
-    </div>
-
-    <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6"><?php esc_html_e( 'About Us', 'gathathiini' ); ?>
-            </h1>
-            <p class="text-xl text-gray-300 leading-relaxed">
-                <?php esc_html_e( 'Discover the legacy and values that make Gathathi-ini Boys High School a beacon of excellence in education.', 'gathathiini' ); ?>
-            </p>
-        </div>
-    </div>
-</section>
-
-<!-- Vision & Mission -->
-<section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-8 mb-16">
-                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-10">
-                    <div
-                        class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-4">
-                        <?php esc_html_e( 'Our Vision', 'gathathiini' ); ?></h2>
-                    <p class="text-slate-600 text-lg leading-relaxed">
-                        <?php esc_html_e( 'To become the school of choice in molding individuals to become responsible members of society through excellence in academics, sports, and character development.', 'gathathiini' ); ?>
-                    </p>
-                </div>
-
-                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-10">
-                    <div
-                        class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-4">
-                        <?php esc_html_e( 'Our Mission', 'gathathiini' ); ?></h2>
-                    <p class="text-slate-600 text-lg leading-relaxed">
-                        <?php esc_html_e( 'We receive boys and transform them into men who have conquered both academically and socially. We particularly focus on developing talents and life skills of our boys.', 'gathathiini' ); ?>
-                    </p>
-                </div>
-            </div>
+<!-- PAGE HERO -->
+<section class="relative pt-40 pb-24 lg:pt-52 lg:pb-32 border-b border-[rgba(245,241,232,.14)] overflow-hidden">
+    <div class="absolute inset-0 grain opacity-20"></div>
+    <div class="relative max-w-[1440px] mx-auto px-6 lg:px-10">
+        <p class="eyebrow mb-6">About the school</p>
+        <h1 class="font-display text-5xl md:text-7xl lg:text-[90px] tracking-[-0.03em] leading-[0.98] max-w-4xl">
+            We form <span class="font-serif-i italic text-[#D4B574]">men</span>,<br />not just students.
+        </h1>
+        <p class="mt-8 text-white/65 text-lg max-w-2xl leading-relaxed">
+            Gathathiini Boys High School has stood in the highlands of Nyeri County as a place of deliberate, purposeful
+            formation — where every boy who enters is shaped into something greater than he arrived.
+        </p>
+        <div class="mt-10 flex gap-px">
+            <div class="bg-[rgba(245,241,232,.14)] w-px h-12"></div>
+            <div class="pl-6 text-sm text-white/50">Kirurumi &middot; Tetu Sub-County &middot; Nyeri County &middot;
+                Kenya</div>
         </div>
     </div>
 </section>
 
-<!-- History -->
-<section class="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-    <div class="container mx-auto px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-4xl font-bold text-slate-900 mb-6">
-                        <?php esc_html_e( 'Our Rich History', 'gathathiini' ); ?></h2>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        <?php esc_html_e( 'Gathathi-ini Boys High School has been a cornerstone of educational excellence in Nyeri County. Located in the scenic Tetu region, our institution has grown from humble beginnings to become one of the most respected secondary schools in the area.', 'gathathiini' ); ?>
-                    </p>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        <?php esc_html_e( 'Over the years, we have maintained our commitment to holistic education, producing graduates who excel not only in academics but also in sports, arts, and community leadership. Our alumni continue to make significant contributions to society in various fields.', 'gathathiini' ); ?>
-                    </p>
-                    <p class="text-lg text-slate-600 leading-relaxed">
-                        <?php esc_html_e( 'Today, we serve over 440 students with a dedicated team of 20+ qualified teachers, maintaining our tradition of excellence while embracing modern educational practices and technologies.', 'gathathiini' ); ?>
-                    </p>
+<!-- SCHOOL STORY -->
+<section class="py-28 lg:py-40">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 lg:gap-20">
+        <div class="lg:col-span-5 reveal">
+            <div class="relative aspect-[4/5] overflow-hidden bg-[#111827]">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="font-serif-i italic text-[200px] text-white/03 leading-none">G</span>
                 </div>
-                <div class="relative">
-                    <div
-                        class="absolute -inset-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-3xl blur-2xl opacity-20">
-                    </div>
-                    <div class="relative grid grid-cols-2 gap-4">
-                        <div class="bg-white rounded-2xl p-6 shadow-xl">
-                            <div class="text-4xl font-bold text-cyan-600 mb-2">440+</div>
-                            <p class="text-slate-600"><?php esc_html_e( 'Students Enrolled', 'gathathiini' ); ?></p>
-                        </div>
-                        <div class="bg-white rounded-2xl p-6 shadow-xl">
-                            <div class="text-4xl font-bold text-blue-600 mb-2">20+</div>
-                            <p class="text-slate-600"><?php esc_html_e( 'Qualified Teachers', 'gathathiini' ); ?></p>
-                        </div>
-                        <div class="bg-white rounded-2xl p-6 shadow-xl">
-                            <div class="text-4xl font-bold text-purple-600 mb-2">6</div>
-                            <p class="text-slate-600"><?php esc_html_e( 'Our Pillars', 'gathathiini' ); ?></p>
-                        </div>
-                        <div class="bg-white rounded-2xl p-6 shadow-xl">
-                            <div class="text-4xl font-bold text-pink-600 mb-2">10+</div>
-                            <p class="text-slate-600"><?php esc_html_e( 'Sports Programs', 'gathathiini' ); ?></p>
-                        </div>
-                    </div>
+                <div class="absolute bottom-6 left-6">
+                    <div class="eyebrow">Est. 1968</div>
+                    <div class="font-display text-lg mt-1">Kirurumi, Nyeri</div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- Core Values -->
-<section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-                    <?php esc_html_e( 'Our Core Values', 'gathathiini' ); ?></h2>
-                <p class="text-xl text-slate-600">
-                    <?php esc_html_e( 'The principles that guide everything we do', 'gathathiini' ); ?></p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center p-8 rounded-2xl hover:shadow-xl transition-shadow">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3"><?php esc_html_e( 'Integrity', 'gathathiini' ); ?>
-                    </h3>
-                    <p class="text-slate-600">
-                        <?php esc_html_e( 'We uphold honesty, transparency, and strong moral principles in all our actions and decisions.', 'gathathiini' ); ?>
-                    </p>
-                </div>
-
-                <div class="text-center p-8 rounded-2xl hover:shadow-xl transition-shadow">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">
-                        <?php esc_html_e( 'Excellence', 'gathathiini' ); ?></h3>
-                    <p class="text-slate-600">
-                        <?php esc_html_e( 'We strive for the highest standards in academics, sports, and character development.', 'gathathiini' ); ?>
-                    </p>
-                </div>
-
-                <div class="text-center p-8 rounded-2xl hover:shadow-xl transition-shadow">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3"><?php esc_html_e( 'Respect', 'gathathiini' ); ?>
-                    </h3>
-                    <p class="text-slate-600">
-                        <?php esc_html_e( 'We value diversity, treat everyone with dignity, and foster a culture of mutual respect.', 'gathathiini' ); ?>
-                    </p>
-                </div>
-
-                <div class="text-center p-8 rounded-2xl hover:shadow-xl transition-shadow">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">
-                        <?php esc_html_e( 'Responsibility', 'gathathiini' ); ?></h3>
-                    <p class="text-slate-600">
-                        <?php esc_html_e( 'We take ownership of our actions and contribute positively to our community and society.', 'gathathiini' ); ?>
-                    </p>
-                </div>
-
-                <div class="text-center p-8 rounded-2xl hover:shadow-xl transition-shadow">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3"><?php esc_html_e( 'Teamwork', 'gathathiini' ); ?>
-                    </h3>
-                    <p class="text-slate-600">
-                        <?php esc_html_e( 'We collaborate effectively, supporting each other to achieve common goals.', 'gathathiini' ); ?>
-                    </p>
-                </div>
-
-                <div class="text-center p-8 rounded-2xl hover:shadow-xl transition-shadow">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">
-                        <?php esc_html_e( 'Innovation', 'gathathiini' ); ?></h3>
-                    <p class="text-slate-600">
-                        <?php esc_html_e( 'We embrace change, encourage creativity, and continuously seek better ways to educate.', 'gathathiini' ); ?>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA Section -->
-<section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
-    <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold text-white mb-6"><?php esc_html_e( 'Join Our Community', 'gathathiini' ); ?>
+        <div class="lg:col-span-7 reveal flex flex-col justify-center" style="transition-delay:.15s">
+            <p class="eyebrow">01 &mdash; Our story</p>
+            <h2 class="font-display text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mt-6">
+                Rooted in <span class="font-serif-i italic text-[#D4B574]">community</span>, rising in excellence.
             </h2>
-            <p class="text-xl text-gray-300 mb-8">
-                <?php esc_html_e( 'Become part of a legacy of excellence and transformation.', 'gathathiini' ); ?></p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="<?php echo esc_url( home_url( '/admissions' ) ); ?>"
-                    class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all">
-                    <?php esc_html_e( 'Apply for Admission', 'gathathiini' ); ?>
-                </a>
-                <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>"
-                    class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition-all border border-white/20">
-                    <?php esc_html_e( 'Contact Us', 'gathathiini' ); ?>
-                </a>
+            <div class="mt-10 space-y-5 text-white/70 leading-relaxed text-[15px] max-w-2xl">
+                <?php echo wp_kses_post( $story ); ?>
             </div>
         </div>
     </div>
 </section>
 
-<?php
-get_footer();
+<!-- PRINCIPAL'S MESSAGE -->
+<section class="py-28 lg:py-40 border-t border-[rgba(245,241,232,.14)] bg-[#111827]">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <p class="eyebrow reveal">02 &mdash; Principal's message</p>
+        <div class="mt-12 grid lg:grid-cols-12 gap-12 lg:gap-20">
+            <div class="lg:col-span-4 reveal">
+                <div class="relative aspect-[3/4] overflow-hidden bg-[#0B1220]">
+                    <?php if ($principal_url) : ?>
+                    <img src="<?php echo esc_url($principal_url); ?>" alt="School Principal"
+                        class="w-full h-full object-cover grayscale" />
+                    <?php else : ?>
+                    <div class="w-full h-full flex items-center justify-center"><span
+                            class="font-serif-i italic text-[120px] text-white/05">G</span></div>
+                    <?php endif; ?>
+                    <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                        <div class="eyebrow">The Principal</div>
+                        <div class="font-display text-base mt-1">Gathathiini Boys HS</div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-8 reveal flex flex-col justify-center" style="transition-delay:.15s">
+                <div class="font-serif-i italic text-4xl lg:text-5xl text-[#D4B574] leading-[1.1] max-w-2xl">
+                    &ldquo;Gathathiini is not where boys come to be managed. It is where they come to be made.&rdquo;
+                </div>
+                <div class="mt-10 space-y-5 text-white/70 leading-relaxed max-w-2xl text-[15px]">
+                    <?php echo wp_kses_post($pr_msg); ?>
+                </div>
+                <?php if ($pr_name) : ?>
+                <div class="mt-8 flex items-center gap-4">
+                    <div class="w-12 h-px bg-[#B89248]"></div>
+                    <div class="font-display text-sm tracking-wide"><?php echo esc_html($pr_name); ?></div>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MISSION VISION MOTTO -->
+<section class="py-28 lg:py-40 border-t border-[rgba(245,241,232,.14)]">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="reveal max-w-2xl mb-16">
+            <p class="eyebrow">03 &mdash; Our foundation</p>
+            <h2 class="font-display text-4xl lg:text-6xl tracking-[-0.02em] leading-[1.05] mt-6">
+                The principles that <span class="font-serif-i italic text-[#D4B574]">guide</span> everything.
+            </h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-px bg-[rgba(245,241,232,.14)] border border-[rgba(245,241,232,.14)]">
+            <div class="p-8 lg:p-12 bg-[#0B1220] reveal">
+                <div class="eyebrow mb-6">Mission</div>
+                <p class="font-serif-i italic text-2xl text-[#F5F1E8] leading-[1.4]">
+                    &ldquo;<?php echo wp_kses_post($mission); ?>&rdquo;</p>
+                <p class="mt-6 text-sm text-white/60 leading-relaxed">Every policy, every teacher, every routine at
+                    Gathathiini is built to fulfil this promise to every boy we serve.</p>
+            </div>
+            <div class="p-8 lg:p-12 bg-[#1F3A2E] reveal" style="transition-delay:.1s">
+                <div class="eyebrow mb-6">Vision</div>
+                <p class="font-serif-i italic text-2xl text-[#F5F1E8] leading-[1.4]">
+                    &ldquo;<?php echo wp_kses_post($vision); ?>&rdquo;</p>
+                <p class="mt-6 text-sm text-white/60 leading-relaxed">We are not simply educating students. We are
+                    building the citizens, leaders, and thinkers that Kenya and Africa need.</p>
+            </div>
+            <div class="p-8 lg:p-12 bg-[#111827] reveal" style="transition-delay:.2s">
+                <div class="eyebrow mb-6">Motto</div>
+                <p class="font-serif-i italic text-4xl text-[#D4B574]">Vir Integer.</p>
+                <p class="text-sm text-white/50 mt-2">&mdash; the whole man.</p>
+                <p class="mt-6 text-sm text-white/60 leading-relaxed">Not merely a graduate, but a complete, integrated
+                    man of character, intellect and purpose.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="py-28 lg:py-40 border-t border-[rgba(245,241,232,.14)] bg-[#111827]">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="reveal max-w-xl mb-16">
+            <p class="eyebrow">04 &mdash; Core values</p>
+            <h2 class="font-display text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mt-6">
+                The six values we <span class="font-serif-i italic text-[#D4B574]">live and teach</span>.
+            </h2>
+        </div>
+        <div
+            class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[rgba(245,241,232,.14)] border border-[rgba(245,241,232,.14)]">
+            <?php foreach ($values as $i => $v) :
+        $delay = $i ? ' style="transition-delay:' . round(($i%3)*.1,1) . 's"' : '';
+      ?>
+            <div class="p-8 bg-[#0B1220] reveal" <?php echo $delay; ?>>
+                <div class="num text-5xl text-white/[.07] font-display mb-4">0<?php echo $i+1; ?></div>
+                <h3 class="font-display text-xl mb-3"><?php echo esc_html($v[0]); ?></h3>
+                <p class="text-sm text-white/60 leading-relaxed"><?php echo esc_html($v[1]); ?></p>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="py-28 lg:py-40 border-t border-[rgba(245,241,232,.14)]">
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-10">
+        <div class="reveal mb-20">
+            <p class="eyebrow">05 &mdash; Our history</p>
+            <h2 class="font-display text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mt-6">
+                A timeline of <span class="font-serif-i italic text-[#D4B574]">growth</span>.
+            </h2>
+        </div>
+        <div class="relative">
+            <div class="absolute left-[80px] top-0 bottom-0 w-px bg-[rgba(245,241,232,.14)] hidden md:block"></div>
+            <?php foreach ($timeline_items as $item) :
+        $year  = is_array($item) ? ($item['year']  ?? '') : ($item->year  ?? '');
+        $title = is_array($item) ? ($item['title'] ?? '') : ($item->title ?? '');
+        $desc  = is_array($item) ? ($item['desc']  ?? '') : ($item->desc  ?? '');
+      ?>
+            <div
+                class="grid md:grid-cols-[120px_1fr] gap-6 md:gap-12 py-10 border-t border-[rgba(245,241,232,.14)] reveal">
+                <div class="num text-[#D4B574] text-xl md:text-2xl relative">
+                    <?php echo esc_html($year); ?>
+                    <span
+                        class="hidden md:block absolute -right-[7px] top-2 w-3 h-3 rounded-full bg-[#B89248] ring-4 ring-[#0B1220]"></span>
+                </div>
+                <div>
+                    <h3 class="font-display text-2xl"><?php echo esc_html($title); ?></h3>
+                    <p class="mt-3 text-white/60 max-w-xl leading-relaxed"><?php echo esc_html($desc); ?></p>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- STATS + CTA -->
+<section class="py-28 lg:py-32 border-t border-[rgba(245,241,232,.14)] bg-[#111827]">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="reveal mb-16">
+            <p class="eyebrow">06 &mdash; At a glance</p>
+            <h2 class="font-display text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mt-6">
+                Gathathiini <span class="font-serif-i italic text-[#D4B574]">in numbers</span>.
+            </h2>
+        </div>
+        <?php
+    $stats = [['340+','Students enrolled'],['20+','Teaching staff'],['80%','KCSE pass rate'],['47.','Years of heritage'],['4','Dormitory houses'],['18','Clubs &amp; societies'],['2','Curricula offered'],['C+','KCSE mean grade']];
+    echo '<div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-[rgba(245,241,232,.14)] border border-[rgba(245,241,232,.14)] mb-4">';
+    foreach (array_slice($stats,0,4) as $i=>$s) {
+        $d = $i ? ' style="transition-delay:'.($i*.1).'s"' : '';
+        echo '<div class="p-8 bg-[#0B1220] reveal"'.$d.'><div class="num text-5xl">'.$s[0].'</div><div class="eyebrow mt-4">'.$s[1].'</div></div>';
+    }
+    echo '</div>';
+    echo '<div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-[rgba(245,241,232,.14)] border border-[rgba(245,241,232,.14)]">';
+    foreach (array_slice($stats,4) as $i=>$s) {
+        $d = $i ? ' style="transition-delay:'.($i*.1).'s"' : '';
+        echo '<div class="p-8 bg-[#0B1220] reveal"'.$d.'><div class="num text-5xl">'.$s[0].'</div><div class="eyebrow mt-4">'.$s[1].'</div></div>';
+    }
+    echo '</div>';
+    ?>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-32 border-t border-[rgba(245,241,232,.14)] text-center">
+    <div class="max-w-[800px] mx-auto px-6 reveal">
+        <p class="eyebrow">Ready to join us?</p>
+        <h2 class="font-display text-4xl lg:text-6xl tracking-[-0.03em] leading-[1.0] mt-8">
+            Begin your son's <span class="font-serif-i italic text-[#D4B574]">journey</span>.
+        </h2>
+        <?php
+        $admissions = get_page_by_path('admissions');
+        $contact    = get_page_by_path('contact');
+
+        $admissions_url = $admissions ? get_permalink($admissions->ID) : home_url('/admissions/');
+        $contact_url    = $contact ? get_permalink($contact->ID) : home_url('/contact/');
+        ?>
+
+        <div class="mt-12 flex flex-wrap justify-center gap-4">
+
+            <a href="<?php echo esc_url($admissions_url); ?>"
+                class="btn-gold px-8 py-4 font-display text-[12px] tracking-[0.24em] uppercase">
+                View Admissions
+            </a>
+
+            <a href="<?php echo esc_url($contact_url); ?>"
+                class="btn-ghost px-8 py-4 font-display text-[12px] tracking-[0.24em] uppercase">
+                Contact Us
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<?php get_footer(); ?>

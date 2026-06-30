@@ -1,456 +1,331 @@
 <?php
 /**
- * The template for displaying the front page
- *
- * This is the template that displays the front page by default. Please note that
- * this is the WordPress construct of pages: specifically, posts with a post
- * type of `page`.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Gathathiini
+ * Template: Homepage (static front page)
+ * Set via Settings > Reading > "A static page" > Front page
  */
-
-// Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
-
 get_header();
+
+// ACF field helpers with fallbacks
+$hero_image   = gbhs_field( 'hero_image',      get_template_directory_uri() . '/assets/images/hero.jpg' );
+$hero_hl      = gbhs_field( 'hero_headline',   'Raising men of <span class="font-serif-i italic text-[#D4B574]">purpose</span>,<br/>discipline &amp; <span class="font-serif-i italic text-[#D4B574]">excellence</span>.' );
+$hero_sub     = gbhs_field( 'hero_subtext',    'For decades, Gathathiini Boys has formed young Kenyans into thinkers, leaders, and men of integrity &mdash; ready for the world and the work it asks of them.' );
+$cta_primary  = gbhs_field( 'hero_cta_primary', 'Begin Application' );
+$cta_second   = gbhs_field( 'hero_cta_second',  'Discover More' );
+$principal_img= gbhs_field( 'principal_image',  '' );
+
+$principal_url = get_template_directory_uri() . '/assets/img/principal.jpg';
+                        
+$id_heading   = gbhs_field( 'identity_heading', 'We do not simply <span class="font-serif-i italic text-[#D4B574]">teach</span> boys.<br/>We <span class="font-serif-i italic text-[#D4B574]">form</span> the men they will become.' );
+$id_body      = gbhs_field( 'identity_body',    'Every morning at Gathathiini begins the same way &mdash; in silence, in formation, in conviction. What follows is not only learning, but transformation. A boy enters our gate uncertain. He leaves grounded in values, sharpened in mind, and ready to lead the Kenya of tomorrow.' );
+$principal_q  = gbhs_field( 'principal_quote',  'Boys enter here uncertain. They leave as men of discipline, purpose and consequence.' );
+$adm_heading  = gbhs_field( 'admissions_cta',   'Your son\'s <em>transformation</em><br/>starts here.' );
+$adm_sub      = gbhs_field( 'admissions_sub',    'Applications for the 2026 cohort are open. Schedule a campus visit, meet our principal, and walk the grounds your son may one day call home.' );
+
+// Page links
+function hp_link( string $title ): string {
+    $slug = sanitize_title( $title );
+
+    $page = get_page_by_path( $slug, OBJECT, 'page' );
+
+    return $page ? get_permalink( $page->ID ) : '#';
+}
+$about_url    = hp_link('About');
+$pillars_url  = hp_link('Pillars');
+$campus_url   = hp_link('Campus Life');
+$admissions_url = hp_link('Admissions');
 ?>
 
-<main id="main">
+<!-- ════════════════════════════════════════════════════════
+     HERO
+     ════════════════════════════════════════════════════════ -->
+<section id="hero" class="relative min-h-screen w-full overflow-hidden" aria-label="Hero">
+    <?php if ( $hero_image ) : ?>
+    <img src="<?php echo esc_url( $hero_image ); ?>" alt="Gathathiini Boys High School"
+        class="absolute inset-0 w-full h-full object-cover object-center" />
+    <?php endif; ?>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0B1220]/85 via-[#0B1220]/55 to-[#0B1220]"></div>
+    <div class="absolute inset-0 vignette"></div>
+    <div class="absolute inset-0 grain opacity-40 pointer-events-none"></div>
 
-	<!-- Hero Section -->
-	<section
-		class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-		<div class="absolute inset-0 opacity-20">
-			<div
-				class="absolute top-20 left-20 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl animate-blob">
-			</div>
-			<div
-				class="absolute top-40 right-20 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000">
-			</div>
-			<div
-				class="absolute bottom-20 left-1/2 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000">
-			</div>
-		</div>
+    <div class="relative z-10 max-w-[1440px] mx-auto px-6 lg:px-10 min-h-screen flex flex-col" data-hero-content>
 
-		<div class="container mx-auto px-4 relative z-10 pt-20">
-			<div class="grid lg:grid-cols-2 gap-12 items-center">
-				<div x-data="{ show: false }" x-init="setTimeout(() => show = true, 100)">
-					<div x-show="show" x-transition:enter="transition ease-out duration-1000"
-						x-transition:enter-start="opacity-0 -translate-y-10"
-						x-transition:enter-end="opacity-100 translate-y-0">
-						<h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-							<?php
-							printf(
-								esc_html__( 'Transforming Boys Into %1$sMen of Purpose%2$s', 'gathathiini' ),
-								'<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">',
-								'</span>'
-							);
-							?>
-						</h1>
-						<p class="text-xl text-gray-300 mb-8 leading-relaxed">
-							<?php esc_html_e( 'Building tomorrow\'s leaders through academic excellence, character development, and holistic education at Gathathi-ini Boys High School.', 'gathathiini' ); ?>
-						</p>
-						<div class="flex flex-col sm:flex-row gap-4">
-							<a href="<?php echo esc_url( home_url( '/admissions' ) ); ?>"
-								class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all text-center">
-								<?php esc_html_e( 'Apply Now', 'gathathiini' ); ?>
-							</a>
-							<a href="<?php echo esc_url( home_url( '/about' ) ); ?>"
-								class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition-all text-center border border-white/20">
-								<?php esc_html_e( 'Learn More', 'gathathiini' ); ?>
-							</a>
-						</div>
-					</div>
-				</div>
+        <!-- Location bar -->
+        <div class="pt-36 flex items-center justify-between text-[11px] tracking-[0.32em] uppercase text-[#D4B574]">
+            <span>Kirurumi, Nyeri County &middot; Kenya</span>
+            <span class="hidden md:block">S 00&deg;22&prime; &middot; E 36&deg;57&prime;</span>
+            <span>Form&nbsp;1 &mdash; Form&nbsp;4</span>
+        </div>
 
-				<div x-data="{ show: false }" x-init="setTimeout(() => show = true, 300)" class="relative">
-					<div x-show="show" x-transition:enter="transition ease-out duration-1000 delay-300"
-						x-transition:enter-start="opacity-0 translate-x-10"
-						x-transition:enter-end="opacity-100 translate-x-0">
-						<div class="relative">
-							<div
-								class="absolute -inset-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-3xl blur-2xl opacity-30">
-							</div>
-							<div
-								class="relative bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
-								<div class="grid grid-cols-2 gap-6">
-									<div class="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl p-6 text-white">
-										<div class="text-4xl font-bold mb-2">440+</div>
-										<div class="text-sm opacity-90">
-											<?php esc_html_e( 'Students Enrolled', 'gathathiini' ); ?></div>
-									</div>
-									<div
-										class="bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl p-6 text-white">
-										<div class="text-4xl font-bold mb-2">20+</div>
-										<div class="text-sm opacity-90">
-											<?php esc_html_e( 'Qualified Teachers', 'gathathiini' ); ?></div>
-									</div>
-									<div
-										class="bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl p-6 text-white">
-										<div class="text-4xl font-bold mb-2">10+</div>
-										<div class="text-sm opacity-90">
-											<?php esc_html_e( 'Sports Activities', 'gathathiini' ); ?></div>
-									</div>
-									<div class="bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl p-6 text-white">
-										<div class="text-4xl font-bold mb-2">6</div>
-										<div class="text-sm opacity-90">
-											<?php esc_html_e( 'Core Pillars', 'gathathiini' ); ?></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <!-- Headline -->
+        <div class="mt-auto pt-28 grid lg:grid-cols-12 gap-10 items-end pb-8">
+            <div class="lg:col-span-8 reveal">
+                <p class="eyebrow mb-8">&mdash; A school of character</p>
+                <h1 class="font-display text-[44px] leading-[1.02] sm:text-[68px] lg:text-[104px] tracking-[-0.03em]">
+                    <?php echo wp_kses_post( $hero_hl ); ?>
+                </h1>
+            </div>
+            <div class="lg:col-span-4 lg:pb-4 reveal" style="transition-delay:.15s">
+                <p class="text-base lg:text-[17px] leading-relaxed text-white/75 max-w-md">
+                    <?php echo wp_kses_post( $hero_sub ); ?>
+                </p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="<?php echo esc_url( $admissions_url ); ?>"
+                        class="btn-gold px-6 py-3.5 font-display text-[12px] tracking-[0.22em] uppercase">
+                        <?php echo esc_html( $cta_primary ); ?>
+                    </a>
+                    <a href="<?php echo esc_url( $about_url ); ?>"
+                        class="btn-ghost px-6 py-3.5 font-display text-[12px] tracking-[0.22em] uppercase">
+                        <?php echo esc_html( $cta_second ); ?>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-		<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-			<svg class="w-8 h-8 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
-				</path>
-			</svg>
-		</div>
-	</section>
+        <!-- Stats bar -->
+        <div
+            class="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-px bg-[rgba(245,241,232,.14)] border border-[rgba(245,241,232,.14)] glass reveal">
+            <?php
+      $stats = [
+        [ gbhs_field('stat_1_num','57.'), gbhs_field('stat_1_label','Years of heritage') ],
+        [ gbhs_field('stat_2_num','340+'),gbhs_field('stat_2_label','Boys in formation') ],
+        [ gbhs_field('stat_3_num','94%'), gbhs_field('stat_3_label','KCSE pass rate')    ],
+        [ gbhs_field('stat_4_num','38'),  gbhs_field('stat_4_label','Clubs &amp; societies') ],
+      ];
+      foreach ( $stats as $i => $s ) {
+          $delay = $i ? ' style="transition-delay:' . ($i * .1) . 's"' : '';
+          echo '<div class="p-6 lg:p-8 bg-[#0B1220]/60 reveal"' . $delay . '>';
+          echo '<div class="num text-4xl lg:text-5xl">' . esc_html( $s[0] ) . '</div>';
+          echo '<div class="eyebrow mt-3">' . wp_kses_post( $s[1] ) . '</div>';
+          echo '</div>';
+      }
+      ?>
+        </div>
 
-	<!-- Vision & Mission Section -->
-	<section class="py-20 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="text-center mb-16">
-				<h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-					<?php esc_html_e( 'Our Vision & Mission', 'gathathiini' ); ?></h2>
-				<div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto"></div>
-			</div>
+        <!-- Scroll indicator -->
+        <div class="py-6 flex flex-col items-center gap-2 text-[10px] tracking-[0.32em] uppercase text-white/60">
+            <span>Scroll</span>
+            <span class="w-px h-10 bg-white/40 relative overflow-hidden">
+                <span class="absolute top-0 left-0 w-px h-4 bg-[#B89248] animate-bounce"></span>
+            </span>
+        </div>
+    </div>
+</section>
 
-			<div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
-				<div
-					class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8 hover:shadow-2xl transition-shadow">
-					<div
-						class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
-						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-							aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-							</path>
-						</svg>
-					</div>
-					<h3 class="text-2xl font-bold text-slate-900 mb-4">
-						<?php esc_html_e( 'Our Vision', 'gathathiini' ); ?></h3>
-					<p class="text-slate-600 leading-relaxed text-lg">
-						<?php esc_html_e( 'To become the school of choice in molding individuals to become responsible members of society.', 'gathathiini' ); ?>
-					</p>
-				</div>
+<!-- MARQUEE -->
+<section class="border-y border-[rgba(245,241,232,.14)] bg-[#111827] overflow-hidden py-6" aria-hidden="true">
+    <div class="marquee whitespace-nowrap font-serif-i italic text-2xl md:text-3xl text-white/40">
+        <?php
+    $words = ['Brotherhood','Discipline','Integrity','Leadership','Excellence','Heritage','Purpose','Character'];
+    $full  = array_merge( $words, $words ); // duplicate for seamless loop
+    foreach ( $full as $w ) {
+        echo '<span class="px-10">' . esc_html( $w ) . '</span><span class="px-10 text-[#D4B574]">&middot;</span>';
+    }
+    ?>
+    </div>
+</section>
 
-				<div
-					class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 hover:shadow-2xl transition-shadow">
-					<div
-						class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
-						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-							aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-						</svg>
-					</div>
-					<h3 class="text-2xl font-bold text-slate-900 mb-4">
-						<?php esc_html_e( 'Our Mission', 'gathathiini' ); ?></h3>
-					<p class="text-slate-600 leading-relaxed text-lg">
-						<?php esc_html_e( 'We receive boys and transform them into men who have conquered both academically and socially. We focus on developing talents and life skills.', 'gathathiini' ); ?>
-					</p>
-				</div>
-			</div>
+<!-- ════════════════════════════════════════════════════════
+     IDENTITY
+     ════════════════════════════════════════════════════════ -->
+<section id="identity" class="relative py-28 lg:py-40">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 lg:gap-20">
 
-			<div class="text-center">
-				<a href="<?php echo esc_url( home_url( '/about' ) ); ?>"
-					class="inline-block bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all">
-					<?php esc_html_e( 'Learn More About Us', 'gathathiini' ); ?>
-				</a>
-			</div>
-		</div>
-	</section>
+        <div class="lg:col-span-5 reveal">
+            <div class="relative aspect-[4/5] overflow-hidden bg-[#111827]">
+                <?php if ( $principal_url ) : ?>
+                <img src="<?php echo esc_url( $principal_url ); ?>" alt="Principal — Gathathiini Boys High School"
+                    class="w-full h-full object-cover grayscale" />
+                <?php else : ?>
+                <div class="w-full h-full flex items-center justify-center bg-[#111827]">
+                    <span class="font-serif-i italic text-[120px] text-white/05">G</span>
+                </div>
+                <?php endif; ?>
+                <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                    <div class="eyebrow">The Principal</div>
+                    <div class="font-display text-sm mt-1">Gathathiini Boys High School</div>
+                </div>
+            </div>
+        </div>
 
-	<!-- Six Pillars Preview -->
-	<section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
-		<div class="container mx-auto px-4">
-			<div class="text-center mb-16">
-				<h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-					<?php esc_html_e( 'Our Six Pillars', 'gathathiini' ); ?></h2>
-				<p class="text-gray-300 text-lg max-w-2xl mx-auto">
-					<?php esc_html_e( 'The foundation of excellence at Gathathi-ini Boys High School', 'gathathiini' ); ?>
-				</p>
-			</div>
+        <div class="lg:col-span-7 reveal flex flex-col" style="transition-delay:.15s">
+            <p class="eyebrow">01 &mdash; A word from the principal</p>
+            <h2 class="font-display text-4xl lg:text-6xl tracking-[-0.02em] leading-[1.05] mt-6">
+                <?php echo wp_kses_post( $id_heading ); ?>
+            </h2>
+            <p class="mt-10 text-white/70 text-lg leading-relaxed max-w-2xl">
+                <?php echo wp_kses_post( $id_body ); ?>
+            </p>
+            <?php if ( $principal_q ) : ?>
+            <blockquote class="mt-8 border-l-2 border-[#B89248] pl-6 py-1">
+                <p class="font-serif-i italic text-xl text-white/80 leading-relaxed">
+                    &ldquo;<?php echo esc_html( $principal_q ); ?>&rdquo;
+                </p>
+            </blockquote>
+            <?php endif; ?>
+            <div
+                class="mt-12 grid sm:grid-cols-3 gap-px bg-[rgba(245,241,232,.14)] border border-[rgba(245,241,232,.14)]">
+                <div class="p-6 bg-[#0B1220]">
+                    <div class="eyebrow">Mission</div>
+                    <p class="mt-3 text-sm text-white/80 leading-relaxed">To form disciplined, principled, future-ready
+                        men through rigorous learning and lived character.</p>
+                </div>
+                <div class="p-6 bg-[#0B1220]">
+                    <div class="eyebrow">Vision</div>
+                    <p class="mt-3 text-sm text-white/80 leading-relaxed">An African school whose graduates raise the
+                        standard of leadership wherever they stand.</p>
+                </div>
+                <div class="p-6 bg-[#0B1220]">
+                    <div class="eyebrow">Motto</div>
+                    <p class="mt-3 font-serif-i italic text-2xl text-[#D4B574]">Vir Integer.</p>
+                    <p class="text-xs text-white/50 mt-1">&mdash; the whole man.</p>
+                </div>
+            </div>
+            <div class="mt-8">
+                <a href="<?php echo esc_url( $about_url ); ?>"
+                    class="btn-ghost px-6 py-3 font-display text-[12px] tracking-[0.22em] uppercase inline-block">
+                    Read Full Story &rarr;
+                </a>
+            </div>
+        </div>
 
-			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-12">
-				<div
-					class="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-cyan-500/50 transition-all hover:-translate-y-2">
-					<div
-						class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-							aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
-							</path>
-						</svg>
-					</div>
-					<h3 class="text-xl font-bold text-white mb-3">
-						<?php esc_html_e( 'Academic Excellence', 'gathathiini' ); ?></h3>
-					<p class="text-gray-300 leading-relaxed">
-						<?php esc_html_e( 'Fostering a culture of academic excellence through mentorship, enrichment programs, and recognition.', 'gathathiini' ); ?>
-					</p>
-				</div>
+    </div>
+</section>
 
-				<div
-					class="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-blue-500/50 transition-all hover:-translate-y-2">
-					<div
-						class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-							aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-							</path>
-						</svg>
-					</div>
-					<h3 class="text-xl font-bold text-white mb-3">
-						<?php esc_html_e( 'Sports & Talent', 'gathathiini' ); ?></h3>
-					<p class="text-gray-300 leading-relaxed">
-						<?php esc_html_e( 'Creating a supportive environment where students explore and excel in sports and discover their unique talents.', 'gathathiini' ); ?>
-					</p>
-				</div>
+<!-- ════════════════════════════════════════════════════════
+     PILLARS PREVIEW
+     ════════════════════════════════════════════════════════ -->
+<section id="pillars" class="relative py-28 lg:py-40 border-t border-[rgba(245,241,232,.14)] bg-[#111827]">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 reveal">
+            <div class="max-w-2xl">
+                <p class="eyebrow">02 &mdash; The six pillars</p>
+                <h2 class="font-display text-4xl lg:text-6xl tracking-[-0.02em] leading-[1.05] mt-6">
+                    A formation system, <span class="font-serif-i italic text-[#D4B574]">not a curriculum</span>.
+                </h2>
+            </div>
+            <div>
+                <p class="text-white/60 max-w-md text-[15px] leading-relaxed mb-6">Six pillars hold the Gathathiini man
+                    upright. Each is taught, practised, examined and lived &mdash; every day, for four years.</p>
+                <a href="<?php echo esc_url( $pillars_url ); ?>"
+                    class="btn-ghost px-6 py-3 font-display text-[12px] tracking-[0.22em] uppercase inline-block">
+                    Explore All Pillars &rarr;
+                </a>
+            </div>
+        </div>
 
-				<div
-					class="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-purple-500/50 transition-all hover:-translate-y-2">
-					<div
-						class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-							aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z">
-							</path>
-						</svg>
-					</div>
-					<h3 class="text-xl font-bold text-white mb-3"><?php esc_html_e( 'Creative Arts', 'gathathiini' ); ?>
-					</h3>
-					<p class="text-gray-300 leading-relaxed">
-						<?php esc_html_e( 'Staging theatrical productions and participating in national drama and music festivals to nurture creative expression.', 'gathathiini' ); ?>
-					</p>
-				</div>
+        <?php
+    $pillars = [
+      ['I',   'Academic Excellence',    'Mastery across CBC sciences, humanities and languages, with measurable rigor and relentless standards.'],
+      ['II',  'Sports &amp; Talent',    'Athletics, rugby, swimming &mdash; discipline of the body sharpens the mind and forges resilience.'],
+      ['III', 'Creative Arts',          'Music, drama, fine art and debate as vehicles of voice, identity, and articulate manhood.'],
+      ['IV',  'Digital Literacy',       'Code, computation and critical thinking for a digital African century. Future-ready from Form One.'],
+      ['V',   'Social Responsibility',  'Service learning, mentorship and civic engagement. Privilege demands contribution.'],
+      ['VI',  'Holistic Development',   'Spiritual grounding, emotional intelligence, and the character traits that separate good men from great ones.'],
+    ];
+    echo '<div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-[rgba(245,241,232,.14)] border border-[rgba(245,241,232,.14)]">';
+    foreach ( $pillars as $i => $p ) {
+        $delay = $i ? ' style="transition-delay:' . round( ( $i % 3 ) * .1, 1 ) . 's"' : '';
+        echo '<article class="group bg-[#0B1220] overflow-hidden reveal"' . $delay . '>';
+        echo '<div class="relative h-48 overflow-hidden bg-[#1F3A2E]">';
+        echo '<div class="absolute inset-0 bg-gradient-to-t from-[#0B1220] to-transparent"></div>';
+        echo '<span class="absolute top-5 left-5 font-serif-i italic text-5xl text-white/20">' . $p[0] . '</span>';
+        echo '</div>';
+        echo '<div class="p-7 lg:p-9">';
+        echo '<h3 class="font-display text-2xl tracking-[-0.01em]">' . $p[1] . '</h3>';
+        echo '<p class="mt-3 text-sm text-white/60 leading-relaxed">' . $p[2] . '</p>';
+        echo '<div class="mt-6 flex items-center gap-3 text-[11px] tracking-[0.28em] uppercase text-[#D4B574] group-hover:text-[#B89248] transition">';
+        echo '<a href="' . esc_url( $pillars_url ) . '">Explore</a><span class="w-8 h-px bg-current"></span>';
+        echo '</div></div></article>';
+    }
+    echo '</div>';
+    ?>
+    </div>
+</section>
 
-				<div
-					class="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-green-500/50 transition-all hover:-translate-y-2">
-					<div
-						class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-							aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-							</path>
-						</svg>
-					</div>
-					<h3 class="text-xl font-bold text-white mb-3">
-						<?php esc_html_e( 'Digital Literacy', 'gathathiini' ); ?></h3>
-					<p class="text-gray-300 leading-relaxed">
-						<?php esc_html_e( 'Equipping students with essential digital skills to use, understand, and critically evaluate technology effectively.', 'gathathiini' ); ?>
-					</p>
-				</div>
+<!-- ════════════════════════════════════════════════════════
+     CAMPUS LIFE GALLERY
+     ════════════════════════════════════════════════════════ -->
+<section id="life" class="relative py-28 lg:py-40 border-t border-[rgba(245,241,232,.14)]">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="grid lg:grid-cols-12 gap-8 items-end reveal">
+            <div class="lg:col-span-7">
+                <p class="eyebrow">03 &mdash; Campus life</p>
+                <h2 class="font-display text-4xl lg:text-6xl tracking-[-0.02em] leading-[1.05] mt-6">
+                    A day inside the <span class="font-serif-i italic text-[#D4B574]">brotherhood</span>.
+                </h2>
+            </div>
+            <div class="lg:col-span-5">
+                <p class="text-white/60 leading-relaxed max-w-md mb-6">Boarding life is the unwritten curriculum. From
+                    dawn parade to evening prep, the rhythm of Gathathiini shapes habit, character, and bond.</p>
+                <a href="<?php echo esc_url( $campus_url ); ?>"
+                    class="btn-ghost px-6 py-3 font-display text-[12px] tracking-[0.22em] uppercase inline-block">
+                    Campus Life &rarr;
+                </a>
+            </div>
+        </div>
+        <div class="mt-16 grid grid-cols-12 gap-4 lg:gap-5">
+            <?php
+            $gallery = [
+                ['col-span-12 md:col-span-7','Athletics &amp; Team Sport','/01','Athletics'],
+                ['col-span-12 md:col-span-5','05:30 &mdash; before the day begins','/02','Dormitory'],
+                ['col-span-6 md:col-span-3', 'Prefects&rsquo; address','/03','Leadership'],
+                ['col-span-6 md:col-span-4', 'After parade, before prep','/04','Brotherhood'],
+                ['col-span-12 md:col-span-5','Fine art &amp; drama','/05','Creative Studio'],
+            ];
+            $heights = ['h-[400px] lg:h-[500px]','h-[400px] lg:h-[500px]','h-[280px] lg:h-[360px]','h-[280px] lg:h-[360px]','h-[280px] lg:h-[360px]'];
+            $bgs     = ['bg-[#1F3A2E]','bg-[#111827]','bg-[#7A4F2A]','bg-[#1F3A2E]','bg-[#0B1220]'];
+            foreach ( $gallery as $i => $g ) {
+                echo '<figure class="' . $g[0] . ' relative group overflow-hidden ' . $bgs[$i] . '">';
+                echo '<div class="w-full ' . $heights[$i] . '"></div>';
+                echo '<figcaption class="absolute bottom-5 left-5 right-5 flex justify-between items-end">';
+                echo '<div><div class="eyebrow text-white/80">' . $g[3] . '</div><div class="font-serif-i italic text-xl md:text-2xl">' . $g[1] . '</div></div>';
+                echo '<span class="num text-white/60 hidden md:block">' . $g[2] . '</span>';
+                echo '</figcaption></figure>';
+            }
+            ?>
+        </div>
+    </div>
+</section>
 
-				<div
-					class="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-yellow-500/50 transition-all hover:-translate-y-2">
-					<div
-						class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-							aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-							</path>
-						</svg>
-					</div>
-					<h3 class="text-xl font-bold text-white mb-3">
-						<?php esc_html_e( 'Social Responsibility', 'gathathiini' ); ?></h3>
-					<p class="text-gray-300 leading-relaxed">
-						<?php esc_html_e( 'Championing environmental education, community service, and health wellness through various awareness campaigns.', 'gathathiini' ); ?>
-					</p>
-				</div>
+<!-- ════════════════════════════════════════════════════════
+     ADMISSIONS CTA
+     ════════════════════════════════════════════════════════ -->
+<section id="admissions-cta" class="relative py-32 lg:py-44 border-t border-[rgba(245,241,232,.14)] overflow-hidden"
+    aria-label="Admissions call to action">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0B1220] via-[#0B1220]/90 to-[#0B1220]"></div>
+    <div class="relative max-w-[1100px] mx-auto px-6 lg:px-10 text-center reveal">
+        <p class="eyebrow">Admissions &middot; Intake 2026</p>
+        <h2 class="font-display text-5xl md:text-7xl lg:text-[100px] tracking-[-0.03em] leading-[0.98] mt-8">
+            <?php echo wp_kses_post( $adm_heading ); ?>
+        </h2>
+        <p class="mt-10 text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
+            <?php echo wp_kses_post( $adm_sub ); ?>
+        </p>
+        <div class="mt-12 flex flex-wrap items-center justify-center gap-4">
+            <a href="<?php echo esc_url( $admissions_url ); ?>"
+                class="btn-gold px-8 py-4 font-display text-[12px] tracking-[0.24em] uppercase">
+                Begin Application
+            </a>
+            <?php
+            $contact_page = get_page_by_path('contact');
+            $url = $contact_page ? get_permalink($contact_page->ID) : home_url('/contact/');
+            ?>
 
-				<div
-					class="group bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-red-500/50 transition-all hover:-translate-y-2">
-					<div
-						class="w-16 h-16 bg-gradient-to-br from-red-500 to-rose-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-							aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
-							</path>
-						</svg>
-					</div>
-					<h3 class="text-xl font-bold text-white mb-3">
-						<?php esc_html_e( 'Holistic Development', 'gathathiini' ); ?></h3>
-					<p class="text-gray-300 leading-relaxed">
-						<?php esc_html_e( 'Focused on the complete transformation of the boy child, guiding them away from societal ills and distractions.', 'gathathiini' ); ?>
-					</p>
-				</div>
-			</div>
+            <a href="<?php echo esc_url($url); ?>"
+                class="btn-ghost px-8 py-4 font-display text-[12px] tracking-[0.24em] uppercase">
+                Book a Campus Visit
+            </a>
+        </div>
+        <div
+            class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-[rgba(245,241,232,.14)] border border-[rgba(245,241,232,.14)] text-left">
+            <?php
+      $steps = ['Enquire','Campus visit','Assessment','Enrolment'];
+      foreach ( $steps as $n => $step ) {
+          echo '<div class="p-6 bg-[#0B1220]"><div class="eyebrow">Step 0' . ($n+1) . '</div><div class="font-display mt-2">' . esc_html($step) . '</div></div>';
+      }
+      ?>
+        </div>
+    </div>
+</section>
 
-			<div class="text-center">
-				<a href="<?php echo esc_url( home_url( '/pillars' ) ); ?>"
-					class="inline-block bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all">
-					<?php esc_html_e( 'Explore All Pillars', 'gathathiini' ); ?>
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- Stats Section -->
-	<section class="py-20 bg-gradient-to-r from-cyan-500 to-blue-600">
-		<div class="container mx-auto px-4">
-			<div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-				<div class="text-center">
-					<div class="text-5xl md:text-6xl font-bold text-white mb-2">440+</div>
-					<div class="text-white/90 font-medium"><?php esc_html_e( 'Students', 'gathathiini' ); ?></div>
-				</div>
-				<div class="text-center">
-					<div class="text-5xl md:text-6xl font-bold text-white mb-2">20+</div>
-					<div class="text-white/90 font-medium"><?php esc_html_e( 'Teachers', 'gathathiini' ); ?></div>
-				</div>
-				<div class="text-center">
-					<div class="text-5xl md:text-6xl font-bold text-white mb-2">10+</div>
-					<div class="text-white/90 font-medium"><?php esc_html_e( 'Sports', 'gathathiini' ); ?></div>
-				</div>
-				<div class="text-center">
-					<div class="text-5xl md:text-6xl font-bold text-white mb-2">6</div>
-					<div class="text-white/90 font-medium"><?php esc_html_e( 'Core Pillars', 'gathathiini' ); ?></div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Academics Preview -->
-	<section class="py-20 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="max-w-6xl mx-auto">
-				<div class="grid lg:grid-cols-2 gap-12 items-center">
-					<div>
-						<h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-							<?php esc_html_e( 'Excellence in Education', 'gathathiini' ); ?></h2>
-						<p class="text-lg text-slate-600 mb-6 leading-relaxed">
-							<?php esc_html_e( 'Our comprehensive curriculum combines academic rigor with practical skills development. We offer a wide range of subjects and programs designed to prepare students for university and beyond.', 'gathathiini' ); ?>
-						</p>
-						<ul class="space-y-3 mb-8">
-							<li class="flex items-center space-x-3">
-								<div
-									class="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
-									<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor"
-										viewBox="0 0 24 24" aria-hidden="true">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-											d="M5 13l4 4L19 7"></path>
-									</svg>
-								</div>
-								<span
-									class="text-slate-700"><?php esc_html_e( '8-4-4 CBC Curriculum', 'gathathiini' ); ?></span>
-							</li>
-							<li class="flex items-center space-x-3">
-								<div
-									class="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
-									<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor"
-										viewBox="0 0 24 24" aria-hidden="true">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-											d="M5 13l4 4L19 7"></path>
-									</svg>
-								</div>
-								<span
-									class="text-slate-700"><?php esc_html_e( 'Experienced Faculty Members', 'gathathiini' ); ?></span>
-							</li>
-							<li class="flex items-center space-x-3">
-								<div
-									class="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
-									<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor"
-										viewBox="0 0 24 24" aria-hidden="true">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-											d="M5 13l4 4L19 7"></path>
-									</svg>
-								</div>
-								<span
-									class="text-slate-700"><?php esc_html_e( 'Modern Learning Facilities', 'gathathiini' ); ?></span>
-							</li>
-							<li class="flex items-center space-x-3">
-								<div
-									class="w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
-									<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor"
-										viewBox="0 0 24 24" aria-hidden="true">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-											d="M5 13l4 4L19 7"></path>
-									</svg>
-								</div>
-								<span
-									class="text-slate-700"><?php esc_html_e( 'Individual Student Mentorship', 'gathathiini' ); ?></span>
-							</li>
-						</ul>
-						<a href="<?php echo esc_url( home_url( '/academics' ) ); ?>"
-							class="inline-block bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:scale-105 transition-all">
-							<?php esc_html_e( 'View Academic Programs', 'gathathiini' ); ?>
-						</a>
-					</div>
-					<div class="relative">
-						<div
-							class="absolute -inset-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-3xl blur-2xl opacity-20">
-						</div>
-						<div class="relative bg-slate-800 rounded-3xl p-8 text-white">
-							<h3 class="text-2xl font-bold mb-6"><?php esc_html_e( 'Our Subjects', 'gathathiini' ); ?>
-							</h3>
-							<div class="grid grid-cols-2 gap-4">
-								<div class="bg-slate-700/50 rounded-xl p-4">
-									<p class="font-semibold"><?php esc_html_e( 'Sciences', 'gathathiini' ); ?></p>
-									<p class="text-sm text-gray-300">
-										<?php esc_html_e( 'Biology, Chemistry, Physics', 'gathathiini' ); ?></p>
-								</div>
-								<div class="bg-slate-700/50 rounded-xl p-4">
-									<p class="font-semibold"><?php esc_html_e( 'Mathematics', 'gathathiini' ); ?></p>
-									<p class="text-sm text-gray-300">
-										<?php esc_html_e( 'Pure & Applied Math', 'gathathiini' ); ?></p>
-								</div>
-								<div class="bg-slate-700/50 rounded-xl p-4">
-									<p class="font-semibold"><?php esc_html_e( 'Languages', 'gathathiini' ); ?></p>
-									<p class="text-sm text-gray-300">
-										<?php esc_html_e( 'English, Kiswahili', 'gathathiini' ); ?></p>
-								</div>
-								<div class="bg-slate-700/50 rounded-xl p-4">
-									<p class="font-semibold"><?php esc_html_e( 'Humanities', 'gathathiini' ); ?></p>
-									<p class="text-sm text-gray-300">
-										<?php esc_html_e( 'History, Geography, CRE', 'gathathiini' ); ?></p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- CTA Section -->
-	<section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
-		<div class="container mx-auto px-4">
-			<div class="max-w-4xl mx-auto text-center">
-				<h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-					<?php esc_html_e( 'Ready to Join Us?', 'gathathiini' ); ?></h2>
-				<p class="text-xl text-gray-300 mb-8 leading-relaxed">
-					<?php esc_html_e( 'Start your journey to becoming a man of purpose and integrity. Apply today for admission to Gathathi-ini Boys High School.', 'gathathiini' ); ?>
-				</p>
-				<div class="flex flex-col sm:flex-row gap-4 justify-center">
-					<a href="<?php echo esc_url( home_url( '/admissions' ) ); ?>"
-						class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all">
-						<?php esc_html_e( 'Apply Now', 'gathathiini' ); ?>
-					</a>
-					<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>"
-						class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition-all border border-white/20">
-						<?php esc_html_e( 'Contact Us', 'gathathiini' ); ?>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-</main>
-
-<?php
-get_footer();
+<?php get_footer(); ?>

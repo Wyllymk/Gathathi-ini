@@ -7,209 +7,146 @@
  * @package Gathathiini
  */
 
-// Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
+/**
+* Footer template — site footer + wp_footer().
+* Called by get_footer() in every page template.
+*/
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+$school_phone = gbhs_phone();
+$school_email = gbhs_email();
+$school_addr = gbhs_address();
+$wa_num = gbhs_wa();
+$fb_url = gbhs_option( 'facebook_url', '#' );
+$ig_url = gbhs_option( 'instagram_url', '#' );
+$yt_url = gbhs_option( 'youtube_url', '#' );
+
+// Nav page helpers
+function gbhs_footer_link( string $title ): string {
+$slug = sanitize_title( $title );
+
+$page = get_page_by_path( $slug, OBJECT, 'page' );
+
+$url = $page ? get_permalink( $page->ID ) : '#';
+
+return '<li><a class="link-underline" href="' . esc_url( $url ) . '">'
+        . esc_html( $title ) .
+        '</a></li>';
+}
 ?>
 
-<footer class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white pt-16 pb-8">
-	<div class="container mx-auto px-4">
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-			<div>
-				<div class="flex items-center space-x-3 mb-4">
-					<div
-						class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center">
-						<?php
-						$logo_url = get_template_directory_uri() . '/assets/img/logo.avif';
-						$logo_alt = esc_attr__( 'Gathathi-ini Boys High School Logo', 'gathathiini' );
-						?>
-						<img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php echo $logo_alt; ?>" class="h-10">
-					</div>
-					<div>
-						<h3 class="text-xl font-bold">
-							<?php esc_html_e( 'Gathathi-ini Boys', 'gathathiini' ); ?>
-						</h3>
-						<p class="text-cyan-300 text-sm"><?php esc_html_e( 'High School', 'gathathiini' ); ?></p>
-					</div>
-				</div>
-				<p class="text-gray-300 text-sm leading-relaxed mb-4">
-					<?php esc_html_e( 'Transforming boys into men of purpose and integrity through excellence in academics, sports, and character development.', 'gathathiini' ); ?>
-				</p>
-				<div class="flex space-x-3">
-					<a href="https://www.facebook.com/p/Gathathi-ini-boys-high-school-100054392685591/"
-						class="w-10 h-10 bg-slate-700 hover:bg-cyan-500 rounded-full flex items-center justify-center transition-colors"
-						aria-label="<?php esc_attr_e( 'Visit our Facebook page', 'gathathiini' ); ?>">
-						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-							<path
-								d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-						</svg>
-					</a>
-					<a href="#"
-						class="w-10 h-10 bg-slate-700 hover:bg-cyan-500 rounded-full flex items-center justify-center transition-colors"
-						aria-label="<?php esc_attr_e( 'Visit our Twitter page', 'gathathiini' ); ?>">
-						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-							<path
-								d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-						</svg>
-					</a>
-					<a href="#"
-						class="w-10 h-10 bg-slate-700 hover:bg-cyan-500 rounded-full flex items-center justify-center transition-colors"
-						aria-label="<?php esc_attr_e( 'Visit our Instagram page', 'gathathiini' ); ?>">
-						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-							<path
-								d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121L7.9 13.442l-2.97-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z" />
-						</svg>
-					</a>
-				</div>
-			</div>
+<!-- ════════════════════════════════════════════════════════
+     SITE FOOTER
+     ════════════════════════════════════════════════════════ -->
+<footer class="bg-black border-t border-[rgba(245,241,232,.14)]">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10 py-20 grid lg:grid-cols-12 gap-12">
 
-			<div>
-				<h4 class="text-lg font-bold mb-4 text-cyan-400"><?php esc_html_e( 'Quick Links', 'gathathiini' ); ?>
-				</h4>
-				<ul class="space-y-2">
-					<li>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
-							class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">
-							<?php esc_html_e( 'Home', 'gathathiini' ); ?>
-						</a>
-					</li>
-					<li>
-						<a href="<?php echo esc_url( home_url( '/about' ) ); ?>"
-							class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">
-							<?php esc_html_e( 'About Us', 'gathathiini' ); ?>
-						</a>
-					</li>
-					<li>
-						<a href="<?php echo esc_url( home_url( '/academics' ) ); ?>"
-							class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">
-							<?php esc_html_e( 'Academics', 'gathathiini' ); ?>
-						</a>
-					</li>
-					<li>
-						<a href="<?php echo esc_url( home_url( '/admissions' ) ); ?>"
-							class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">
-							<?php esc_html_e( 'Admissions', 'gathathiini' ); ?>
-						</a>
-					</li>
-					<li>
-						<a href="<?php echo esc_url( home_url( '/pillars' ) ); ?>"
-							class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">
-							<?php esc_html_e( 'Our Pillars', 'gathathiini' ); ?>
-						</a>
-					</li>
-				</ul>
-			</div>
+        <!-- Brand -->
+        <div class="lg:col-span-4">
+            <div class="flex items-center gap-3">
+                <span class="crest">
+                    <span>
+                        <?php
+                        $logo_url = get_template_directory_uri() . '/assets/img/logo.avif';
+                        $logo_alt = esc_attr__( 'Gathathi-ini Boys High School Logo', 'gathathiini' );
+                        ?>
+                        <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php echo $logo_alt; ?>" class="h-10">
+                    </span>
+                </span>
+                <div class="leading-tight">
+                    <div class="font-display text-sm tracking-[0.18em] uppercase">Gathathiini Boys</div>
+                    <div class="text-[10px] tracking-[0.32em] uppercase text-[#D4B574]">High School &middot; Nyeri</div>
+                </div>
+            </div>
+            <p class="mt-8 text-white/55 leading-relaxed max-w-sm text-[15px]">
+                A county boarding school in Kirurumi, Nyeri, forming Kenyan boys into men of character, intellect and
+                consequence.
+            </p>
+            <p class="font-serif-i italic text-[#D4B574] mt-8 text-xl">Vir Integer &mdash; the whole man.</p>
+        </div>
 
-			<div>
-				<h4 class="text-lg font-bold mb-4 text-cyan-400"><?php esc_html_e( 'Our Pillars', 'gathathiini' ); ?>
-				</h4>
-				<ul class="space-y-2">
-					<li>
-						<a href="<?php echo esc_url( home_url( '/pillars#academic' ) ); ?>"
-							class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">
-							<?php esc_html_e( 'Academic Excellence', 'gathathiini' ); ?>
-						</a>
-					</li>
-					<li>
-						<a href="<?php echo esc_url( home_url( '/pillars#sports' ) ); ?>"
-							class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">
-							<?php esc_html_e( 'Sports & Talent', 'gathathiini' ); ?>
-						</a>
-					</li>
-					<li>
-						<a href="<?php echo esc_url( home_url( '/pillars#arts' ) ); ?>"
-							class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">
-							<?php esc_html_e( 'Creative Arts', 'gathathiini' ); ?>
-						</a>
-					</li>
-					<li>
-						<a href="<?php echo esc_url( home_url( '/pillars#digital' ) ); ?>"
-							class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">
-							<?php esc_html_e( 'Digital Literacy', 'gathathiini' ); ?>
-						</a>
-					</li>
-					<li>
-						<a href="<?php echo esc_url( home_url( '/pillars#social' ) ); ?>"
-							class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">
-							<?php esc_html_e( 'Social Responsibility', 'gathathiini' ); ?>
-						</a>
-					</li>
-					<li>
-						<a href="<?php echo esc_url( home_url( '/pillars#holistic' ) ); ?>"
-							class="text-gray-300 hover:text-cyan-400 transition-colors text-sm">
-							<?php esc_html_e( 'Holistic Development', 'gathathiini' ); ?>
-						</a>
-					</li>
-				</ul>
-			</div>
+        <!-- Quick Links -->
+        <div class="lg:col-span-2">
+            <div class="eyebrow">Explore</div>
+            <ul class="mt-6 space-y-3 text-sm text-white/70">
+                <?php
+        echo gbhs_footer_link( 'About' );
+        echo gbhs_footer_link( 'Academics' );
+        echo gbhs_footer_link( 'Pillars' );
+        echo gbhs_footer_link( 'Campus Life' );
+        echo gbhs_footer_link( 'Admissions' );
+        ?>
+            </ul>
+        </div>
 
-			<div>
-				<h4 class="text-lg font-bold mb-4 text-cyan-400"><?php esc_html_e( 'Contact Us', 'gathathiini' ); ?>
-				</h4>
-				<ul class="space-y-3">
-					<li class="flex items-start space-x-3">
-						<svg class="w-5 h-5 text-cyan-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-							aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-						</svg>
-						<span
-							class="text-gray-300 text-sm"><?php esc_html_e( 'Tetu, Nyeri County, Kenya', 'gathathiini' ); ?></span>
-					</li>
-					<li class="flex items-start space-x-3">
-						<svg class="w-5 h-5 text-cyan-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-							aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-						</svg>
-						<span class="text-gray-300 text-sm">+254 725 407 132</span>
-					</li>
-					<li class="flex items-start space-x-3">
-						<svg class="w-5 h-5 text-cyan-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-							aria-hidden="true">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-								d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-						</svg>
-						<span class="text-gray-300 text-sm">gathathiini122@gmail.com</span>
-					</li>
-				</ul>
-			</div>
-		</div>
+        <!-- Contact -->
+        <div class="lg:col-span-3">
+            <div class="eyebrow">Contact</div>
+            <ul class="mt-6 space-y-4 text-sm text-white/70">
+                <?php
+        $lines = array_filter( explode( "\n", $school_addr ) );
+        if ( count( $lines ) >= 2 ) {
+            echo '<li>' . esc_html( $lines[0] ) . '<br/>' . esc_html( $lines[1] ) . '</li>';
+            if ( isset( $lines[2] ) ) echo '<li>' . esc_html( $lines[2] ) . '</li>';
+        } else {
+            echo '<li>' . nl2br( esc_html( $school_addr ) ) . '</li>';
+        }
+        ?>
+                <li>
+                    <a class="link-underline"
+                        href="tel:+254<?php echo esc_attr( preg_replace( '/\D/', '', $school_phone ) ); ?>">
+                        <?php echo esc_html( $school_phone ); ?>
+                    </a>
+                </li>
+                <li>
+                    <a class="link-underline" href="mailto:<?php echo esc_attr( $school_email ); ?>">
+                        <?php echo esc_html( $school_email ); ?>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-		<div class="border-t border-slate-700 pt-8 mt-8">
-			<div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-				<p class="text-gray-400 text-sm">
-					<?php
-					printf(
-						esc_html__( '© %s Gathathi-ini Boys High School. All rights reserved.', 'gathathiini' ),
-						date( 'Y' )
-					);
-					?>
-				</p>
-				<div class="flex space-x-6">
-					<a href="<?php echo esc_url( home_url( '/privacy-policy' ) ); ?>"
-						class="text-gray-400 hover:text-cyan-400 text-sm transition-colors">
-						<?php esc_html_e( 'Privacy Policy', 'gathathiini' ); ?>
-					</a>
-					<a href="<?php echo esc_url( home_url( '/terms' ) ); ?>"
-						class="text-gray-400 hover:text-cyan-400 text-sm transition-colors">
-						<?php esc_html_e( 'Terms of Service', 'gathathiini' ); ?>
-					</a>
-				</div>
-			</div>
-		</div>
+        <!-- Newsletter -->
+        <div class="lg:col-span-3">
+            <div class="eyebrow">Newsletter</div>
+            <p class="mt-6 text-sm text-white/60">Quarterly dispatches from the campus &mdash; academic, athletic and
+                editorial.</p>
+            <form class="mt-5 flex border border-[rgba(245,241,232,.14)]" onsubmit="return false;">
+                <input type="email" placeholder="your@email.com"
+                    class="flex-1 bg-transparent px-4 py-3 text-sm placeholder:text-white/30 focus:outline-none" />
+                <button class="btn-gold px-5 text-[11px] tracking-[0.22em] uppercase font-display">Join</button>
+            </form>
+            <div class="mt-8 flex gap-3 text-[11px] tracking-[0.24em] uppercase text-white/60">
+                <a href="<?php echo esc_url( $ig_url ); ?>" class="link-underline" target="_blank" rel="noopener">IG</a>
+                <span>&middot;</span>
+                <a href="<?php echo esc_url( $yt_url ); ?>" class="link-underline" target="_blank" rel="noopener">YT</a>
+                <span>&middot;</span>
+                <a href="<?php echo esc_url( $fb_url ); ?>" class="link-underline" target="_blank" rel="noopener">FB</a>
+                <span>&middot;</span>
+                <a href="https://wa.me/<?php echo esc_attr( $wa_num ); ?>" class="link-underline" target="_blank"
+                    rel="noopener">WA</a>
+            </div>
+        </div>
 
-		<!-- Scroll to Top Button -->
-		<div x-data="scrollToTop" x-show="visible" x-transition class="fixed bottom-6 right-6 z-49">
-			<button @click="scrollTop()"
-				class="bg-cyan-500 hover:bg-cyan-500 text-white rounded-full px-1 py-1 shadow-lg transition-all duration-300 cursor-pointer !my-0"
-				aria-label="<?php esc_attr_e( 'Scroll to Top', 'gathathiini' ); ?>">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-					stroke="currentColor" class="size-6" aria-hidden="true">
-					<path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-				</svg>
-			</button>
-		</div>
-	</div>
+    </div><!-- /grid -->
+
+    <!-- Bottom bar -->
+    <div class="border-t border-[rgba(245,241,232,.14)]">
+        <div
+            class="max-w-[1440px] mx-auto px-6 lg:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] tracking-[0.22em] uppercase text-white/40">
+            <div>&copy; <?php echo date( 'Y' ); ?> Gathathiini Boys High School. All rights reserved.</div>
+            <div class="flex gap-6">
+                <a href="#" class="link-underline">Privacy</a>
+                <a href="#" class="link-underline">Safeguarding</a>
+                <?php
+                $contact = get_page_by_path('contact');
+                $url = $contact ? get_permalink($contact->ID) : home_url('/contact/');
+
+                echo '<a href="' . esc_url($url) . '" class="link-underline">Contact</a>';
+                ?>
+            </div>
+        </div>
+    </div>
+
 </footer>
+<!-- end site footer -->

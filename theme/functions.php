@@ -9,6 +9,10 @@
 // Exit if accessed directly
 defined( 'ABSPATH' ) || exit;
 
+define( 'GBHS_VERSION', '1.0.0' );
+define( 'GBHS_DIR',  get_template_directory() );
+define( 'GBHS_URI',  get_template_directory_uri() );
+
 if ( ! defined( 'GATHATHIINI_VERSION' ) ) {
 	/*
 	 * Set the theme’s version number.
@@ -118,34 +122,30 @@ if ( ! function_exists( 'gathathiini_setup' ) ) :
 
 		// Remove support for block templates.
 		remove_theme_support( 'block-templates' );
+
+		add_theme_support( 'align-wide' );
+
+    	// Custom image sizes
+		add_image_size( 'gbhs-hero',      1920, 1080, true );
+		add_image_size( 'gbhs-portrait',  800,  1000, true );
+		add_image_size( 'gbhs-landscape', 1200, 800,  true );
+		add_image_size( 'gbhs-square',    800,  800,  true );
 	}
 endif;
 add_action( 'after_setup_theme', 'gathathiini_setup' );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function gathathiini_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => __( 'Footer', 'gathathiini' ),
-			'id'            => 'sidebar-1',
-			'description'   => __( 'Add widgets here to appear in your footer.', 'gathathiini' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-}
-add_action( 'widgets_init', 'gathathiini_widgets_init' );
-
-/**
  * Enqueue scripts and styles.
  */
 function gathathiini_scripts() {
+	// Google Fonts
+    wp_enqueue_style(
+        'gbhs-fonts',
+        'https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap',
+        [],
+        null
+    );
+	
 	// Styles
 	wp_enqueue_style(
 		'gathathiini-style',
@@ -175,12 +175,9 @@ function gathathiini_scripts() {
 		'contact-script',
 		'contact_ajax',
 		array(
-			'ajax_url' => admin_url( 'admin-ajax.php' ),
-			'nonce'    => wp_create_nonce( 'contact_form_nonce' ),
-			'messages' => array(
-				'sending' => __( 'Sending...', 'gathathiini' ),
-				'error'   => __( 'Something went wrong. Please try again.', 'gathathiini' ),
-			),
+			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+			'nonce'   => wp_create_nonce( 'gathathiini_contact_nonce' ),
+        	'homeUrl' => home_url( '/' ),
 		)
 	);
 

@@ -11,97 +11,122 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<header class="fixed w-full top-0 z-50 transition-all duration-300" x-data="{ scrolled: false, mobileMenuOpen: false }"
-	@scroll.window="scrolled = (window.pageYOffset > 50)"
-	:class="scrolled ? 'bg-slate-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'">
-	<div class="container mx-auto px-4">
-		<nav class="flex items-center justify-between py-4"
-			aria-label="<?php esc_attr_e( 'Main Navigation', 'gathathiini' ); ?>">
-			<div class="flex items-center space-x-3">
-				<div
-					class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center shadow-lg">
-					<?php
-					$logo_url = get_template_directory_uri() . '/assets/img/logo.avif';
-					$logo_alt = esc_attr__( 'Gathathi-ini Boys High School Logo', 'gathathiini' );
-					?>
-					<img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php echo $logo_alt; ?>" class="h-10">
-				</div>
-				<div>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
-						class="text-white font-bold text-xl tracking-tight">
-						<?php esc_html_e( 'Gathathi-ini Boys', 'gathathiini' ); ?>
-					</a>
-					<p class="text-cyan-300 text-xs font-medium"><?php esc_html_e( 'High School', 'gathathiini' ); ?>
-					</p>
-				</div>
-			</div>
+<!-- ════════════════════════════════════════════════════════
+     NAVIGATION
+     ════════════════════════════════════════════════════════ -->
+<header id="site-header" x-data="{ scrolled: false, menu: false }" @scroll.window="scrolled = window.scrollY > 30"
+    class="fixed inset-x-0 top-0 z-50 transition-all duration-500"
+    :class="scrolled || menu ? 'bg-[#0B1220]/90 backdrop-blur-xl border-b border-[rgba(245,241,232,.14)]' : 'bg-transparent'">
 
-			<div class="hidden lg:flex items-center space-x-8">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>"
-					class="text-white hover:text-cyan-400 transition-colors font-medium">
-					<?php esc_html_e( 'Home', 'gathathiini' ); ?>
-				</a>
-				<a href="<?php echo esc_url( home_url( '/about' ) ); ?>"
-					class="text-white hover:text-cyan-400 transition-colors font-medium">
-					<?php esc_html_e( 'About', 'gathathiini' ); ?>
-				</a>
-				<a href="<?php echo esc_url( home_url( '/academics' ) ); ?>"
-					class="text-white hover:text-cyan-400 transition-colors font-medium">
-					<?php esc_html_e( 'Academics', 'gathathiini' ); ?>
-				</a>
-				<a href="<?php echo esc_url( home_url( '/pillars' ) ); ?>"
-					class="text-white hover:text-cyan-400 transition-colors font-medium">
-					<?php esc_html_e( 'Our Pillars', 'gathathiini' ); ?>
-				</a>
-				<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>"
-					class="text-white hover:text-cyan-400 transition-colors font-medium">
-					<?php esc_html_e( 'Contact', 'gathathiini' ); ?>
-				</a>
-				<a href="<?php echo esc_url( home_url( '/admissions' ) ); ?>"
-					class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all">
-					<?php esc_html_e( 'Apply Now', 'gathathiini' ); ?>
-				</a>
-			</div>
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
 
-			<button @click="mobileMenuOpen = !mobileMenuOpen" class="lg:hidden text-white p-2"
-				:aria-expanded="mobileMenuOpen.toString()"
-				aria-label="<?php esc_attr_e( 'Toggle mobile menu', 'gathathiini' ); ?>" aria-controls="mobile-menu">
-				<svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-					aria-hidden="true">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-					</path>
-				</svg>
-				<svg x-show="mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-					aria-hidden="true">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-					</path>
-				</svg>
-			</button>
-		</nav>
+        <!-- Logo / Wordmark -->
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="flex items-center gap-3 group">
+            <span class="crest">
+                <span>
+                    <?php
+                        $logo_url = get_template_directory_uri() . '/assets/img/logo.avif';
+                        $logo_alt = esc_attr__( 'Gathathi-ini Boys High School Logo', 'gathathiini' );
+                        ?>
+                    <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php echo $logo_alt; ?>" class="h-10">
+                </span>
+            </span>
+            <span class="leading-tight">
+                <span class="block font-display text-[13px] tracking-[0.18em] uppercase">Gathathiini</span>
+                <span class="block text-[10px] tracking-[0.32em] uppercase text-[#D4B574]">Boys High School</span>
+            </span>
+        </a>
 
-		<div x-show="mobileMenuOpen" x-transition id="mobile-menu" class="lg:hidden pb-4">
-			<div class="flex flex-col space-y-3">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="text-white hover:text-cyan-400 py-2">
-					<?php esc_html_e( 'Home', 'gathathiini' ); ?>
-				</a>
-				<a href="<?php echo esc_url( home_url( '/about' ) ); ?>" class="text-white hover:text-cyan-400 py-2">
-					<?php esc_html_e( 'About', 'gathathiini' ); ?>
-				</a>
-				<a href="<?php echo esc_url( home_url( '/academics' ) ); ?>"
-					class="text-white hover:text-cyan-400 py-2">
-					<?php esc_html_e( 'Academics', 'gathathiini' ); ?>
-				</a>
-				<a href="<?php echo esc_url( home_url( '/pillars' ) ); ?>" class="text-white hover:text-cyan-400 py-2">
-					<?php esc_html_e( 'Our Pillars', 'gathathiini' ); ?>
-				</a>
-				<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="text-white hover:text-cyan-400 py-2">
-					<?php esc_html_e( 'Contact', 'gathathiini' ); ?>
-				</a>
-				<a href="<?php echo esc_url( home_url( '/admissions' ) ); ?>"
-					class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-full text-center font-semibold">
-					<?php esc_html_e( 'Apply Now', 'gathathiini' ); ?>
-				</a>
-			</div>
-		</div>
-	</div>
+        <!-- Desktop nav -->
+        <nav class="hidden lg:flex items-center gap-8 text-[13px] tracking-wide" aria-label="Primary navigation">
+            <?php
+      if ( has_nav_menu( 'primary' ) ) {
+          wp_nav_menu([
+              'theme_location' => 'primary',
+              'container'      => false,
+              'fallback_cb'    => false,
+              'items_wrap'     => '%3$s',
+              'walker'         => new Gathathiini_Walker_Nav(),
+          ]);
+      } else {
+          // Fallback if no menu assigned
+          $nav_pages = [ 'About', 'Academics', 'Pillars', 'Campus Life', 'Admissions', 'Contact' ];
+          foreach ( $nav_pages as $pg ) {
+
+              // convert title to slug safely
+              $slug = sanitize_title( $pg );
+
+              $page = get_page_by_path( $slug );
+
+              $url = $page ? get_permalink( $page->ID ) : '#';
+
+              $cur = ( $page && is_page( $page->ID ) )
+                  ? 'text-[#D4B574]'
+                  : 'opacity-70 hover:opacity-100';
+
+              echo '<a href="' . esc_url( $url ) . '" class="link-underline ' . esc_attr( $cur ) . '">'
+                  . esc_html( $pg ) .
+              '</a>';
+          }
+      }
+      ?>
+        </nav>
+
+        <!-- Desktop CTA -->
+        <a href="<?php echo esc_url( $admissions_url ); ?>"
+            class="hidden lg:block px-5 py-2.5 text-[12px] tracking-[0.18em] uppercase btn-gold font-display">
+            Apply Now &rarr;
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button @click="menu = !menu" aria-label="Toggle menu"
+            class="lg:hidden w-10 h-10 grid place-items-center border border-[rgba(245,241,232,.14)]">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true">
+                <path d="M0 1h18M0 11h12" stroke="currentColor" />
+            </svg>
+        </button>
+
+    </div>
+
+    <!-- Mobile drawer -->
+    <div x-cloak x-show="menu" x-transition.opacity
+        class="lg:hidden border-t border-[rgba(245,241,232,.14)] bg-[#0B1220]">
+        <div class="px-6 py-6 flex flex-col gap-4 text-sm">
+            <?php
+      if ( has_nav_menu( 'primary' ) ) {
+          wp_nav_menu([
+              'theme_location' => 'primary',
+              'container'      => false,
+              'fallback_cb'    => false,
+              'items_wrap'     => '%3$s',
+              'walker'         => new Gathathiini_Walker_Nav_Mobile(),
+          ]);
+      } else {
+          $nav_pages = [ 'About', 'Academics', 'Pillars', 'Campus Life', 'Admissions', 'Contact' ];
+          foreach ( $nav_pages as $pg ) {
+
+              // Convert label → slug
+              $slug = sanitize_title( $pg );
+
+              // Get page by path (slug)
+              $page = get_page_by_path( $slug, OBJECT, 'page' );
+
+              $url = $page ? get_permalink( $page->ID ) : '#';
+
+              echo '<a href="' . esc_url( $url ) . '" 
+                        @click="menu=false" 
+                        class="block py-1 text-white/80 hover:text-white transition">'
+                  . esc_html( $pg ) .
+              '</a>';
+          }
+      }
+      ?>
+            <a href="<?php echo esc_url( $admissions_url ); ?>" @click="menu=false"
+                class="mt-2 px-5 py-3 btn-gold text-center font-display tracking-[0.18em] uppercase text-[12px]">
+                Apply Now
+            </a>
+        </div>
+    </div>
+
 </header>
+<!-- end #site-header -->

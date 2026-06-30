@@ -18,56 +18,156 @@ gsap.registerPlugin(ScrollTrigger);
 
 window.Alpine = Alpine;
 
-// SCROLL TO TOP
-document.addEventListener('alpine:init', () => {
-	Alpine.data('scrollToTop', () => ({
-		visible: false,
-		lastScrollY: window.scrollY,
+/**
+ * Gathathiini Boys High School — main.js
+ * Scroll animations · Nav behaviour · Subject bars · Contact form
+ */
+(function () {
+	'use strict';
 
-		init() {
-			window.addEventListener('scroll', this.onScroll.bind(this));
+	/* ── SCROLL REVEAL ─────────────────────────────────────── */
+	const io = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((e) => {
+				if (e.isIntersecting) {
+					e.target.classList.add('is-in');
+					io.unobserve(e.target);
+				}
+			});
 		},
+		{ threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+	);
 
-		onScroll() {
-			const currentScrollY = window.scrollY;
+	document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
-			if (currentScrollY > 200 && currentScrollY < this.lastScrollY) {
-				this.visible = true;
-			} else {
-				this.visible = false;
+	/* ── SUBJECT / PERFORMANCE BARS ────────────────────────── */
+	const barObs = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((e) => {
+				if (e.isIntersecting) {
+					e.target
+						.querySelectorAll('[data-bar-width]')
+						.forEach((bar) => {
+							setTimeout(() => {
+								bar.style.width = bar.dataset.barWidth + '%';
+							}, 300);
+						});
+					barObs.unobserve(e.target);
+				}
+			});
+		},
+		{ threshold: 0.3 }
+	);
+
+	document
+		.querySelectorAll('[data-bars-section]')
+		.forEach((s) => barObs.observe(s));
+
+	/* ── HERO PARALLAX (subtle) ─────────────────────────────── */
+	const heroContent = document.querySelector('[data-hero-content]');
+	if (heroContent) {
+		let ticking = false;
+		window.addEventListener(
+			'scroll',
+			() => {
+				if (!ticking) {
+					requestAnimationFrame(() => {
+						const s = window.scrollY;
+						if (s < window.innerHeight) {
+							heroContent.style.transform = `translateY(${s * 0.15}px)`;
+						}
+						ticking = false;
+					});
+					ticking = true;
+				}
+			},
+			{ passive: true }
+		);
+	}
+
+	/* ── CONTACT / ENQUIRY FORM (AJAX) ─────────────────────── */
+	function initForm(formId, successId) {
+		const form = document.getElementById(formId);
+		if (!form) return;
+
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const btn = form.querySelector('[data-submit-btn]');
+			const successEl = document.getElementById(successId);
+			const errorEl = document.getElementById(formId + '-error');
+
+			if (btn) {
+				btn.disabled = true;
+				btn.textContent = 'Sending…';
 			}
 
-			this.lastScrollY = currentScrollY;
-		},
+			const data = new FormData(form);
+			data.append('action', 'gathathiini_contact');
+			data.append(
+				'nonce',
+				typeof GBHSData !== 'undefined' ? GBHSData.nonce : ''
+			);
 
-		scrollTop() {
-			const start = window.pageYOffset;
-			const duration = 1000; // 1 second
-			const startTime = performance.now();
+			try {
+				const res = await fetch(
+					typeof GBHSData !== 'undefined'
+						? GBHSData.ajaxUrl
+						: '/wp-admin/admin-ajax.php',
+					{ method: 'POST', body: data }
+				);
+				const json = await res.json();
 
-			const easeInOutQuad = (t, b, c, d) => {
-				t /= d / 2;
-				if (t < 1) return (c / 2) * t * t + b;
-				t--;
-				return (-c / 2) * (t * (t - 2) - 1) + b;
-			};
-
-			const animateScroll = (currentTime) => {
-				const timeElapsed = currentTime - startTime;
-				const run = easeInOutQuad(timeElapsed, start, -start, duration);
-				window.scrollTo(0, run);
-
-				if (timeElapsed < duration) {
-					requestAnimationFrame(animateScroll);
+				if (json.success) {
+					if (successEl) {
+						successEl.classList.remove('hidden');
+					}
+					form.reset();
+					if (btn) {
+						btn.textContent = 'Sent ✓';
+					}
 				} else {
-					window.scrollTo(0, 0); // Ensure it ends exactly at top
+					const msg =
+						json.data && json.data.message
+							? json.data.message
+							: 'An error occurred. Please call us directly.';
+					if (errorEl) {
+						errorEl.textContent = msg;
+						errorEl.classList.remove('hidden');
+					}
+					if (btn) {
+						btn.disabled = false;
+						btn.textContent = 'Try Again';
+					}
 				}
-			};
+			} catch (err) {
+				const msg = 'Network error. Please call 0703 639 230 directly.';
+				if (errorEl) {
+					errorEl.textContent = msg;
+					errorEl.classList.remove('hidden');
+				}
+				if (btn) {
+					btn.disabled = false;
+					btn.textContent = 'Try Again';
+				}
+			}
+		});
+	}
 
-			requestAnimationFrame(animateScroll);
-		},
-	}));
-});
+	initForm('contact-form', 'contact-success');
+	initForm('enquiry-form', 'enquiry-success');
+	initForm('admission-form', 'admission-success');
+
+	/* ── SMOOTH ANCHOR SCROLL ──────────────────────────────── */
+	document.querySelectorAll('a[href^="#"]').forEach((a) => {
+		a.addEventListener('click', (e) => {
+			const target = document.querySelector(a.getAttribute('href'));
+			if (target) {
+				e.preventDefault();
+				target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			}
+		});
+	});
+})();
 
 // ✅ Start Alpine once
 document.addEventListener('DOMContentLoaded', () => {

@@ -6,3 +6,160 @@
  *
  * https://tailwindcss.com/docs/adding-custom-styles#adding-custom-utilities
  */
+
+:root {
+	--ink: #0b1220;
+	--gold: #b89248;
+	--gold-soft: #d4b06a;
+	--ivory: #f5f1e8;
+	--forest: #1f3a2e;
+	--line: rgba(245, 241, 232, 0.12);
+}
+
+.font-display {
+	font-family: "Space Grotesk", sans-serif;
+	letter-spacing: -0.02em;
+}
+
+.font-serif-i {
+	font-family: "Instrument Serif", serif;
+	font-weight: 400;
+	letter-spacing: -0.01em;
+}
+
+.eyebrow {
+	font-family: "Space Grotesk", sans-serif;
+	font-size: 11px;
+	letter-spacing: 0.32em;
+	text-transform: uppercase;
+	color: var(--gold-soft);
+}
+
+.num {
+	font-family: "Space Grotesk", sans-serif;
+	font-variant-numeric: tabular-nums;
+}
+
+.grain {
+	background-image: radial-gradient(
+		rgba(255, 255, 255, 0.025) 1px,
+		transparent 1px
+	);
+	background-size: 3px 3px;
+}
+
+.vignette {
+	background: radial-gradient(
+		ellipse at center,
+		transparent 40%,
+		rgba(0, 0, 0, 0.65) 100%
+	);
+}
+
+.btn-gold {
+	background: var(--gold);
+	color: var(--ink);
+	transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.btn-gold:hover {
+	background: var(--gold-soft);
+	transform: translateY(-1px);
+}
+
+.btn-ghost {
+	border: 1px solid rgba(245, 241, 232, 0.35);
+	color: var(--ivory);
+	transition: all 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.btn-ghost:hover {
+	border-color: var(--ivory);
+	background: rgba(245, 241, 232, 0.05);
+}
+
+.link-underline {
+	position: relative;
+}
+
+.link-underline::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -4px;
+	height: 1px;
+	width: 100%;
+	background: currentColor;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.link-underline:hover::after {
+	transform: scaleX(1);
+	transform-origin: left;
+}
+
+.reveal {
+	opacity: 0;
+	transform: translateY(24px);
+	transition:
+		opacity 1s ease,
+		transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.reveal.is-in {
+	opacity: 1;
+	transform: none;
+}
+
+.marquee {
+	display: flex;
+	animation: marquee 50s linear infinite;
+	will-change: transform;
+}
+
+@keyframes marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+.glass {
+	background: rgba(11, 18, 32, 0.55);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+	border: 1px solid var(--line);
+}
+
+.crest {
+	width: 34px;
+	height: 34px;
+	border: 1px solid var(--gold);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--gold);
+	font-family: "Instrument Serif", serif;
+	font-size: 18px;
+	transform: rotate(45deg);
+}
+
+.crest span {
+	transform: rotate(-45deg);
+	display: block;
+	line-height: 1;
+}
+
+/* Bar fill animation */
+.bar-fill {
+	width: 0;
+	transition: width 1.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+[x-cloak] {
+	display: none !important;
+}

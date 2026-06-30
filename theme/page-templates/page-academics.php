@@ -1,406 +1,235 @@
 <?php
-/*
-Template Name: Academics Page
-*/
-
-// Exit if accessed directly
-defined( 'ABSPATH' ) || exit;
-
+/**
+ * Template Name: Academics
+ * Template Post Type: page
+ */
 get_header();
+
+$subjects = [
+  ['Mathematics',     'STEM Core',      96, 'Pure mathematics, applied mathematics and statistics. The backbone of STEM pathways and critical thinking across all disciplines.'],
+  ['Sciences',        'STEM Core',      92, 'Biology, Chemistry and Physics taught with practical lab sessions. Students engage real science through inquiry and experimentation.'],
+  ['English Language','Humanities',     94, 'Communication, composition, comprehension and literary analysis. The language of global opportunity, taught to fluency.'],
+  ['Kiswahili',       'Humanities',     91, 'Kenya\'s national language and the lingua franca of East Africa. Taught with pride, depth and the respect it deserves as a heritage language.'],
+  ['Computer Studies','Digital',        97, 'Digital literacy, programming fundamentals, spreadsheets and ICT applications. Every student leaves digitally competent and future-ready.'],
+  ['Business Studies','Applied',        89, 'Commerce, accounting, economics and entrepreneurship. Building financial literacy and entrepreneurial thinking from Form One.'],
+  ['History &amp; Government','Humanities',88,'African history, Kenya\'s political development and global affairs. Boys who understand where they come from lead better.'],
+  ['Geography',       'Applied',        85, 'Physical, human and economic geography with field work. Understanding the land, climate and resources of the continent they will inherit.'],
+  ['CRE',             'Character',      90, 'Ethics, moral philosophy and spiritual formation. CRE underpins the character development at the core of the Gathathiini experience.'],
+];
+
+$approach = [
+  ['Structured Mentorship',  'Every student is assigned a form teacher and subject mentor who tracks their academic progress, personal growth, and wellbeing through the year.'],
+  ['Regular Assessment',     'Weekly tests, monthly assessments and end-of-term examinations ensure students are never surprised by their KCSE performance. Standards are maintained throughout.'],
+  ['Peer Study Culture',     'Evening preps, peer tutoring and collaborative study groups ensure that academic seriousness is a shared culture, not just a teacher\'s expectation.'],
+  ['Library &amp; Resources','A well-stocked library, science laboratories and digital resource centre give students the tools to go beyond the textbook and pursue genuine intellectual depth.'],
+];
+
+$clubs = [
+  ['Science Congress &amp; Symposium', 'County &amp; national competition'],
+  ['Mathematics Olympiad',             'Problem-solving competitions'],
+  ['Debate &amp; Public Speaking',     'Kenya National Debate Championship'],
+  ['Robotics &amp; Coding Club',       'Digital innovation programme'],
+  ['Junior Achievement',               'Entrepreneurship &amp; business skills'],
+  ['Geography Field Study',            'Annual field research projects'],
+];
 ?>
 
-<main>
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute top-20 left-20 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl">
+<!-- HERO -->
+<section class="relative pt-40 pb-24 lg:pt-52 lg:pb-32 border-b border-[rgba(245,241,232,.14)] overflow-hidden">
+    <div class="absolute inset-0 grain opacity-20"></div>
+    <div class="relative max-w-[1440px] mx-auto px-6 lg:px-10">
+        <p class="eyebrow mb-6">Academics</p>
+        <h1 class="font-display text-5xl md:text-7xl lg:text-[90px] tracking-[-0.03em] leading-[0.98] max-w-4xl">
+            Intellectual <span class="font-serif-i italic text-[#D4B574]">rigor</span>,<br />taught with conviction.
+        </h1>
+        <p class="mt-8 text-white/65 text-lg max-w-2xl leading-relaxed">
+            We offer both the 8-4-4 curriculum and the Competency-Based Curriculum (CBC), built on a culture of academic
+            seriousness, mentorship, and the belief that every student is capable of genuine excellence.
+        </p>
+    </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="py-28 lg:py-40 border-b border-[rgba(245,241,232,.14)]">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
+        <div class="reveal">
+            <p class="eyebrow">01 &mdash; Curriculum</p>
+            <h2 class="font-display text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mt-6">
+                Two curricula,<br /><span class="font-serif-i italic text-[#D4B574]">one standard</span>.
+            </h2>
+            <p class="mt-8 text-white/70 leading-relaxed max-w-xl">Our academic programme is built on Kenya's
+                established educational frameworks. The 8-4-4 curriculum provides rigorous examination preparation,
+                while the CBC pathway develops competencies, critical thinking and applied knowledge for the modern
+                world.</p>
+            <p class="mt-5 text-white/70 leading-relaxed max-w-xl">Both pathways are taught by qualified, experienced
+                subject specialists who are genuinely invested in each student's growth. Small class sizes ensure every
+                boy is seen, known, and challenged at the right level.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-px bg-[rgba(245,241,232,.14)] border border-[rgba(245,241,232,.14)] reveal">
+            <div class="p-8 bg-[#111827]">
+                <div class="eyebrow mb-4">8-4-4</div>
+                <h3 class="font-display text-xl mb-3">KCSE Track</h3>
+                <p class="text-sm text-white/60 leading-relaxed">Time-tested, nationally recognised and
+                    examination-rigorous. Our KCSE results consistently place us among the top performing county schools
+                    in Nyeri.</p>
             </div>
-            <div
-                class="absolute bottom-20 right-20 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl">
+            <div class="p-8 bg-[#1F3A2E]">
+                <div class="eyebrow mb-4">CBC</div>
+                <h3 class="font-display text-xl mb-3">Competency Track</h3>
+                <p class="text-sm text-white/60 leading-relaxed">Kenya's new curriculum emphasises skills, values and
+                    applied learning. We are fully equipped with trained staff and modern resources for the CBC
+                    transition.</p>
+            </div>
+            <div class="p-8 bg-[#111827] col-span-2">
+                <p class="font-serif-i italic text-xl text-[#D4B574] leading-relaxed">&ldquo;The classroom is small, the
+                    standard is high, the expectation is excellence — in every subject, every term.&rdquo;</p>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">
-                    <?php esc_html_e( 'Academic Excellence', 'gathathiini' ); ?></h1>
-                <p class="text-xl text-gray-300 leading-relaxed">
-                    <?php esc_html_e( 'Empowering students with knowledge, skills, and values for a successful future through rigorous academics and innovative teaching methods.', 'gathathiini' ); ?>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Curriculum Overview -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-                        <?php esc_html_e( 'Our Curriculum', 'gathathiini' ); ?></h2>
-                    <p class="text-xl text-slate-600">
-                        <?php esc_html_e( 'Following the Kenyan 8-4-4 and CBC systems for comprehensive education', 'gathathiini' ); ?>
-                    </p>
+<!-- SUBJECTS + BARS -->
+<section class="py-28 lg:py-40 border-b border-[rgba(245,241,232,.14)] bg-[#111827]">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-start">
+        <div class="reveal">
+            <p class="eyebrow">02 &mdash; Subject areas</p>
+            <h2 class="font-display text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mt-6">
+                Nine departments.<br /><span class="font-serif-i italic text-[#D4B574]">Limitless</span> pathways.
+            </h2>
+            <dl class="mt-12 grid grid-cols-2 gap-6">
+                <div class="border-t border-[rgba(245,241,232,.14)] pt-4">
+                    <dt class="eyebrow">KCSE mean grade</dt>
+                    <dd class="num text-5xl mt-2">C<span class="text-[#B89248]">+</span></dd>
                 </div>
+                <div class="border-t border-[rgba(245,241,232,.14)] pt-4">
+                    <dt class="eyebrow">Overall pass rate</dt>
+                    <dd class="num text-5xl mt-2">80<span class="text-[#B89248]">%</span></dd>
+                </div>
+                <div class="border-t border-[rgba(245,241,232,.14)] pt-4">
+                    <dt class="eyebrow">A / A&minus; grades</dt>
+                    <dd class="num text-5xl mt-2">18<span class="text-[#B89248]">%</span></dd>
+                </div>
+                <div class="border-t border-[rgba(245,241,232,.14)] pt-4">
+                    <dt class="eyebrow">University placement</dt>
+                    <dd class="num text-5xl mt-2">28<span class="text-[#B89248]">%</span></dd>
+                </div>
+            </dl>
+            <div class="mt-12 space-y-6 text-sm text-white/60 leading-relaxed">
+                <?php foreach (array_slice($subjects,0,3) as $s) : ?>
+                <div class="border-t border-[rgba(245,241,232,.08)] pt-4">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <span class="font-display text-base text-white/90"><?php echo $s[0]; ?></span>
+                        <span class="text-[#D4B574] text-xs"><?php echo $s[2]; ?>%</span>
+                    </div>
+                    <p class="text-xs"><?php echo esc_html($s[3]); ?></p>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <!-- Bar chart -->
+        <div class="reveal" data-bars-section style="transition-delay:.15s">
+            <h3 class="font-display text-xl mb-8 tracking-[-0.01em]">Subject excellence rates &mdash; KCSE</h3>
+            <div class="space-y-6">
+                <?php foreach ($subjects as $s) : ?>
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-display"><?php echo $s[0]; ?></span>
+                        <span class="num text-sm text-[#D4B574]"><?php echo $s[2]; ?>%</span>
+                    </div>
+                    <div class="h-px bg-[rgba(245,241,232,.08)]">
+                        <div class="bar-fill h-px bg-[#B89248]" data-bar-width="<?php echo $s[2]; ?>"></div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</section>
 
-                <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+<!-- TEACHING APPROACH -->
+<section class="py-28 lg:py-40 border-b border-[rgba(245,241,232,.14)]">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+        <div class="reveal max-w-2xl mb-16">
+            <p class="eyebrow">03 &mdash; How we teach</p>
+            <h2 class="font-display text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mt-6">
+                More than lessons.<br /><span class="font-serif-i italic text-[#D4B574]">A way of thinking</span>.
+            </h2>
+        </div>
+        <div
+            class="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-[rgba(245,241,232,.14)] border border-[rgba(245,241,232,.14)]">
+            <?php foreach ($approach as $i => $a) :
+        $delay = $i ? ' style="transition-delay:'.($i*.1).'s"' : '';
+      ?>
+            <div class="p-8 bg-[#0B1220] reveal" <?php echo $delay; ?>>
+                <div class="w-8 h-8 border border-[rgba(184,146,72,.4)] flex items-center justify-center mb-6">
+                    <span class="num text-[#D4B574] text-xs">0<?php echo $i+1; ?></span>
+                </div>
+                <h3 class="font-display text-lg mb-3"><?php echo $a[0]; ?></h3>
+                <p class="text-sm text-white/55 leading-relaxed"><?php echo esc_html($a[1]); ?></p>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- ACADEMIC CLUBS -->
+<section class="py-28 lg:py-40 border-b border-[rgba(245,241,232,.14)] bg-[#111827]">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16">
+        <div class="reveal">
+            <p class="eyebrow">04 &mdash; Academic co-curricular</p>
+            <h2 class="font-display text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] mt-6">
+                Learning beyond<br /><span class="font-serif-i italic text-[#D4B574]">the classroom</span>.
+            </h2>
+            <p class="mt-8 text-white/70 leading-relaxed">Academic excellence is extended through clubs and competitions
+                that challenge students to apply knowledge in real-world contexts, representing Gathathiini at county
+                and national level.</p>
+        </div>
+        <div class="reveal" style="transition-delay:.15s">
+            <div class="space-y-px border border-[rgba(245,241,232,.14)]">
+                <?php foreach ($clubs as $i => $c) : ?>
+                <div
+                    class="flex items-center gap-6 p-5 bg-[#0B1220] border-b border-[rgba(245,241,232,.08)] last:border-0">
+                    <span class="num text-[#D4B574] text-xl w-8 flex-shrink-0">0<?php echo $i+1; ?></span>
                     <div>
-                        <h3 class="text-3xl font-bold text-slate-900 mb-6">
-                            <?php esc_html_e( 'Comprehensive Subject Offering', 'gathathiini' ); ?></h3>
-                        <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                            <?php esc_html_e( 'We offer a wide range of subjects designed to cater to diverse student interests and career aspirations. Our curriculum balances core subjects with electives, ensuring students receive a well-rounded education.', 'gathathiini' ); ?>
-                        </p>
-                        <p class="text-lg text-slate-600 leading-relaxed">
-                            <?php esc_html_e( 'Our experienced teachers use modern pedagogical approaches, combining traditional teaching methods with technology-enhanced learning to maximize student engagement and understanding.', 'gathathiini' ); ?>
-                        </p>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div
-                            class="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-6 hover:shadow-xl transition-shadow">
-                            <div class="text-4xl mb-3">📚</div>
-                            <h4 class="font-bold text-slate-900 mb-2">
-                                <?php esc_html_e( 'Core Subjects', 'gathathiini' ); ?></h4>
-                            <p class="text-sm text-slate-600">
-                                <?php esc_html_e( 'Mathematics, English, Kiswahili', 'gathathiini' ); ?></p>
-                        </div>
-                        <div
-                            class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 hover:shadow-xl transition-shadow">
-                            <div class="text-4xl mb-3">🔬</div>
-                            <h4 class="font-bold text-slate-900 mb-2"><?php esc_html_e( 'Sciences', 'gathathiini' ); ?>
-                            </h4>
-                            <p class="text-sm text-slate-600">
-                                <?php esc_html_e( 'Biology, Chemistry, Physics', 'gathathiini' ); ?></p>
-                        </div>
-                        <div
-                            class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 hover:shadow-xl transition-shadow">
-                            <div class="text-4xl mb-3">🌍</div>
-                            <h4 class="font-bold text-slate-900 mb-2">
-                                <?php esc_html_e( 'Humanities', 'gathathiini' ); ?></h4>
-                            <p class="text-sm text-slate-600">
-                                <?php esc_html_e( 'History, Geography, CRE', 'gathathiini' ); ?></p>
-                        </div>
-                        <div
-                            class="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-6 hover:shadow-xl transition-shadow">
-                            <div class="text-4xl mb-3">💼</div>
-                            <h4 class="font-bold text-slate-900 mb-2"><?php esc_html_e( 'Business', 'gathathiini' ); ?>
-                            </h4>
-                            <p class="text-sm text-slate-600">
-                                <?php esc_html_e( 'Business Studies, Commerce', 'gathathiini' ); ?></p>
-                        </div>
+                        <div class="font-display text-base"><?php echo $c[0]; ?></div>
+                        <div class="text-xs text-white/50 mt-0.5"><?php echo $c[1]; ?></div>
                     </div>
                 </div>
+                <?php endforeach; ?>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Subject Categories -->
-    <section class="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-slate-900 mb-4">
-                        <?php esc_html_e( 'Subject Categories', 'gathathiini' ); ?></h2>
-                </div>
+<!-- CTA -->
+<section class="py-32 border-t border-[rgba(245,241,232,.14)] text-center">
+    <div class="max-w-[800px] mx-auto px-6 reveal">
+        <p class="eyebrow">A place where excellence is the standard</p>
+        <h2 class="font-display text-4xl lg:text-6xl tracking-[-0.03em] leading-[1.0] mt-8">
+            Ready to <span class="font-serif-i italic text-[#D4B574]">learn here</span>?
+        </h2>
+        <?php
+        $admissions = get_page_by_path('admissions');
+        $contact    = get_page_by_path('contact');
 
-                <div class="space-y-6">
-                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow">
-                        <div class="flex items-start space-x-4">
-                            <div
-                                class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-2xl font-bold text-slate-900 mb-3">
-                                    <?php esc_html_e( 'Mathematics', 'gathathiini' ); ?></h3>
-                                <p class="text-slate-600 mb-4">
-                                    <?php esc_html_e( 'Building strong analytical and problem-solving skills through comprehensive mathematics education.', 'gathathiini' ); ?>
-                                </p>
-                                <ul class="grid md:grid-cols-2 gap-2">
-                                    <li class="flex items-center space-x-2">
-                                        <svg class="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        <span
-                                            class="text-slate-700"><?php esc_html_e( 'Pure Mathematics', 'gathathiini' ); ?></span>
-                                    </li>
-                                    <li class="flex items-center space-x-2">
-                                        <svg class="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        <span
-                                            class="text-slate-700"><?php esc_html_e( 'Applied Mathematics', 'gathathiini' ); ?></span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+        $admissions_url = $admissions ? get_permalink($admissions->ID) : home_url('/admissions/');
+        $contact_url    = $contact ? get_permalink($contact->ID) : home_url('/contact/');
+        ?>
 
-                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow">
-                        <div class="flex items-start space-x-4">
-                            <div
-                                class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-2xl font-bold text-slate-900 mb-3">
-                                    <?php esc_html_e( 'Sciences', 'gathathiini' ); ?></h3>
-                                <p class="text-slate-600 mb-4">
-                                    <?php esc_html_e( 'Hands-on laboratory work and theoretical knowledge in all three main sciences.', 'gathathiini' ); ?>
-                                </p>
-                                <ul class="grid md:grid-cols-3 gap-2">
-                                    <li class="flex items-center space-x-2">
-                                        <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        <span
-                                            class="text-slate-700"><?php esc_html_e( 'Biology', 'gathathiini' ); ?></span>
-                                    </li>
-                                    <li class="flex items-center space-x-2">
-                                        <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        <span
-                                            class="text-slate-700"><?php esc_html_e( 'Chemistry', 'gathathiini' ); ?></span>
-                                    </li>
-                                    <li class="flex items-center space-x-2">
-                                        <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        <span
-                                            class="text-slate-700"><?php esc_html_e( 'Physics', 'gathathiini' ); ?></span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+        <div class="mt-12 flex flex-wrap justify-center gap-4">
 
-                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow">
-                        <div class="flex items-start space-x-4">
-                            <div
-                                class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-2xl font-bold text-slate-900 mb-3">
-                                    <?php esc_html_e( 'Languages', 'gathathiini' ); ?></h3>
-                                <p class="text-slate-600 mb-4">
-                                    <?php esc_html_e( 'Developing communication skills and cultural awareness through language studies.', 'gathathiini' ); ?>
-                                </p>
-                                <ul class="grid md:grid-cols-2 gap-2">
-                                    <li class="flex items-center space-x-2">
-                                        <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        <span
-                                            class="text-slate-700"><?php esc_html_e( 'English Language', 'gathathiini' ); ?></span>
-                                    </li>
-                                    <li class="flex items-center space-x-2">
-                                        <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        <span
-                                            class="text-slate-700"><?php esc_html_e( 'Kiswahili', 'gathathiini' ); ?></span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+            <a href="<?php echo esc_url($admissions_url); ?>"
+                class="btn-gold px-8 py-4 font-display text-[12px] tracking-[0.24em] uppercase">
+                View Admissions
+            </a>
 
-                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow">
-                        <div class="flex items-start space-x-4">
-                            <div
-                                class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-2xl font-bold text-slate-900 mb-3">
-                                    <?php esc_html_e( 'Humanities & Social Sciences', 'gathathiini' ); ?></h3>
-                                <p class="text-slate-600 mb-4">
-                                    <?php esc_html_e( 'Understanding society, culture, and human development through comprehensive study.', 'gathathiini' ); ?>
-                                </p>
-                                <ul class="grid md:grid-cols-3 gap-2">
-                                    <li class="flex items-center space-x-2">
-                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        <span
-                                            class="text-slate-700"><?php esc_html_e( 'History', 'gathathiini' ); ?></span>
-                                    </li>
-                                    <li class="flex items-center space-x-2">
-                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        <span
-                                            class="text-slate-700"><?php esc_html_e( 'Geography', 'gathathiini' ); ?></span>
-                                    </li>
-                                    <li class="flex items-center space-x-2">
-                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        <span class="text-slate-700"><?php esc_html_e( 'CRE', 'gathathiini' ); ?></span>
-                                    </li>
-                                    <li class="flex items-center space-x-2">
-                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        <span
-                                            class="text-slate-700"><?php esc_html_e( 'Business Studies', 'gathathiini' ); ?></span>
-                                    </li>
-                                    <li class="flex items-center space-x-2">
-                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        <span
-                                            class="text-slate-700"><?php esc_html_e( 'Commerce', 'gathathiini' ); ?></span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <a href="<?php echo esc_url($contact_url); ?>"
+                class="btn-ghost px-8 py-4 font-display text-[12px] tracking-[0.24em] uppercase">
+                Contact Us
+            </a>
+
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Facilities -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold text-slate-900 mb-4">
-                        <?php esc_html_e( 'Modern Learning Facilities', 'gathathiini' ); ?></h2>
-                    <p class="text-xl text-slate-600">
-                        <?php esc_html_e( 'State-of-the-art infrastructure supporting quality education', 'gathathiini' ); ?>
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div
-                        class="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-8 text-center hover:shadow-xl transition-shadow">
-                        <div
-                            class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
-                                </path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">
-                            <?php esc_html_e( 'Science Laboratories', 'gathathiini' ); ?></h3>
-                        <p class="text-slate-600">
-                            <?php esc_html_e( 'Fully equipped labs for Biology, Chemistry, and Physics practical sessions.', 'gathathiini' ); ?>
-                        </p>
-                    </div>
-
-                    <div
-                        class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 text-center hover:shadow-xl transition-shadow">
-                        <div
-                            class="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
-                                </path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">
-                            <?php esc_html_e( 'Library', 'gathathiini' ); ?></h3>
-                        <p class="text-slate-600">
-                            <?php esc_html_e( 'Extensive collection of books, reference materials, and digital resources.', 'gathathiini' ); ?>
-                        </p>
-                    </div>
-
-                    <div
-                        class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 text-center hover:shadow-xl transition-shadow">
-                        <div
-                            class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                                </path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">
-                            <?php esc_html_e( 'Computer Lab', 'gathathiini' ); ?></h3>
-                        <p class="text-slate-600">
-                            <?php esc_html_e( 'Modern computers and internet connectivity for digital learning.', 'gathathiini' ); ?>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-br from-slate-900 to-slate-800">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl font-bold text-white mb-6">
-                    <?php esc_html_e( 'Ready to Excel Academically?', 'gathathiini' ); ?></h2>
-                <p class="text-xl text-gray-300 mb-8">
-                    <?php esc_html_e( 'Join us and experience world-class education that prepares you for success.', 'gathathiini' ); ?>
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="<?php echo esc_url( home_url( '/admissions' ) ); ?>"
-                        class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all">
-                        <?php esc_html_e( 'Apply Now', 'gathathiini' ); ?>
-                    </a>
-                    <a href="<?php echo esc_url( home_url( '/contact' ) ); ?>"
-                        class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition-all border border-white/20">
-                        <?php esc_html_e( 'Learn More', 'gathathiini' ); ?>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-</main>
-
-<?php
-get_footer();
+<?php get_footer(); ?>
