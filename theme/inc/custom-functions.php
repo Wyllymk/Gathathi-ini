@@ -261,3 +261,7 @@ add_filter( 'comment_form_defaults', function ( $defaults ) {
     $defaults['class_submit'] = 'btn-gold px-6 py-3 font-display text-[12px] tracking-[0.22em] uppercase';
     return $defaults;
 } );
+
+add_action( 'wp_head', function () {
+    echo '<style>[x-cloak]{display:none!important}</style>';
+}, 1 ); // priority 1 = before everything else
